@@ -1,0 +1,54 @@
+.intro {
+  background-color: #b4e8e6;
+  height: 100%;
+}
+
+.title {
+  position: relative;
+  font-family: PaytoneOne;
+  width: 832px;
+  top: -186px;
+  left: -151px;
+}
+
+img {
+  margin: auto;
+  content: url(../../assets/img/splash.png);
+  display: block;
+}
+
+.start {
+  margin: auto;
+  display: block;
+  width: 18%;
+  border-radius: 10px;
+  height: 90px;
+  background-color: #065d7b;
+  color: #f5f8fe;
+  border: 0px;
+  border-bottom: 6px solid #04495e;
+  font-size: 30px;
+  cursor: pointer;
+  margin-top: 41px;
+}
+
+.start:active {
+  background-color: #04495e;
+}
+
+.player {
+  position: absolute;
+  font-size: 37px;
+  color: black;
+  font-family: FillMeWithColor;
+}
+
+.logo {
+  padding: 3% 0px;
+  display: block;
+  margin: auto;
+  position: relative;
+  color: #f4f8fb;
+  font-size: 70px;
+  font-family: Cheri;
+}

@@ -1,0 +1,29 @@
+@font-face {
+  font-family: PaytoneOne;
+  src: url(./assets/fonts/PaytoneOne.ttf);
+}
+
+@font-face {
+  font-family: AgentOrange;
+  src: url(./assets/fonts/AgentOrange.ttf);
+}
+
+@font-face {
+  font-family: OrangeJuice;
+  src: url(./assets/fonts/orange-juice.ttf);
+}
+
+@font-face {
+  font-family: AsCute;
+  src: url(./assets/fonts/as_cute.ttf);
+}
+
+@font-face {
+  font-family: FillMeWithColor;
+  src: url(./assets/fonts/FillMeWithColor.ttf);
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}

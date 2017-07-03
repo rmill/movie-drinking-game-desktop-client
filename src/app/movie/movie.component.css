@@ -1,0 +1,167 @@
+.time-display {
+	position: absolute;
+	color: white;
+	font-size: 33px;
+}
+
+.movie {
+	height: 100%;
+	width: 100%;
+}
+
+.overlay {
+  font-family: PaytoneOne;
+  top: 55%;
+  left: 16%;
+  position: absolute;
+  z-index: 2147483647;
+}
+
+#question {
+  position: relative;
+}
+
+#question-overlay .badge img {
+  content: url(../../assets/img/question.png);
+}
+
+#question-container {
+  overflow: hidden;
+  font-size: 26px;
+  position: relative;
+  top: 87px;
+  left: 215px;
+  padding: 35px 0px;
+  width: 960px;
+  background-color: rgba(0, 0, 0, 0);
+  z-index: 9;
+  text-align: center;
+  vertical-align: middle;
+  display: inline-block;
+  -moz-border-top-right-radius: 14px;
+  -webkit-border-top-right-radius: 14px;
+  border-top-right-radius: 14px;
+  -moz-border-bottom-right-radius: 14px;
+  -webkit-border-bottom-right-radius: 14px;
+  border-bottom-right-radius: 14px;
+}
+
+.question-text {
+  z-index: 3;
+  position: relative;
+}
+
+.timer {
+  top: 0px;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.timer.timer-foreground {
+  z-index: 2;
+  background-color: #f25424;
+}
+
+.timer.timer-background {
+  z-index: 1;
+  background-color: white;
+}
+
+body {
+  background-color: black;
+  overflow: hidden;
+  margin: 0;
+}
+
+table {
+  visibility: hidden;
+  border-spacing: 1em;
+  width: 95%;
+  position: relative;
+  top: 100px;
+  left: 254px;
+  color: black;
+  font-size: 20px;
+}
+
+.answer .answer-letter {
+  color: #f25424;
+  margin-right: 10px;
+  float: left;
+}
+
+td {
+  border: 4px solid #f25424;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  background-color: #f4f8fb;
+  text-align: left;
+  width: 50%;
+  padding: 17px 20px;
+}
+
+td.correct {
+  background-color: #f25424;
+  color: white;
+}
+
+.answer.correct .answer-letter {
+  color: white;
+}
+
+#drinks-overlay .badge {
+  width: 280px;
+}
+
+#drinks-overlay table {
+  margin-left: 68px;
+  table-layout: fixed;
+  width: 60%;
+}
+
+#drinks-overlay table td {
+  white-space: nowrap;
+  overflow: hidden;
+  text-align: center;
+  border-color: #065d7b;
+}
+
+#sociables-overlay {
+  position: absolute;
+  width: 100%;
+  display: inline-flex;
+  height: 100%;
+  font-family: AgentOrange;
+  color: #f4f8fb;
+  text-shadow: -3px 0px 19px #f4f8fb;
+  font-size: 13em;
+  top: 0;
+}
+
+#sociables-overlay p {
+  margin: auto;
+}
+
+.drinks-overlay {
+  top: 0;
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.badge {
+  position: absolute;
+  margin-top: 8px;
+  width: 230px;
+  height: 403px;
+  z-index: 10;
+}
+
+.badge img {
+  position: absolute;
+  height: auto;
+  width: 100%;
+}

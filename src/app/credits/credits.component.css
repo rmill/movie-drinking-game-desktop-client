@@ -1,0 +1,39 @@
+
+.credits {
+  position: absolute;
+  width: 100%;
+  font-family: Raleway;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.credits.animate {
+  animation: 60s credits linear infinite;
+}
+
+.credits .movie-title {
+  margin-bottom: 145px;
+  font-size: 108px;
+}
+
+.credits .title {
+  margin-bottom: 13px;
+  font-size: 46px;
+}
+
+.credits .name {
+  font-weight: 100;
+  margin-bottom: 170px;
+  font-size: 35px;
+}
+
+@keyframes credits {
+  0% {
+    top: 100%;
+  }
+  100% {
+    top: -500%;
+  }
+}
