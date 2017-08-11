@@ -1,6 +1,6 @@
 import { TestMoviePage } from './app.po';
 
-describe('test-movie App', () => {
+describe('movie-drinking-game-desktop-client App', () => {
   let page: TestMoviePage;
 
   beforeEach(() => {

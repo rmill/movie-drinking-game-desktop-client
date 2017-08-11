@@ -15,8 +15,7 @@ export class AppComponent {
 
   ngOnInit() {
     this.gameService.create();
-    this.gameService.onStart.subscribe(() => this.state = 'movie');
-    this.gameService.onEnd.subscribe(() => this.state = 'credits');
+    this.gameService.onStateChange.subscribe((state: string) => this.state = state);
   }
 
   isIntro() {

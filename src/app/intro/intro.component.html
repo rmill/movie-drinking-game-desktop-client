@@ -1,7 +1,7 @@
 <div class="intro">
   <div class="logo animated fadeIn">
     <img class="animated rotateIn">
-    <button (click)="gameService.start()" class="start animated bounceInUp">Start</button>
+    <button (click)="start()" class="start animated bounceInUp">Start</button>
   </div>
   <div>
     <div *ngFor="let player of players" style="{{ getPlayerLocation(index) }}" class="player animated pulse infinite">{{ player.name }}</div>

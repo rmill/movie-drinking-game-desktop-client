@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SafeUrl } from '@angular/platform-browser';
 
 import { Question, GameService } from '../shared/service/game.service';
 
@@ -11,19 +12,17 @@ export class MovieComponent {
 
   protected question: Question;
   protected time: number;
-  protected movieFilePath: string;
+  protected movieFilePath: SafeUrl;
   protected timerWidth: string;
 
   constructor(private gameService: GameService) {
+    this.movieFilePath = gameService.movieFilepath;
     gameService.onQuestion.subscribe((question: Question) => this.question = question);
     gameService.onQuestionEnd.subscribe(() => this.question = null);
   }
 
   onTimeUpdate(time: number) {
-    this.gameService.updateTime(time);
-    this.time = time;
-
-    const width = 100.0 - (100.0 * ((time - this.question.startTime) / this.question.duration));
-    this.timerWidth = `${width}px`;
+    this.time =  Math.floor(time);
+    this.gameService.updateTime(this.time);
   }
 }

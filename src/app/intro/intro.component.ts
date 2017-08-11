@@ -9,7 +9,7 @@ import { GameService, Player } from '../shared/service/game.service';
 })
 export class IntroComponent {
 
-  protected players: Player[] =[];
+  protected players: Player[] = [];
 
   constructor(private gameService: GameService) {}
 
@@ -37,5 +37,9 @@ export class IntroComponent {
     ];
 
     return `top: ${positions[index].top}px; left: ${positions[index].left}`;
+  }
+
+  start() {
+    this.gameService.changeState('movie');
   }
 }
