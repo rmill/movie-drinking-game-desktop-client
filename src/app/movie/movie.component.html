@@ -1,52 +1,9 @@
-<div class="time-display">{{ time }}</div>
-
-<video id="movie" class="movie" controls (timeupdate)="onTimeUpdate($event.target.currentTime)">
-  <source id="avi" [src]="movieFilePath" type="video/mp4">
-  <p>Your user agent does not support the HTML5 Video element.</p>
-</video>
-
-<div *ngIf="question" id="question-overlay" class="overlay animated">
-  <div id="question">
-    <div class="badge">
-      <img class="question">
-    </div>
-    <div id="question-container">
-      <div class="question-text">{{ question.text }}</div>
-      <div class="timer timer-background"></div>
-      <div class="timer timer-foreground" [style.width]="timerWidth"></div>
-    </div>
-   </div>
-
-  <table>
-    <tr>
-      <td class="answer">
-        <div class="answer-letter">A.</div><div id="answer-0">{{ question.answers[0].text }}</div>
-      </td>
-      <td class="answer">
-        <div class="answer-letter">B.</div><div id="answer-1">{{ question.answers[1].text }}</div>
-      </td>
-    </tr>
-    <tr>
-      <td class="answer">
-        <div class="answer-letter">C.</div><div id="answer-2">{{ question.answers[2].text }}</div>
-      </td>
-      <td class="answer">
-        <div class="answer-letter">D.</div><div id="answer-3">{{ question.answers[3].text }}</div>
-      </td>
-    </tr>
-  </table>
-</div>
-
-<div *ngIf="showDrinkOverlay" id="drinks-overlay" class="overlay animated">
-  <div class="drinkers">
-    <img class="badge">
-
-    <table>
-      <tbody></tbody>
-    </table>
-  </div>
-</div>
-
-<div *ngIf="showSociablesOveraly" id="sociables-overlay" class="drinks-overlay-container sociables animated flash infinite">
-  <p>SOCIABLES!</p>
+<div class="time-display">{{ time - 17 }}</div>
+<div class="movie-container animate fadeIn">
+  <video #movie class="movie" autoplay="autoplay" [controls]="showControls" (click)="toggleControls()" (timeupdate)="onTimeUpdate($event.target.currentTime)">
+    <source id="avi" [src]="movieFilePath" type="video/mp4">
+    <p>Your user agent does not support the HTML5 Video element.</p>
+  </video>
+  <mdg-movie-question *ngIf="showQuestion()" #question></mdg-movie-question>
+  <mdg-movie-drinks *ngIf="showDrinks()"></mdg-movie-drinks>
 </div>

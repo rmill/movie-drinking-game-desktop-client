@@ -3,7 +3,13 @@
     <img class="animated rotateIn">
     <button (click)="start()" class="start animated bounceInUp">Start</button>
   </div>
-  <div>
-    <div *ngFor="let player of players" style="{{ getPlayerLocation(index) }}" class="player animated pulse infinite">{{ player.name }}</div>
+  <div *ngIf="getPlayers()">
+    <div *ngFor="let player of getPlayers(); let i = index"
+      [style.top]="getPlayerTop(i)"
+      [style.left]="getPlayerLeft(i)"
+      class="player animated pulse infinite"
+    >
+    {{ player.name }}
+    </div>
   </div>
 </div>

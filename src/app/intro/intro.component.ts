@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { GameService, Player } from '../shared/service/game.service';
 
@@ -9,37 +10,39 @@ import { GameService, Player } from '../shared/service/game.service';
 })
 export class IntroComponent {
 
-  protected players: Player[] = [];
+  private positions = [
+    {top: 89, left: 200},
+    {top: 800, left: 1500},
+    {top: 610, left: 39},
+    {top: 212, left: 1300},
+    {top: 319, left: 299},
+    {top: 500, left: 1450},
+    {top: 900, left: 300},
+    {top: 58, left: 1500},
+    {top: 481, left: 110},
+    {top: 621, left: 1400},
+    {top: 700, left: 200},
+    {top: 400, left: 1400},
+    {top: 174, left: 114},
+    {top: 900, left: 1600},
+    {top: 800, left: 76}
+  ];
 
-  constructor(private gameService: GameService) {}
+  constructor(private game: GameService, private router: Router) {}
 
-  ngOnInit() {
-    this.gameService.onNewPlayer.subscribe((player: Player) => this.players.push(player));
+  getPlayers() {
+    return this.game.players;
   }
 
-  getPlayerLocation(index): string {
-    const positions = [
-      {top: 89, left: 200},
-      {top: 800, left: 1500},
-      {top: 610, left: 39},
-      {top: 212, left: 1300},
-      {top: 319, left: 299},
-      {top: 500, left: 1450},
-      {top: 900, left: 300},
-      {top: 58, left: 1500},
-      {top: 481, left: 110},
-      {top: 621, left: 1400},
-      {top: 700, left: 200},
-      {top: 400, left: 1400},
-      {top: 174, left: 114},
-      {top: 900, left: 1600},
-      {top: 800, left: 76}
-    ];
+  getPlayerLeft(index: number): string {
+    return this.positions[index].left + 'px';
+  }
 
-    return `top: ${positions[index].top}px; left: ${positions[index].left}`;
+  getPlayerTop(index: number): string {
+    return this.positions[index].top + 'px';
   }
 
   start() {
-    this.gameService.changeState('movie');
+    this.router.navigateByUrl('/movie');
   }
 }

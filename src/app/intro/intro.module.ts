@@ -13,6 +13,6 @@ import { IntroComponent } from './intro.component';
     FormsModule,
     HttpModule
   ],
-  providers: []
+  providers: [ ]
 })
 export class IntroModule { }

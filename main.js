@@ -1,8 +1,7 @@
 const electron = require('electron');
-const {app} = electron;
-const {BrowserWindow} = electron;
-const {ipcMain} = require('electron');
-// const client = require('./lib/client');
+const { app } = electron;
+const { BrowserWindow } = electron;
+const { ipcMain } = require('electron');
 
 // Create  constant for the app path
 const APP_PATH = `file://${__dirname}`;

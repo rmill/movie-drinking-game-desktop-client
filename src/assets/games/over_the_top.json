@@ -1,0 +1,201 @@
+{
+  "name": "Over The Top",
+  "end_time": 5344,
+  "questions": [
+    {
+      "id": 1,
+      "text": "What does a bad father wear to his son's graduation?",
+      "movie_time": 260,
+      "duration": 10,
+      "answers": [
+        "Overalls",
+        "Workout gear",
+        "Suspenders and a tie",
+        "Cat suit"
+      ],
+      "correct_answers": [
+        2
+      ]
+    },
+    {
+      "id": 2,
+      "text": "What ingenious name does the local arm wrestling thug go by?",
+      "movie_time": 838,
+      "duration": 10,
+      "answers": [
+        "The Smasher",
+        "Big Chief",
+        "The Wily Arm Wrangler",
+        "Donald Trump"
+      ],
+      "correct_answers": [
+        0
+      ]
+    },
+    {
+      "id": 3,
+      "text": "What was the name of the truck stop?",
+      "movie_time": 1126,
+      "duration": 10,
+      "answers": [
+        "Trucker's Delight",
+        "The Lonely Long Haul",
+        "Grease Cafe",
+        "Martha's Famous T. Bone"
+      ],
+      "correct_answers": [
+        3
+      ]
+    },
+    {
+      "id": 4,
+      "text": "Hows does a father earn the respect of his sh*tty son?",
+      "movie_time": 1410,
+      "duration": 10,
+      "answers": [
+        "Smack him around a bit",
+        "Arm wrestling training montage",
+        "Get him his first drink",
+        "Talks out his issues"
+      ],
+      "correct_answers": [
+        1
+      ]
+    },
+    {
+      "id": 5,
+      "text": "Which of these are not rules in arm wrestling?",
+      "movie_time": 2101,
+      "duration": 10,
+      "answers": [
+        "Must stop bleeding to compete",
+        "No Exhibiting impairment due to alcohol",
+        "Must make eye contact",
+        "Must not have criminal record"
+      ],
+      "correct_answers": [
+        2,
+        3
+      ]
+    },
+    {
+      "id": 6,
+      "text": "Who does the doctor EXACTLY look like?",
+      "movie_time": 2503,
+      "duration": 10,
+      "answers": [
+        "Justin Bieber",
+        "Bryce's mom",
+        "Colonel Mustard",
+        "George Clooney"
+      ],
+      "correct_answers": [
+        2
+      ]
+    },
+    {
+      "id": 7,
+      "text": "What won't this stupid sh*tty kid stop doing?",
+      "movie_time": 2891,
+      "duration": 10,
+      "answers": [
+        "Being a big baby",
+        "Meth",
+        "Push ups",
+        "Kissing ass"
+      ],
+      "correct_answers": [
+        0
+      ]
+    },
+    {
+      "id": 8,
+      "text": "What does Hawk want to give his son more than anything?",
+      "movie_time": 3118,
+      "duration": 10,
+      "answers": [
+        "His hot, juicy love",
+        "His first kiss",
+        "An awkward chin caress",
+        "What's 'inside' of him"
+      ],
+      "correct_answers": [
+        3
+      ]
+    },
+    {
+      "id": 9,
+      "text": "What text appears on the Nevada state line sign?",
+      "movie_time": 3269,
+      "duration": 10,
+      "answers": [
+        "'No outside food or drinks'",
+        "'Your luck start here!'",
+        "'The silver and gold state'",
+        "'Good luck!'"
+      ],
+      "correct_answers": [
+        3
+      ]
+    },
+    {
+      "id": 10,
+      "text": "Which of these was not one of the arm wrestlers?",
+      "movie_time": 4100,
+      "duration": 10,
+      "answers": [
+        "Bull Hurley",
+        "Viper Malone",
+        "Mad Dog Madison",
+        "Linclon Hawk"
+      ],
+      "correct_answers": [
+        1
+      ]
+    },
+    {
+      "id": 11,
+      "text": "How does Hawk deal with tough situations?",
+      "movie_time": 4306,
+      "duration": 10,
+      "answers": [
+        "He goes Over the Top",
+        "Turns his hat around",
+        "Pushes problems through glass doors",
+        "Goes with his gut"
+      ],
+      "correct_answers": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id": 12,
+      "text": "Who won the 2016 World Arm Wrestling Championships in Bulgaria?",
+      "movie_time": 5245,
+      "duration": 10,
+      "answers": [
+        "Genadi Kvikvinia",
+        "Lincoln Hawk",
+        "Shasho Andreev",
+        "Adolf Hitler"
+      ],
+      "correct_answers": [
+        0
+      ]
+    }
+  ],
+  "rules": [
+    "Epic 80s music",
+    "Muscle flex/workout",
+    "Bad dad/good dad",
+    "Every time you want to punch the kid in the face",
+    "'Sir' is said",
+    "Everytime the kid asks a question",
+    "Hawk is said or a hawk is shown",
+    "Everytime Hawk turns his hat around",
+    "Every time a hand gets slammed in an arm wrestle"
+  ]
+}

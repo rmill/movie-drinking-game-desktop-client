@@ -22,7 +22,7 @@
 }
 
 #question-overlay .badge img {
-  content: url(../../assets/img/question.png);
+  content: url(../../../assets/img/question.png);
 }
 
 #question-container {

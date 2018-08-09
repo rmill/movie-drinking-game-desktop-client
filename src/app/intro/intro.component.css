@@ -15,18 +15,19 @@ img {
   margin: auto;
   content: url(../../assets/img/splash.png);
   display: block;
+  height: 73vh;
 }
 
 .start {
   margin: auto;
   display: block;
-  width: 18%;
+  width: 13vw;
   border-radius: 10px;
   height: 90px;
   background-color: #065d7b;
   color: #f5f8fe;
   border: 0px;
-  border-bottom: 6px solid #04495e;
+  border-bottom: 4px solid #04495e;
   font-size: 30px;
   cursor: pointer;
   margin-top: 41px;

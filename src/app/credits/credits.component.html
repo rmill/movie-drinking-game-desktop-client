@@ -1,15 +1,15 @@
-<div *ngIf="credits" class="credits">
+<div *ngIf="game.credits" class="credits animated fadeIn">
   <div class="movie-title"></div>
   <div class="title">Best Duder</div>
-  <div class="name">{{ credits.mostCorrect.name }}</div>
+  <div class="name">{{ game.credits.mostCorrect }}</div>
   <div class="title">Worst Duder</div>
-  <div class="name">{{ credits.mostIncorrect.name }}</div>
+  <div class="name">{{ game.credits.mostIncorrect }}</div>
   <div class="title">Where was this Duder</div>
-  <div class="name">{{ credits.mostMissed.name }}</div>
+  <div class="name">{{ game.credits.mostMissed }}</div>
   <div class="title">Drunkest Duder</div>
-  <div class="name">{{ credits.mostDrinks.name }}</div>
+  <div class="name">{{ game.credits.mostDrinks }}</div>
   <div class="title">Quickest Duder</div>
-  <div class="name">{{ credits.quickestAnswers.name }}</div>
+  <div class="name">{{ game.credits.quickestAnswers }}</div>
   <div class="title">Longest Streak Duder</div>
-  <div class="name">{{ credits.longestStreak.name }}</div>
+  <div class="name">{{ game.credits.longestStreak }}</div>
 </div>

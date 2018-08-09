@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { Credits, GameService } from '../shared/service/game.service';
+import { GameService } from '../shared/service/game.service';
 
 @Component({
   selector: 'mdg-credits',
@@ -8,10 +8,5 @@ import { Credits, GameService } from '../shared/service/game.service';
   styleUrls: ['./credits.component.css']
 })
 export class CreditsComponent {
-
-  protected credits: Credits;
-
-  constructor(private gameService: GameService) {
-    gameService.onCredits.subscribe((credits: Credits) => this.credits = credits);
-  }
+  constructor(private game: GameService) {}
 }
