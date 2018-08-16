@@ -9,25 +9,25 @@
       <div class="timer timer-foreground" [style.width]="timerWidth"></div>
     </div>
   </div>
-  <table *ngIf="game.currentAnswers">
+  <table *ngIf="showAnswers()">
     <tr>
       <td class="answer" [class.correct]="isCorrect(0)">
         <div class="answer-letter">A.</div>
-        <div>{{ game.currentAnswers[0] }}</div>
+        <div>{{ question.answers[0] }}</div>
       </td>
       <td class="answer" [class.correct]="isCorrect(1)">
         <div class="answer-letter">B.</div>
-        <div>{{ game.currentAnswers[1] }}</div>
+        <div>{{ question.answers[1] }}</div>
       </td>
     </tr>
     <tr>
       <td class="answer" [class.correct]="isCorrect(2)">
         <div class="answer-letter">C.</div>
-        <div>{{ game.currentAnswers[2] }}</div>
+        <div>{{ question.answers[2] }}</div>
       </td>
       <td class="answer" [class.correct]="isCorrect(3)">
         <div class="answer-letter">D.</div>
-        <div>{{ game.currentAnswers[3] }}</div>
+        <div>{{ question.answers[3] }}</div>
       </td>
     </tr>
   </table>

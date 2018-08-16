@@ -6,6 +6,8 @@ import { Subject } from 'rxjs/Subject';
 const fs = window.require('fs');
 
 import { ElectronService } from './electron.service';
+import { PushNotificationService } from './push-notification.service';
+import { StatisticsService } from './statistics.service';
 import { WebsocketService } from './websocket.service';
 
 @Injectable()
@@ -26,23 +28,23 @@ export class GameService {
   private nextQuestion: Question;
   private endTime: number;
   private questions: any;
+  private currentAnswers: any;
+  private currentTime: number;
 
   public credits: Credits;
   public currentQuestion: Question;
-  public currentAnswers: Array<string>;
-  public currentCorrectAnswers: Array<number>;
   public currentState: string = this.NEW_GAME;
-  public drinkers: Array<string>;
   public gameFilepath: string;
   public movieFilepath: SafeUrl;
-  public numDrinks: number;
   public players: Array<Player> = []
 
   constructor(
-    protected websocket: WebsocketService,
+    private websocket: WebsocketService,
     private electron: ElectronService,
+    private pushNotification: PushNotificationService,
     private router: Router,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    private statistics: StatisticsService
   ) {
     this.gameFilepath = this.electron.openFileDialog('Select game file')[0];
     this.movieFilepath = this.sanitizer.bypassSecurityTrustResourceUrl(
@@ -58,17 +60,21 @@ export class GameService {
     this.questions = {};
 
     for (let question of gameData.questions) {
+      question.drink_multiplyer = this.getDrinkMultiplyer()
       this.questions[question.movie_time] = question;
     };
 
-    this.websocket.send('create-game', { name: gameData.name });
     this.websocket.on('new-player', (player: Player) => { this.addPlayer(player) });
+    this.websocket.on('answer', (answer: Answer) => { this.answer(answer) });
+    this.websocket.on('state', (player: Player) => { this.sendState(player) });
+    this.websocket.send('create-game', { name: gameData.name });
   }
 
   addPlayer(player: Player) {
     if (!this.getPlayer(player.id)) {
       this.players.push(player)
     }
+    this.sendState(player)
   }
 
   getPlayer(id: string) {
@@ -81,29 +87,49 @@ export class GameService {
     return null;
   }
 
+  sendState(player: Player) {
+    let state = {
+      state: this.currentState,
+      score: this.statistics.getStats(player.id),
+      seconds_to_next_question: this.secondsTillNextQuestion(),
+      question: this.currentQuestion,
+      answer: this.currentAnswers[player.id] || null
+    }
+
+    this.pushNotification.send(player, 'state', state)
+  }
+
+  sendStateToAllPlayers() {
+    for(let player of this.players) {
+      this.sendState(player);
+    }
+  }
+
   start() {
+    console.log('starting game');
     this.currentState = this.IDLE;
     this.clearQuestion();
+    this.sendStateToAllPlayers();
   }
 
   processState(time) {
+    this.currentTime = time;
+
     switch(this.currentState) {
       case this.NEW_GAME:
         break;
       case this.IDLE:
         this.idle(time); break;
-      case this.SHOW_QUESTION:
-        this.showQuestion(this.currentQuestion); break;
       case this.WAITING_FOR_QUESTION:
         const questionTime = this.currentQuestion.movie_time + 5;
         this.waiting(time, questionTime, this.SHOW_ANSWERS); break;
       case this.SHOW_ANSWERS:
-        this.showAnswers(this.currentQuestion.answers); break;
+        this.showAnswers(); break;
       case this.WAITING_FOR_ANSWERS:
         const answerTime = this.currentQuestion.movie_time + this.currentQuestion.duration + 5;
         this.waiting(time, answerTime, this.SHOW_CORRECT_ANSWER); break;
       case this.SHOW_CORRECT_ANSWER:
-        this.showCorrectAnswers(this.currentQuestion.correct_answers); break;
+        this.showCorrectAnswers(); break;
       case this.WAITING_FOR_CORRECT_ANSWER:
         var correctTime = this.currentQuestion.movie_time + this.currentQuestion.duration + 5 + 5;
         this.waiting(time, correctTime, this.SHOW_DRINKS); break;
@@ -113,53 +139,77 @@ export class GameService {
         var drinksTime = this.currentQuestion.movie_time + this.currentQuestion.duration + 5 + 5 + 5;
         this.waiting(time, drinksTime, this.HIDE_QUESTION); break;
       case this.HIDE_QUESTION:
-        this.hideQuestion();break;
+        this.hideQuestion(); break;
     }
   }
 
   idle(time) {
     if (this.questions[time]) {
-      this.currentQuestion = this.questions[time];
-      this.currentState = this.SHOW_QUESTION;
+      this.showQuestion(this.questions[time]);
+      return;
     }
 
     if (time >= this.endTime) {
       console.log('ending game');
       this.endGame();
+      return;
+    }
+
+    // Update the phone client every minute before the next question
+    if (this.secondsTillNextQuestion() % 60 === 0) {
+      this.sendStateToAllPlayers();
     }
   }
 
-  showQuestion(question) {
+  showQuestion(question: Question) {
     console.log('show question:', question.text);
+    this.currentQuestion = question;
+    this.currentAnswers = {};
     this.currentState = this.WAITING_FOR_QUESTION;
+    this.sendStateToAllPlayers();
   }
 
-  showAnswers(answers: Array<string>) {
+  showAnswers() {
     console.log('show answers');
     this.currentState = this.WAITING_FOR_ANSWERS;
-    this.currentAnswers = answers;
+    this.sendStateToAllPlayers();
   }
 
-  showCorrectAnswers(answers: Array<number>) {
+  showCorrectAnswers() {
     console.log('show correct answer');
-    this.currentCorrectAnswers = answers;
     this.currentState = this.WAITING_FOR_CORRECT_ANSWER;
+    this.statistics.process(this.currentQuestion, this.currentAnswers);
+    this.sendStateToAllPlayers();
   }
 
   showDrinks() {
     console.log('show drinks');
     this.currentState = this.WAITING_FOR_DRINKS;
+    this.sendStateToAllPlayers();
   }
 
   hideQuestion() {
     console.log('hide question');
     this.currentState = this.IDLE;
     this.clearQuestion();
+    this.sendStateToAllPlayers();
   }
 
   endGame() {
     this.currentState = this.END_GAME;
-    this.router.navigateByUrl('/credits');
+    this.statistics.compile();
+    this.sendStateToAllPlayers();
+  }
+
+  answer(answer: Answer) {
+    let states = [this.SHOW_QUESTION, this.WAITING_FOR_QUESTION];
+
+    if (!states.includes(this.currentState)) return;
+
+    if (this.currentAnswers[answer.id]) return;
+
+    console.log('answer', answer);
+    this.currentAnswers[answer.id] = answer;
   }
 
   clearQuestion() {
@@ -176,8 +226,6 @@ export class GameService {
     this.nextQuestion = (questionIndex <= keys.length) ? this.questions[keys[questionIndex]] : null;
     this.currentQuestion = null;
     this.currentAnswers = null;
-    this.currentCorrectAnswers = null;
-    this.drinkers = null;
   }
 
   waiting(currentTime, endTime, nextState) {
@@ -185,18 +233,34 @@ export class GameService {
       this.currentState = nextState;
     }
   }
-}
 
-export interface State {
-  credits: Credits;
-  drinkers: Array<string>;
-  numDrinks: number;
-  players: any;
+  secondsTillNextQuestion() {
+    if (!this.nextQuestion) {
+      return 0;
+    }
+
+    return Math.max(0, this.nextQuestion.movie_time - this.currentTime);
+  }
+
+  isState(state: string) {
+    return this.currentState == state;
+  }
+
+  getDrinkMultiplyer() {
+    let minMultiplyer = 1;
+    let maxMultiplyer = 3;
+    let slope = Math.pow(Math.random(), 2.2);
+    let multipler = (slope * (maxMultiplyer - minMultiplyer)) + minMultiplyer;
+    let roundedMultipler = Math.round(multipler * 10) / 10;
+
+    return roundedMultipler;
+  }
 }
 
 export interface Player {
   id: string;
   name: string;
+  fcm_token: string;
 }
 
 export interface Question {
@@ -205,6 +269,12 @@ export interface Question {
   duration: number;
   answers: Array<string>;
   correct_answers: Array<number>;
+  drink_multiplyer: number;
+}
+
+export interface Answer {
+  id: string;
+  answer: number;
 }
 
 export interface Credits {

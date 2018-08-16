@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
-import { SafeUrl } from '@angular/platform-browser';
 
 import { AnimateService } from '../../shared/service/animate.service';
-import { GameService } from '../../shared/service/game.service';
+import { GameService, Question } from '../../shared/service/game.service';
 
 @Component({
   selector: 'mdg-movie-question',
@@ -10,6 +9,7 @@ import { GameService } from '../../shared/service/game.service';
   styleUrls: ['./movie-question.component.css']
 })
 export class MovieQuestionComponent {
+  protected question: Question;
   protected timer: any;
   protected timerWidth: string;
   protected enterAnimation: string;
@@ -19,6 +19,7 @@ export class MovieQuestionComponent {
   ngOnInit() {
     this.timerWidth = '100%';
     this.enterAnimation = this.animate.randomEnter();
+    this.question = this.game.currentQuestion;
   }
 
   startTimer() {
@@ -34,6 +35,17 @@ export class MovieQuestionComponent {
     this.timer = null;
   }
 
+  showAnswers() {
+    const states = [
+      this.game.SHOW_ANSWERS,
+      this.game.WAITING_FOR_ANSWERS,
+      this.game.SHOW_CORRECT_ANSWER,
+      this.game.WAITING_FOR_CORRECT_ANSWER
+    ];
+
+    return states.includes(this.game.currentState);
+  }
+
   getTimerWidth(startTime: number, duration: number) {
     const now = Date.now();
     const progressInSeconds = (now - startTime) / 1000;
@@ -42,9 +54,15 @@ export class MovieQuestionComponent {
   }
 
   isCorrect(answer: number) {
-    if (this.game.currentCorrectAnswers) {
-      return this.game.currentCorrectAnswers.includes(answer);
+    const states = [
+      this.game.SHOW_CORRECT_ANSWER,
+      this.game.WAITING_FOR_CORRECT_ANSWER
+    ];
+
+    if (states.includes(this.game.currentState)) {
+      return this.game.currentQuestion.correct_answers.includes(answer);
     }
+    
     return false;
   }
 }

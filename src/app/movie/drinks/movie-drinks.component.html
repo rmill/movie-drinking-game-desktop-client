@@ -1,15 +1,15 @@
-<div *ngIf="game.drinkers.length > 0"id="drinks-overlay" class="overlay animated">
+<div *ngIf="!isSociables()" id="drinks-overlay" class="overlay animated {{ exitAnimation }}">
   <div class="drinkers">
-    <img class="badge" src="./assets/img/drinks-{{ game.numDrinks }}.png">
+    <img class="badge" src="./assets/img/drinks-{{ statistics.currentDrinks[0].drinks }}.png">
     <table>
       <tbody>
         <tr *ngFor="let row of getRows()">
-          <td *ngFor="let user of row">{{ user }}</td>
+          <td *ngFor="let user of row">{{ user.name }}</td>
         </tr>
       </tbody>
     </table>
   </div>
 </div>
-<div *ngIf="game.drinkers.length === 0" id="sociables-overlay" class="drinks-overlay-container sociables animated flash infinite">
+<div *ngIf="isSociables()" id="sociables-overlay" class="drinks-overlay-container sociables animated flash infinite">
   <p>SOCIABLES!</p>
 </div>

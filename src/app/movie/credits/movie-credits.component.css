@@ -10,8 +10,8 @@
   background-color: black;
 }
 
-.credits.animate {
-  animation: 60s credits linear infinite;
+.scroll {
+  animation: 45s credits linear infinite;
 }
 
 .credits .movie-title {
@@ -35,6 +35,6 @@
     top: 100%;
   }
   100% {
-    top: -500%;
+    top: -160%;
   }
 }

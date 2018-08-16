@@ -3,6 +3,7 @@ import { SafeUrl } from '@angular/platform-browser';
 
 import { AnimateService } from '../../shared/service/animate.service';
 import { GameService } from '../../shared/service/game.service';
+import { StatisticsService } from '../../shared/service/statistics.service';
 
 @Component({
   selector: 'mdg-movie-drinks',
@@ -13,19 +14,27 @@ export class MovieDrinksComponent {
 
   protected exitAnimation: string;
 
-  constructor(private animate: AnimateService, private game: GameService) {}
+  constructor(
+    private animate: AnimateService,
+    private game: GameService,
+    private statistics: StatisticsService
+  ) {}
 
-  ngOnDestroy() {
-    this.exitAnimation = this.animate.randomExit();
+  fadeOut() {
+    this.exitAnimation = 'fadeOut';
+  }
+
+  isSociables() {
+    return this.statistics.currentDrinks.length === 0;
   }
 
   getRows() {
-    if (this.game.drinkers) {
+    if (this.statistics.currentDrinks) {
       const chunkSize = 3;
       const drinkers = [];
 
-      for (let i=0; i < this.game.drinkers.length; i += chunkSize) {
-        const chunk = this.game.drinkers.slice(i, i + chunkSize);
+      for (let i=0; i < this.statistics.currentDrinks.length; i += chunkSize) {
+        const chunk = this.statistics.currentDrinks.slice(i, i + chunkSize);
         drinkers.push(chunk);
       }
 

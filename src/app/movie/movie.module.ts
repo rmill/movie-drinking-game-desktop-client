@@ -4,11 +4,17 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { MovieComponent } from './movie.component';
-import { MovieQuestionComponent } from './question/movie-question.component';
+import { MovieCreditsComponent } from './credits/movie-credits.component';
 import { MovieDrinksComponent } from './drinks/movie-drinks.component';
+import { MovieQuestionComponent } from './question/movie-question.component';
 
 @NgModule({
-  declarations: [ MovieComponent, MovieDrinksComponent, MovieQuestionComponent ],
+  declarations: [
+    MovieComponent,
+    MovieCreditsComponent,
+    MovieDrinksComponent,
+    MovieQuestionComponent
+  ],
   exports: [ MovieComponent ],
   imports: [
     BrowserModule,
