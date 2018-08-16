@@ -25,11 +25,12 @@ export class GameService {
   readonly HIDE_QUESTION = 'hide_question';
   readonly END_GAME = 'end_game';
 
-  private nextQuestion: Question;
-  private endTime: number;
-  private questions: any;
   private currentAnswers: any;
   private currentTime: number;
+  private endTime: number;
+  private nextQuestion: Question;
+  private questions: any;
+  private rules: Array<string>;
 
   public credits: Credits;
   public currentQuestion: Question;
@@ -57,6 +58,7 @@ export class GameService {
     var gameData = JSON.parse(gameJson.toString());
 
     this.endTime = gameData.end_time;
+    this.rules = gameData.rules;
     this.questions = {};
 
     for (let question of gameData.questions) {
@@ -89,11 +91,12 @@ export class GameService {
 
   sendState(player: Player) {
     let state = {
-      state: this.currentState,
+      answer: this.currentAnswers[player.id] || null,
+      question: this.currentQuestion,
+      rules: this.rules,
       score: this.statistics.getStats(player.id),
       seconds_to_next_question: this.secondsTillNextQuestion(),
-      question: this.currentQuestion,
-      answer: this.currentAnswers[player.id] || null
+      state: this.currentState
     }
 
     this.pushNotification.send(player, 'state', state)

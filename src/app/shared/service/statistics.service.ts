@@ -86,8 +86,6 @@ export class StatisticsService {
       drinks = Math.ceil(Object.keys(this.players).length * question.drink_multiplyer / wrongPlayers.length);
     }
 
-    console.log(wrongPlayers);
-
     for (let player of wrongPlayers) {
       player.drinks += drinks;
       this.currentDrinks.push({
