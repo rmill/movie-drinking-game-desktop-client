@@ -8,7 +8,6 @@ const dotenv = require('dotenv');
 // Create  constant for the app path
 const APP_PATH = `file://${__dirname}`;
 let win;
-let gameId;
 
 // Setup configuration
 dotenv.config();
@@ -47,18 +46,17 @@ function createWindow() {
   win.setFullScreen(true);
   // win.setMenu(null);
 
+  // Clear the game from the server
+  admin.database().ref('game').remove()
+  admin.database().ref('player').remove()
+
   // Emitted when the window is closed.
   win.on('closed', () => {
-    // Clear the game from the server
-    admin.database().ref(`game/${gameId}`).remove()
-
     // Dereference the window object, usually you would store windows
     // in an array if your app supports multi windows, this is the time
     // when you should delete the corresponding element.
     win = null;
   });
-
-  ipcMain.on('create-game', (e, gid) => { gameId = gid });
 
   ipcMain.on('send-push', message => {
     // admin.messaging().send(message)
@@ -71,7 +69,17 @@ function createWindow() {
   });
 
   ipcMain.on('database', (e, trans) => {
-    admin.database().ref(trans.resource)[trans.action](trans.data)
+    let ref = admin.database().ref(trans.resource);
+
+    if (trans.action == 'bind') {
+      let responseKey = `${trans.resource}-${trans.data.event}`;
+      ref.on(trans.data.event, res => {
+        let message = Object.assign(res.val(), { id: res.key })
+        e.sender.send(responseKey, message)
+      })
+    } else {
+      ref[trans.action](trans.data)
+    }
   });
 
   win.loadURL(`${APP_PATH}/dist/index.html`);

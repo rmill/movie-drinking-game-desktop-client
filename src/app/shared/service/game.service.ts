@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { Router } from '@angular/router';
+import { ReplaySubject } from 'rxjs/ReplaySubject';
 const fs = window.require('fs');
 const random = window.require('randomstring');
 
@@ -31,6 +32,7 @@ export class GameService {
   private nextQuestion: Question;
   private questions: any;
   private rules: Array<string>;
+  private _players: Array<Player> = [];
 
   public credits: Credits;
   public currentQuestion: Question;
@@ -38,7 +40,7 @@ export class GameService {
   public gameFilepath: string;
   public id: string;
   public movieFilepath: SafeUrl;
-  public players: Array<Player> = []
+  public players: ReplaySubject<Player[]>
 
   constructor(
     private data: DataService,
@@ -48,6 +50,7 @@ export class GameService {
     private sanitizer: DomSanitizer,
     private statistics: StatisticsService
   ) {
+    this.players = new ReplaySubject(1)
     this.gameFilepath = this.electron.openFileDialog('Select game file')[0];
     this.movieFilepath = this.sanitizer.bypassSecurityTrustResourceUrl(
       this.electron.openFileDialog('Select movie file')[0]
@@ -75,18 +78,19 @@ export class GameService {
       state: this.currentState
     }
 
-    this.electron.notifyClient('create-game', this.id)
     this.data.create('game', this.id, game)
+    this.data.bind('player', player => { this.addPlayer(player) })
   }
 
   addPlayer(player: Player) {
     if (!this.getPlayer(player.id)) {
-      this.players.push(player)
+      this._players.push(player)
+      this.players.next(this._players);
     }
   }
 
   getPlayer(id: string) {
-    for (let i of this.players) {
+    for (let i of this._players) {
       if (i.id == id) {
         return i;
       }

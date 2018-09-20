@@ -1,5 +1,6 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { ChangeDetectorRef, Component, EventEmitter, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs/Subscription';
 
 import { GameService, Player } from '../shared/service/game.service';
 
@@ -9,6 +10,9 @@ import { GameService, Player } from '../shared/service/game.service';
   styleUrls: ['./intro.component.css']
 })
 export class IntroComponent {
+
+  players: any;
+  playersSub: Subscription;
 
   private positions = [
     {top: 89, left: 200},
@@ -28,10 +32,17 @@ export class IntroComponent {
     {top: 800, left: 76}
   ];
 
-  constructor(private game: GameService, private router: Router) {}
+  constructor(private game: GameService, private router: Router, private cd: ChangeDetectorRef) {}
 
-  getPlayers() {
-    return this.game.players;
+  ngOnInit() {
+    this.playersSub = this.game.players.subscribe(players => {
+      this.players = players;
+      this.cd.detectChanges();
+    })
+  }
+
+  ngOnDestroy() {
+    this.playersSub.unsubscribe();
   }
 
   getPlayerLeft(index: number): string {

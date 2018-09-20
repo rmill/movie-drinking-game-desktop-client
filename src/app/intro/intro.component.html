@@ -3,8 +3,8 @@
     <img class="animated rotateIn">
     <button (click)="start()" class="start animated bounceInUp">Start</button>
   </div>
-  <div *ngIf="getPlayers()">
-    <div *ngFor="let player of getPlayers(); let i = index"
+  <div *ngIf="players">
+    <div *ngFor="let player of players; let i = index"
       [style.top]="getPlayerTop(i)"
       [style.left]="getPlayerLeft(i)"
       class="player animated pulse infinite"

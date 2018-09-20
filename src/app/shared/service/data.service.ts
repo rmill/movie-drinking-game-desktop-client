@@ -7,6 +7,11 @@ export class DataService {
 
   constructor(private electron: ElectronService) {}
 
+  bind(resource, func) {
+    this.electron.listen(`${resource}-child_added`, func)
+    this.send(resource, null, 'bind', { event: 'child_added' })
+  }
+
   create(resource, id, data) {
     this.send(resource, id, 'set', data);
   }
@@ -18,7 +23,7 @@ export class DataService {
   private send(resource, id, action, data) {
     let transaction = {
       action,
-      resource: `${resource}/${id}`,
+      resource: id ? `${resource}/${id}` : resource,
       data
     }
 

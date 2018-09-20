@@ -3,11 +3,16 @@ const electron = window.require('electron');
 
 @Injectable()
 export class ElectronService {
-  openFileDialog(title: string) {
-    return electron.remote.dialog.showOpenDialog({ title, properties: ['openFile'] });
+
+  listen(event: string, func: any) {
+    electron.ipcRenderer.on(event, (e, result) => func(result))
   }
 
   notifyClient(event: string, message: any = {}) {
     electron.ipcRenderer.send(event, message)
+  }
+
+  openFileDialog(title: string) {
+    return electron.remote.dialog.showOpenDialog({ title, properties: ['openFile'] });
   }
 }
