@@ -10,11 +10,11 @@ import { IntroModule } from './intro/intro.module';
 import { MovieComponent } from './movie/movie.component';
 import { MovieModule } from './movie/movie.module';
 import { AnimateService } from './shared/service/animate.service';
+import { DataService } from './shared/service/data.service';
 import { ElectronService } from './shared/service/electron.service';
 import { GameService } from './shared/service/game.service';
 import { PushNotificationService } from './shared/service/push-notification.service';
 import { StatisticsService } from './shared/service/statistics.service';
-import { WebsocketService } from './shared/service/websocket.service';
 
 const appRoutes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'intro' },
@@ -34,11 +34,11 @@ const appRoutes: Routes = [
   ],
   providers: [
     AnimateService,
+    DataService,
     ElectronService,
     GameService,
     PushNotificationService,
-    StatisticsService,
-    WebsocketService
+    StatisticsService
   ],
   bootstrap: [ AppComponent ]
 })

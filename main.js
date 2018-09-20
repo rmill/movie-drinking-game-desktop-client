@@ -8,6 +8,7 @@ const dotenv = require('dotenv');
 // Create  constant for the app path
 const APP_PATH = `file://${__dirname}`;
 let win;
+let gameId;
 
 // Setup configuration
 dotenv.config();
@@ -15,11 +16,11 @@ dotenv.config();
 // Create connection to firebase
 admin.initializeApp({
   credential: admin.credential.cert({
-    projectId: process.env.FIREBASE_PROJECT_ID,
-    clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
-    privateKey: process.env.FIREBASE_PRIVATE_KEY
+    projectId: "drink-up-cinema",
+    clientEmail: "firebase-adminsdk-p4izr@drink-up-cinema.iam.gserviceaccount.com",
+    privateKey: "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCxEmfsla+MsQzD\nJv5KWLanshSNUl32FeBOda2EjrD7RfiWVVEGBg4rcTkpLRtZlJDozqq39P+ECQe6\n98NB1/TVdvTYZe0oVZIyG95e8o93A0b9WGEs9mq8pM0CtYCf97lUuDgcUma23J3/\nDvFr0ESNF6sFNPUBqQF6TT1mGwgoxtvLnSJFKRvbwg1zYCbyWDcyS+rYIUfQ8ymm\nKyu3nh14b3UfJWBqfk2j+x6zeHyWB9+NHqbMSy66MmvynHYtNcM0eIjnrF0XzsLH\n3/LPiTMFonMgWTRFYsBjnflyJqLJgXcTYi/YlqUYEN9+iK4hxA8JfftrfuXl0DQW\nun/Cbkh1AgMBAAECggEAD+PsNhe/u4M29ztkVhUsfROW0xDZdEhFyxy139+zQ7Vl\nh84ruXvpIR5lyAtveSRDNdU4Dk6a8IUj77Qkzl+cLdzhP5s0A2rcdgk4tTIUzFQb\ntogMHm4VqYyrhir2GkTvmYn3pRkC9TWKqzUy1p9Hy5acZxj3xLifNJPCZwuVeZ0q\nbp/HPZHHZjcNc14N4v4UaetFKRSELg03K9YSjIPKAvnf6WT3Svr00GvPxvmyuMPH\nQgWcxIvp66WNtiap3wb9YtynDBItqJ/jf/qwqghIuHh5H7/KilpT3YqU52sgp7cn\n8mvxPzHsXWF1herFbhggAhiArAcpfsJWXLCUrlNj8QKBgQDuZcGABe/C+UrrQJPu\nVakSEes6uwdCegoefShQoNp97UvnyC8W8CrTqfy8JJhGBf9S9tFDPY5bteLP01FD\nTECoM/B78JCSSP5yY/FqoAAW4/6qkp9gMqwoSB7EyuOo+3/FegYbPFnkz9h7oaAj\nBRyossgWN+83eH4IwNvgtm9UhQKBgQC+JXWyW+iBge7RZFJaXbjd5IeC+HnTbnav\nd0Ohdvfr0KiGTx8WJkuFD05ex8o71MZ2KDQWH/uw9tyls05JzIQhxCrGFK/gO3gF\nyfFPwKvuqoFySvqpcR7mYHKjqTraxqXPQpdTbSSwNP0N9GEGbt2FxzgvamRnCIy4\nYyMmr0cfMQKBgEyPg0gRIAHWu7e3goqdGfICrS+sVtWDifJmsWbLcb/VUHY8dNsC\nAE7/nXnyqrB6RpgnSec1Qp2zWQbzT3q0Z2NdYtL63AMOzCCCdkqO3dh8GhI/ik2D\nmIRLPQ5oNhrTwiHyYTmn9RqloVl6+4mjn6OR3u47wmhnGtrGzRZqoHBdAoGAO2cE\nf/YKivsGms/WkniZGmkclKP/mzf1SBfgPv8lsLv9CgiJ06efDDCd8SpFWa+9WIhy\nzT6sqLpWcEW1/YQw+0OHgV5RG6I4esZ95sZwcB1AV25pJKo8VwhmiA6EXniUsE1D\nbUK5pXrIW6Wu8g2MkxCL0vRP7YhUPf5qqtkzROECgYEA5ScBr1xULrcPbS9rST9u\nTNRY8I01mxexbgC6I4AzGRmD4NwSBrMEOm4mp9r4YXifcUroQ6v0TiqOPrz9A6sy\n3eGddLQaKc/QxIGCsyeS2SwupR/oicemIq2cjn92X7tXwNrxYzfDCYCpewwq7nPP\nfN6q8HGJzEBYa0vMzlADIlY=\n-----END PRIVATE KEY-----\n"
   }),
-  databaseURL: process.env.FIREBASE_DATABASE_URL
+  databaseURL: "https://drink-up-cinema.firebaseio.com",
 });
 
 app.on('ready', createWindow);
@@ -46,23 +47,32 @@ function createWindow() {
   win.setFullScreen(true);
   // win.setMenu(null);
 
-  win.loadURL(`${APP_PATH}/dist/index.html`);
-
   // Emitted when the window is closed.
   win.on('closed', () => {
+    // Clear the game from the server
+    admin.database().ref(`game/${gameId}`).remove()
+
     // Dereference the window object, usually you would store windows
     // in an array if your app supports multi windows, this is the time
     // when you should delete the corresponding element.
     win = null;
   });
 
-  ipcMain.on('send-push', (message) => {
-    admin.messaging().send(message)
-      .then((response) => {
-        console.log('Successfully sent message:', response);
-      })
-      .catch((error) => {
-        console.log('Error sending message:', error);
-      });
+  ipcMain.on('create-game', (e, gid) => { gameId = gid });
+
+  ipcMain.on('send-push', message => {
+    // admin.messaging().send(message)
+    //   .then((response) => {
+    //     console.log('Successfully sent message:', response);
+    //   })
+    //   .catch((error) => {
+    //     console.log('Error sending message:', error);
+    //   });
   });
+
+  ipcMain.on('database', (e, trans) => {
+    admin.database().ref(trans.resource)[trans.action](trans.data)
+  });
+
+  win.loadURL(`${APP_PATH}/dist/index.html`);
 }

@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 
 import { Player } from './game.service';
-import { WebsocketService } from './websocket.service';
 
 @Injectable()
 export class StatisticsService {
@@ -16,10 +15,6 @@ export class StatisticsService {
   public bestAnswerSpeed: any = {};
   public currentWrongPlayers: Array<Player> = [];
   public currentDrinks = [];
-
-  constructor (private websocket: WebsocketService) {
-    websocket.on('new-player', (player: Player) => { this.newPlayer(player) })
-  }
 
   getStats (playerToken) {
     return this.players[playerToken];

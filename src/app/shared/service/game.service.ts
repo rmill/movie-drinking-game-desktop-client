@@ -1,14 +1,13 @@
 import { Injectable } from '@angular/core';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs/Rx';
-import { Subject } from 'rxjs/Subject';
 const fs = window.require('fs');
+const random = window.require('randomstring');
 
+import { DataService } from './data.service';
 import { ElectronService } from './electron.service';
 import { PushNotificationService } from './push-notification.service';
 import { StatisticsService } from './statistics.service';
-import { WebsocketService } from './websocket.service';
 
 @Injectable()
 export class GameService {
@@ -23,10 +22,11 @@ export class GameService {
   readonly SHOW_DRINKS = 'show_drinks';
   readonly WAITING_FOR_DRINKS = 'waiting_for_drinks';
   readonly HIDE_QUESTION = 'hide_question';
+  readonly WAITING_FOR_END = 'waiting_for_end';
   readonly END_GAME = 'end_game';
 
   private currentAnswers: any;
-  private currentTime: number;
+  private currentTime: number = 0;
   private endTime: number;
   private nextQuestion: Question;
   private questions: any;
@@ -36,11 +36,12 @@ export class GameService {
   public currentQuestion: Question;
   public currentState: string = this.NEW_GAME;
   public gameFilepath: string;
+  public id: string;
   public movieFilepath: SafeUrl;
   public players: Array<Player> = []
 
   constructor(
-    private websocket: WebsocketService,
+    private data: DataService,
     private electron: ElectronService,
     private pushNotification: PushNotificationService,
     private router: Router,
@@ -66,17 +67,22 @@ export class GameService {
       this.questions[question.movie_time] = question;
     };
 
-    this.websocket.on('new-player', (player: Player) => { this.addPlayer(player) });
-    this.websocket.on('answer', (answer: Answer) => { this.answer(answer) });
-    this.websocket.on('state', (player: Player) => { this.sendState(player) });
-    this.websocket.send('create-game', { name: gameData.name });
+    this.id = random.generate();
+
+    let game = {
+      name: gameData.name,
+      rules: this.rules,
+      state: this.currentState
+    }
+
+    this.electron.notifyClient('create-game', this.id)
+    this.data.create('game', this.id, game)
   }
 
   addPlayer(player: Player) {
     if (!this.getPlayer(player.id)) {
       this.players.push(player)
     }
-    this.sendState(player)
   }
 
   getPlayer(id: string) {
@@ -89,30 +95,23 @@ export class GameService {
     return null;
   }
 
-  sendState(player: Player) {
+  sendState() {
     let state = {
-      answer: this.currentAnswers[player.id] || null,
+      answers: this.currentQuestion ? this.currentQuestion.answers : null,
       question: this.currentQuestion,
       rules: this.rules,
-      score: this.statistics.getStats(player.id),
       seconds_to_next_question: this.secondsTillNextQuestion(),
       state: this.currentState
     }
 
-    this.pushNotification.send(player, 'state', state)
-  }
-
-  sendStateToAllPlayers() {
-    for(let player of this.players) {
-      this.sendState(player);
-    }
+    this.data.update('game', this.id, state)
   }
 
   start() {
     console.log('starting game');
     this.currentState = this.IDLE;
     this.clearQuestion();
-    this.sendStateToAllPlayers();
+    this.sendState();
   }
 
   processState(time) {
@@ -143,6 +142,10 @@ export class GameService {
         this.waiting(time, drinksTime, this.HIDE_QUESTION); break;
       case this.HIDE_QUESTION:
         this.hideQuestion(); break;
+      case this.WAITING_FOR_END:
+        this.waiting(time, this.endTime, this.END_GAME); break;
+      case this.END_GAME:
+        this.endGame();
     }
   }
 
@@ -152,15 +155,9 @@ export class GameService {
       return;
     }
 
-    if (time >= this.endTime) {
-      console.log('ending game');
-      this.endGame();
-      return;
-    }
-
     // Update the phone client every minute before the next question
     if (this.secondsTillNextQuestion() % 60 === 0) {
-      this.sendStateToAllPlayers();
+      this.sendState();
     }
   }
 
@@ -169,39 +166,38 @@ export class GameService {
     this.currentQuestion = question;
     this.currentAnswers = {};
     this.currentState = this.WAITING_FOR_QUESTION;
-    this.sendStateToAllPlayers();
+    this.sendState();
   }
 
   showAnswers() {
     console.log('show answers');
     this.currentState = this.WAITING_FOR_ANSWERS;
-    this.sendStateToAllPlayers();
+    this.sendState();
   }
 
   showCorrectAnswers() {
     console.log('show correct answer');
     this.currentState = this.WAITING_FOR_CORRECT_ANSWER;
     this.statistics.process(this.currentQuestion, this.currentAnswers);
-    this.sendStateToAllPlayers();
+    this.sendState();
   }
 
   showDrinks() {
     console.log('show drinks');
     this.currentState = this.WAITING_FOR_DRINKS;
-    this.sendStateToAllPlayers();
+    this.sendState();
   }
 
   hideQuestion() {
     console.log('hide question');
-    this.currentState = this.IDLE;
     this.clearQuestion();
-    this.sendStateToAllPlayers();
+    this.currentState = this.nextQuestion ?  this.IDLE : this.WAITING_FOR_END;
+    this.sendState();
   }
 
   endGame() {
-    this.currentState = this.END_GAME;
     this.statistics.compile();
-    this.sendStateToAllPlayers();
+    this.sendState();
   }
 
   answer(answer: Answer) {

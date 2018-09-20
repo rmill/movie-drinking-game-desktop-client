@@ -8,6 +8,6 @@ export class ElectronService {
   }
 
   notifyClient(event: string, message: any = {}) {
-    electron.ipcRenderer.send('send-push', message)
+    electron.ipcRenderer.send(event, message)
   }
 }
