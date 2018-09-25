@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { SafeUrl } from '@angular/platform-browser';
+import { Subscription } from 'rxjs/Subscription';
 
 import { AnimateService } from '../../shared/service/animate.service';
-import { GameService } from '../../shared/service/game.service';
+import { GameService, Player } from '../../shared/service/game.service';
 import { StatisticsService } from '../../shared/service/statistics.service';
 
 @Component({
@@ -13,6 +14,8 @@ import { StatisticsService } from '../../shared/service/statistics.service';
 export class MovieDrinksComponent {
 
   protected exitAnimation: string;
+  protected drinksSub: Subscription;
+  protected drinkers: Player[] = [];
 
   constructor(
     private animate: AnimateService,
@@ -20,25 +23,33 @@ export class MovieDrinksComponent {
     private statistics: StatisticsService
   ) {}
 
+  ngOnInit() {
+    this.drinksSub = this.statistics.drinkers.subscribe(drinkers => this.drinkers = drinkers)
+  }
+
+  ngOnDestroy() {
+    this.drinksSub.unsubscribe()
+  }
+
   fadeOut() {
     this.exitAnimation = 'fadeOut';
   }
 
   isSociables() {
-    return this.statistics.currentDrinks.length === 0;
+    return this.drinkers.length === 0;
   }
 
   getRows() {
-    if (this.statistics.currentDrinks) {
+    if (this.drinkers) {
       const chunkSize = 3;
-      const drinkers = [];
+      const rows = [];
 
-      for (let i=0; i < this.statistics.currentDrinks.length; i += chunkSize) {
-        const chunk = this.statistics.currentDrinks.slice(i, i + chunkSize);
-        drinkers.push(chunk);
+      for (let i=0; i < this.drinkers.length; i += chunkSize) {
+        const chunk = this.drinkers.slice(i, i + chunkSize);
+        rows.push(chunk);
       }
 
-      return drinkers;
+      return rows;
     }
 
     return null;

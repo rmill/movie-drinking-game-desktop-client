@@ -72,7 +72,7 @@ function createWindow() {
     let ref = admin.database().ref(trans.resource);
 
     if (trans.action == 'bind') {
-      let responseKey = `${trans.resource}-${trans.data.event}`;
+      let responseKey = `${trans.resource}/${trans.data.event}`;
       ref.on(trans.data.event, res => {
         let message = Object.assign(res.val(), { id: res.key })
         e.sender.send(responseKey, message)

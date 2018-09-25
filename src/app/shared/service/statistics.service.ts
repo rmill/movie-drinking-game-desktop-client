@@ -1,172 +1,136 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
-import { Player } from './game.service';
+import { Answer, Player, Question } from './game.service';
 
 @Injectable()
 export class StatisticsService {
 
-  private players: any = {};
+  public drinkers: BehaviorSubject<Player[]>
 
-  public mostCorrectAnswers: any = {};
-  public mostWrongAnswers: any = {};
-  public mostMissedAnswers: any = {};
-  public bestStreak: any = {};
-  public mostDrinks: any = {};
-  public bestAnswerSpeed: any = {};
-  public currentWrongPlayers: Array<Player> = [];
-  public currentDrinks = [];
+  constructor() {
+    this.drinkers = new BehaviorSubject([])
+  }
 
   getStats (playerToken) {
-    return this.players[playerToken];
+    // return this.players[playerToken];
+    return {}
   }
 
-  process (question, answers) {
-    this.currentWrongPlayers = [];
-    this.currentDrinks = [];
+  process (question: Question, answers: any, players: Player[]) {
+    let drinkers = [];
 
-    for (let id in this.players) {
-      let player = this.players[id];
-      let answer = answers[id];
-
-      this.updateAnswerCount(question, answer, player);
-      this.updateStreak(question, answer, player);
-      this.updateAnswerSpeed(answer, player);
+    for (let player of players) {
+      let answer = answers[player.id];
+      let isDrinking = this.updatePlayer(question, answer, player)
+      if (isDrinking) drinkers.push(player)
     }
 
-    this.updateDrinks(question, this.currentWrongPlayers);
+    this.drinkers.next(drinkers)
   }
 
-  updateAnswerCount (question, answer, player) {
+  private updatePlayer(question, answer, player) {
+    let isWrong = false;
+
     if (answer) {
-      // Add the right and wrong answers
       if (question.correct_answers.indexOf(answer.answer) >= 0) {
-        player.correctAnswers++;
+        this.increment(player, 'correct_answers');
+        this.increment(player, 'current_streak');
+        player.best_streak = this.max(player.current_streak, player.best_streak)
       } else {
-        player.wrongAnswers++;
-        this.currentWrongPlayers.push(player);
+        this.increment(player, 'incorrect_answers');
+        isWrong = true;
       }
     } else {
-      // Add the missed answers
-      player.missedAnswers++;
-      this.currentWrongPlayers.push(player);
+      this.increment(player, 'missed_answers');
+      isWrong = true;
     }
+
+    if (isWrong) {
+      player.current_streak = 0;
+      this.increment(player, 'drinks', question.drink_multiplyer);
+    }
+
+    return isWrong
   }
 
-  updateStreak (question, answer, player) {
-    if (answer && question.correct_answers.indexOf(answer.answer) >= 0) {
-      player.currentStreak++;
-
-      if (player.currentStreak > player.bestStreak) {
-        player.bestStreak = player.currentStreak;
-      }
-    } else {
-      player.currentStreak = 0;
-    }
+  private increment(player, index, amount = 1) {
+    if (!Number.isInteger(player[index])) player[index] = 0
+    player[index] += amount
   }
 
-  updateAnswerSpeed (answer, player) {
-    let numQuestions = player.correctAnswers + player.wrongAnswers + player.missedAnswers
-    let answerSpeed = (answer) ? answer.speed : 10;
-
-    player.answerSpeed = player.answerSpeed + ((answerSpeed - player.answerSpeed) / numQuestions);
+  private max(value1, value2) {
+    if (!Number.isInteger(value1)) value1 = 0
+    if (!Number.isInteger(value2)) value2 = 0
+    return Math.max(value1, value2)
   }
 
-  updateDrinks (question, wrongPlayers) {
-    let drinks;
-
-    if (wrongPlayers.length == 0) {
-      console.log('SOCIABLES!');
-      return;
-    }  else {
-      drinks = Math.ceil(Object.keys(this.players).length * question.drink_multiplyer / wrongPlayers.length);
-    }
-
-    for (let player of wrongPlayers) {
-      player.drinks += drinks;
-      this.currentDrinks.push({
-        drinks: drinks,
-        name: player.name
-      });
-    }
+  updateAnswerSpeed (player, speed) {
+    // let numQuestions = player.correctAnswers + player.wrongAnswers + player.missedAnswers
+    // let answerSpeed = (answer) ? answer.speed : 10;
+    //
+    // player.answerSpeed = player.answerSpeed + ((answerSpeed - player.answerSpeed) / numQuestions);
   }
 
   compile () {
-    for (let playerId in this.players) {
-      let player = this.players[playerId];
-
-      switch (true) {
-        case (player.correctAnswers === this.mostCorrectAnswers.correctAnswers):
-          if (player.answerSpeed < this.mostCorrectAnswers.answerSpeed) {
-            break;
-          }
-        case this.mostCorrectAnswers.correctAnswers === undefined:
-        case (player.correctAnswers > this.mostCorrectAnswers.correctAnswers):
-          this.mostCorrectAnswers = player;
-      }
-
-      switch (true) {
-        case (player.wrongAnswers === this.mostWrongAnswers.wrongAnswers):
-          if (player.answerSpeed > this.mostWrongAnswers.answerSpeed) {
-            break;
-          }
-        case this.mostWrongAnswers.wrongAnswers === undefined:
-        case (player.wrongAnswers > this.mostWrongAnswers.wrongAnswers):
-          this.mostWrongAnswers = player;
-      }
-
-      switch (true) {
-        case (player.missedAnswers === this.mostMissedAnswers.wrongAnswers):
-          if (player.answerSpeed > this.mostMissedAnswers.answerSpeed) {
-            break;
-          }
-        case this.mostMissedAnswers.wrongAnswers === undefined:
-        case (player.missedAnswers > this.mostMissedAnswers.wrongAnswers):
-          this.mostMissedAnswers = player;
-      }
-
-      switch (true) {
-        case (player.bestStreak === this.bestStreak.bestStreak):
-          if (player.answerSpeed > this.bestStreak.answerSpeed) {
-            break;
-          }
-        case this.bestStreak.bestStreak === undefined:
-        case (player.bestStreak > this.bestStreak.bestStreak):
-          this.bestStreak = player;
-      }
-
-      switch (true) {
-        case (player.answerSpeed > this.bestAnswerSpeed.answerSpeed):
-        case (this.bestAnswerSpeed.answerSpeed === undefined):
-          this.bestAnswerSpeed = player;
-      }
-
-      switch (true) {
-        case (player.drinks === this.mostDrinks.drinks):
-          if (player.answerSpeed > this.mostDrinks.answerSpeed) {
-            break;
-          }
-        case this.mostDrinks.drinks === undefined:
-        case (player.drinks > this.mostDrinks.drinks):
-          this.mostDrinks = player;
-      }
-    }
-  }
-
-  newPlayer (player: Player) {
-    if (this.players[player.id]) {
-      return;
-    }
-
-    this.players[player.id] =  {
-      id: player.id,
-      name: player.name,
-      correctAnswers: 0,
-      wrongAnswers: 0,
-      missedAnswers: 0,
-      answerSpeed: 0.0,
-      bestStreak: 0,
-      currentStreak : 0,
-      drinks: 0
-    };
+    // for (let playerId in this.players) {
+    //   let player = this.players[playerId];
+    //
+    //   switch (true) {
+    //     case (player.correctAnswers === this.mostCorrectAnswers.correctAnswers):
+    //       if (player.answerSpeed < this.mostCorrectAnswers.answerSpeed) {
+    //         break;
+    //       }
+    //     case this.mostCorrectAnswers.correctAnswers === undefined:
+    //     case (player.correctAnswers > this.mostCorrectAnswers.correctAnswers):
+    //       this.mostCorrectAnswers = player;
+    //   }
+    //
+    //   switch (true) {
+    //     case (player.wrongAnswers === this.mostWrongAnswers.wrongAnswers):
+    //       if (player.answerSpeed > this.mostWrongAnswers.answerSpeed) {
+    //         break;
+    //       }
+    //     case this.mostWrongAnswers.wrongAnswers === undefined:
+    //     case (player.wrongAnswers > this.mostWrongAnswers.wrongAnswers):
+    //       this.mostWrongAnswers = player;
+    //   }
+    //
+    //   switch (true) {
+    //     case (player.missedAnswers === this.mostMissedAnswers.wrongAnswers):
+    //       if (player.answerSpeed > this.mostMissedAnswers.answerSpeed) {
+    //         break;
+    //       }
+    //     case this.mostMissedAnswers.wrongAnswers === undefined:
+    //     case (player.missedAnswers > this.mostMissedAnswers.wrongAnswers):
+    //       this.mostMissedAnswers = player;
+    //   }
+    //
+    //   switch (true) {
+    //     case (player.bestStreak === this.bestStreak.bestStreak):
+    //       if (player.answerSpeed > this.bestStreak.answerSpeed) {
+    //         break;
+    //       }
+    //     case this.bestStreak.bestStreak === undefined:
+    //     case (player.bestStreak > this.bestStreak.bestStreak):
+    //       this.bestStreak = player;
+    //   }
+    //
+    //   switch (true) {
+    //     case (player.answerSpeed > this.bestAnswerSpeed.answerSpeed):
+    //     case (this.bestAnswerSpeed.answerSpeed === undefined):
+    //       this.bestAnswerSpeed = player;
+    //   }
+    //
+    //   switch (true) {
+    //     case (player.drinks === this.mostDrinks.drinks):
+    //       if (player.answerSpeed > this.mostDrinks.answerSpeed) {
+    //         break;
+    //       }
+    //     case this.mostDrinks.drinks === undefined:
+    //     case (player.drinks > this.mostDrinks.drinks):
+    //       this.mostDrinks = player;
+    //   }
+    // }
   }
 }

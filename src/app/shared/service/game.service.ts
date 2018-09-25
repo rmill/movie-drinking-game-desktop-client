@@ -32,10 +32,10 @@ export class GameService {
   private nextQuestion: Question;
   private questions: any;
   private rules: Array<string>;
-  private _players: Array<Player> = [];
+  private _players: any = {};
 
   public credits: Credits;
-  public currentQuestion: Question;
+    public currentQuestion: Question;
   public currentState: string = this.NEW_GAME;
   public gameFilepath: string;
   public id: string;
@@ -79,13 +79,16 @@ export class GameService {
     }
 
     this.data.create('game', this.id, game)
-    this.data.bind('player', player => { this.addPlayer(player) })
+    this.data.bind('player', null, 'child_added', player => this.addPlayer(player))
+    this.data.bind('answer', null, 'child_added', answer => this.answer(answer))
   }
 
   addPlayer(player: Player) {
+    console.log('addPlayer', player)
     if (!this.getPlayer(player.id)) {
-      this._players.push(player)
-      this.players.next(this._players);
+      this._players[player.id] = player
+      this.players.next(this.getPlayers());
+      this.data.bind('player', player.id, 'value', player => this._players[player.id] = player)
     }
   }
 
@@ -97,6 +100,16 @@ export class GameService {
     }
 
     return null;
+  }
+
+  getPlayers() {
+    let players = []
+
+    for (let id in this._players) {
+      players.push(this._players[id])
+    }
+
+    return players
   }
 
   sendState() {
@@ -168,8 +181,8 @@ export class GameService {
   showQuestion(question: Question) {
     console.log('show question:', question.text);
     this.currentQuestion = question;
-    this.currentAnswers = {};
     this.currentState = this.WAITING_FOR_QUESTION;
+    this.currentAnswers = {};
     this.sendState();
   }
 
@@ -182,7 +195,13 @@ export class GameService {
   showCorrectAnswers() {
     console.log('show correct answer');
     this.currentState = this.WAITING_FOR_CORRECT_ANSWER;
-    this.statistics.process(this.currentQuestion, this.currentAnswers);
+
+    this.statistics.process(this.currentQuestion, this.currentAnswers, this.getPlayers());
+
+    for (let player of this.getPlayers()) {
+      this.data.update('player', player.id, player)
+    }
+
     this.sendState();
   }
 
@@ -205,14 +224,14 @@ export class GameService {
   }
 
   answer(answer: Answer) {
-    let states = [this.SHOW_QUESTION, this.WAITING_FOR_QUESTION];
+    let states = [this.SHOW_ANSWERS, this.WAITING_FOR_ANSWERS];
 
     if (!states.includes(this.currentState)) return;
 
-    if (this.currentAnswers[answer.id]) return;
+    if (this.currentAnswers[answer.player_id]) return;
 
     console.log('answer', answer);
-    this.currentAnswers[answer.id] = answer;
+    this.currentAnswers[answer.player_id] = answer;
   }
 
   clearQuestion() {
@@ -229,6 +248,8 @@ export class GameService {
     this.nextQuestion = (questionIndex <= keys.length) ? this.questions[keys[questionIndex]] : null;
     this.currentQuestion = null;
     this.currentAnswers = null;
+
+    this.data.delete('answer')
   }
 
   waiting(currentTime, endTime, nextState) {
@@ -252,18 +273,26 @@ export class GameService {
   getDrinkMultiplyer() {
     let minMultiplyer = 1;
     let maxMultiplyer = 3;
-    let slope = Math.pow(Math.random(), 2.2);
-    let multipler = (slope * (maxMultiplyer - minMultiplyer)) + minMultiplyer;
-    let roundedMultipler = Math.round(multipler * 10) / 10;
+    
+    // let slope = Math.pow(Math.random(), 2.2);
+    // let multipler = (slope * (maxMultiplyer - minMultiplyer)) + minMultiplyer;
+    // let roundedMultipler = Math.round(multipler * 10) / 10;
+    //
+    // return roundedMultipler;
 
-    return roundedMultipler;
+    return Math.floor(Math.random() * (maxMultiplyer - minMultiplyer + 1)) + minMultiplyer;
   }
 }
 
 export interface Player {
-  id: string;
-  name: string;
+  best_streak: number;
+  correct_answers: number;
+  current_streak: number;
   fcm_token: string;
+  id: string;
+  incorrect_answers: number;
+  missed_answers: number;
+  name: string;
 }
 
 export interface Question {
@@ -276,8 +305,8 @@ export interface Question {
 }
 
 export interface Answer {
-  id: string;
-  answer: number;
+  id: number;
+  player_id: string;
 }
 
 export interface Credits {
