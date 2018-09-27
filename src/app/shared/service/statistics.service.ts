@@ -30,12 +30,12 @@ export class StatisticsService {
     }
 
     return {
-      correct: correct.reverse(),
-      drinks: drinks.reverse(),
-      incorrect: incorrect.reverse(),
-      missed: missed.reverse(),
-      speed: speed,
-      streak: streak.reverse()
+      correct: this.flattenResults(correct).reverse(),
+      drinks: this.flattenResults(drinks).reverse(),
+      incorrect: this.flattenResults(incorrect).reverse(),
+      missed: this.flattenResults(missed).reverse(),
+      speed: this.flattenResults(speed),
+      streak: this.flattenResults(streak).reverse()
     }
   }
 
@@ -54,6 +54,16 @@ export class StatisticsService {
   private addStat(rankings, score, player) {
     if (!rankings[score]) rankings[score] = []
     rankings[score].push(player)
+  }
+
+  private flattenResults(results) {
+    let flattenedResults = []
+
+    for (let result of results) {
+      if (result) flattenedResults.push(result)
+    }
+
+    return flattenedResults
   }
 
   private updatePlayer(question, answer, player) {
@@ -96,9 +106,10 @@ export class StatisticsService {
 
   private getAnswerSpeed (player: Player, answer: Answer) {
     let numQuestions = player.correct_answers + player.incorrect_answers + player.missed_answers
-    let answerSpeed = answer ? answer.speed : 10;
+    let answerSpeed = answer ? answer.speed : 10000;
 
     if (!player.answer_speed) player.answer_speed = 0
-    player.answer_speed = player.answer_speed + ((answerSpeed - player.answer_speed) / numQuestions);
+    
+    return player.answer_speed + ((answerSpeed - player.answer_speed) / numQuestions);
   }
 }

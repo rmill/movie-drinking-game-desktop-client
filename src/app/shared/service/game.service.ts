@@ -84,8 +84,8 @@ export class GameService {
   }
 
   addPlayer(player: Player) {
-    console.log('addPlayer', player)
     if (!this.getPlayer(player.id)) {
+      console.log('addPlayer', player)
       this._players[player.id] = player
       this.players.next(this.getPlayers());
       this.data.bind('player', player.id, 'value', player => this._players[player.id] = player)
@@ -173,8 +173,13 @@ export class GameService {
     }
 
     // Update the phone client every minute before the next question
-    if (this.secondsTillNextQuestion() % 60 === 0) {
+    const secondsTillNextQuestion = this.secondsTillNextQuestion()
+    if (secondsTillNextQuestion === 0) {
       this.sendState();
+
+      if (secondsTillNextQuestion / 60 == 1){
+        // this.pushNotification.send()
+      }
     }
   }
 

@@ -14,6 +14,8 @@ export class PushNotificationService {
       data: { event, data }
     }
 
+    if (!message.token) return
+
     this.electron.notifyClient('send-push', message)
   }
 }

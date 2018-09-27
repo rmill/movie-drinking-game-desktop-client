@@ -49,6 +49,7 @@ function createWindow() {
   // Clear the game from the server
   admin.database().ref('game').remove()
   admin.database().ref('player').remove()
+  admin.database().ref('answer').remove()
 
   // Emitted when the window is closed.
   win.on('closed', () => {
@@ -59,13 +60,13 @@ function createWindow() {
   });
 
   ipcMain.on('send-push', message => {
-    // admin.messaging().send(message)
-    //   .then((response) => {
-    //     console.log('Successfully sent message:', response);
-    //   })
-    //   .catch((error) => {
-    //     console.log('Error sending message:', error);
-    //   });
+    admin.messaging().send(message)
+      .then((response) => {
+        console.log('Successfully sent message:', response);
+      })
+      .catch((error) => {
+        console.log('Error sending message:', error);
+      });
   });
 
   ipcMain.on('database', (e, trans) => {

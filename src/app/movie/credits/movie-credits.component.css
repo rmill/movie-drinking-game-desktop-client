@@ -5,7 +5,6 @@
   font-family: Raleway;
   font-weight: 700;
   text-align: center;
-  text-transform: uppercase;
   color: #fff;
   background-color: black;
 }
@@ -15,11 +14,13 @@
 }
 
 .credits .movie-title {
+  text-transform: uppercase;
   margin-bottom: 145px;
   font-size: 108px;
 }
 
 .credits .title {
+  text-transform: uppercase;
   margin-bottom: 13px;
   font-size: 46px;
 }
