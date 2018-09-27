@@ -35,7 +35,7 @@ export class GameService {
   private _players: any = {};
 
   public credits: Credits;
-    public currentQuestion: Question;
+  public currentQuestion: Question;
   public currentState: string = this.NEW_GAME;
   public gameFilepath: string;
   public id: string;
@@ -189,6 +189,7 @@ export class GameService {
   showAnswers() {
     console.log('show answers');
     this.currentState = this.WAITING_FOR_ANSWERS;
+    this.currentQuestion.start_time = Date.now()
     this.sendState();
   }
 
@@ -218,8 +219,11 @@ export class GameService {
     this.sendState();
   }
 
+  getStats() {
+    return this.statistics.getResults(this.getPlayers());
+  }
+
   endGame() {
-    this.statistics.compile();
     this.sendState();
   }
 
@@ -229,6 +233,8 @@ export class GameService {
     if (!states.includes(this.currentState)) return;
 
     if (this.currentAnswers[answer.player_id]) return;
+
+    answer.speed = Date.now() - this.currentQuestion.start_time
 
     console.log('answer', answer);
     this.currentAnswers[answer.player_id] = answer;
@@ -273,21 +279,17 @@ export class GameService {
   getDrinkMultiplyer() {
     let minMultiplyer = 1;
     let maxMultiplyer = 3;
-    
-    // let slope = Math.pow(Math.random(), 2.2);
-    // let multipler = (slope * (maxMultiplyer - minMultiplyer)) + minMultiplyer;
-    // let roundedMultipler = Math.round(multipler * 10) / 10;
-    //
-    // return roundedMultipler;
 
     return Math.floor(Math.random() * (maxMultiplyer - minMultiplyer + 1)) + minMultiplyer;
   }
 }
 
 export interface Player {
+  answer_speed: number;
   best_streak: number;
   correct_answers: number;
   current_streak: number;
+  drinks: number;
   fcm_token: string;
   id: string;
   incorrect_answers: number;
@@ -296,17 +298,19 @@ export interface Player {
 }
 
 export interface Question {
-  text: string;
-  movie_time: number;
-  duration: number;
   answers: Array<string>;
   correct_answers: Array<number>;
   drink_multiplyer: number;
+  duration: number;
+  movie_time: number;
+  start_time?: number;
+  text: string;
 }
 
 export interface Answer {
   id: number;
   player_id: string;
+  speed?: number;
 }
 
 export interface Credits {
