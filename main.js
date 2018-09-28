@@ -7,6 +7,7 @@ const dotenv = require('dotenv');
 
 // Create  constant for the app path
 const APP_PATH = `file://${__dirname}`;
+const PROD = 'prod';
 let win;
 
 // Setup configuration
@@ -44,7 +45,10 @@ function createWindow() {
   // Create the browser window.
   win = new BrowserWindow();
   win.setFullScreen(true);
-  // win.setMenu(null);
+
+  if (process.env.NODE_ENV === PROD) {
+    win.setMenu(null);
+  }
 
   // Clear the game from the server
   admin.database().ref('game').remove()
