@@ -1,9 +1,10 @@
-<div class="time-display">{{ time - 17 }}</div>
+<div *ngIf="showTime" class="time-display">{{ time - 17 }}</div>
 <div class="movie-container animated" [class.fadeOut]="showCredits()">
   <video
     #movie
     class="movie"
     autoplay="autoplay"
+    [muted]="muteVideo"
     [controls]="showControls"
     (click)="toggleControls()"
     (timeupdate)="onTimeUpdate($event.target.currentTime)"

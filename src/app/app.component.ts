@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 
+import { ElectronService } from './shared/service/electron.service';
 import { GameService } from './shared/service/game.service';
 
 @Component({
@@ -11,9 +12,10 @@ export class AppComponent {
 
   private state: string = 'intro';
 
-  constructor(private gameService: GameService) {}
+  constructor(private electron: ElectronService, private gameService: GameService) {}
 
   ngOnInit() {
+    process.env = this.electron.getEnvironment()
     this.gameService.create();
   }
 }
