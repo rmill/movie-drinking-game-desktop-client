@@ -26,14 +26,6 @@ export class GameService {
   readonly WAITING_FOR_END = 'waiting_for_end';
   readonly END_GAME = 'end_game';
 
-  private currentAnswers: any;
-  private currentTime: number = 0;
-  private endTime: number;
-  private nextQuestion: Question;
-  private questions: any;
-  private rules: Array<string>;
-  private _players: any = {};
-
   public credits: Credits;
   public currentQuestion: Question;
   public currentState: string = this.NEW_GAME;
@@ -41,6 +33,15 @@ export class GameService {
   public id: string;
   public movieFilepath: SafeUrl;
   public players: ReplaySubject<Player[]>
+
+  private currentAnswers: any;
+  private currentTime: number = 0;
+  private endTime: number;
+  private nextQuestion: Question;
+  private questions: any;
+  private rules: Array<string>;
+  private sentNotification: boolean = false;
+  private _players: any = {};
 
   constructor(
     private data: DataService,
@@ -89,6 +90,7 @@ export class GameService {
       this._players[player.id] = player
       this.players.next(this.getPlayers());
       this.data.bind('player', player.id, 'value', player => this._players[player.id] = player)
+      this.pushNotification.subscribe(player.fcm_token)
     }
   }
 
@@ -174,11 +176,12 @@ export class GameService {
 
     // Update the phone client every minute before the next question
     const secondsTillNextQuestion = this.secondsTillNextQuestion()
-    if (secondsTillNextQuestion === 0) {
+    if (secondsTillNextQuestion % 60 === 0) {
       this.sendState();
 
-      if (secondsTillNextQuestion / 60 == 1){
-        // this.pushNotification.send()
+      if (secondsTillNextQuestion / 60 == 1 && !this.sentNotification){
+        this.sentNotification = true;
+        this.pushNotification.send('Drink Up Cinema', 'Question coming up...')
       }
     }
   }
@@ -259,6 +262,7 @@ export class GameService {
     this.nextQuestion = (questionIndex <= keys.length) ? this.questions[keys[questionIndex]] : null;
     this.currentQuestion = null;
     this.currentAnswers = null;
+    this.sentNotification = false;
 
     this.data.delete('answer')
   }

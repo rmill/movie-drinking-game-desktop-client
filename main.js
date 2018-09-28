@@ -50,27 +50,19 @@ function createWindow() {
     win.setMenu(null);
   }
 
-  // Clear the game from the server
-  admin.database().ref('game').remove()
-  admin.database().ref('player').remove()
-  admin.database().ref('answer').remove()
+  clearServer()
 
   // Emitted when the window is closed.
   win.on('closed', () => {
     // Dereference the window object, usually you would store windows
     // in an array if your app supports multi windows, this is the time
     // when you should delete the corresponding element.
+    clearServer()
     win = null;
   });
 
-  ipcMain.on('send-push', message => {
-    admin.messaging().send(message)
-      .then((response) => {
-        console.log('Successfully sent message:', response);
-      })
-      .catch((error) => {
-        console.log('Error sending message:', error);
-      });
+  ipcMain.on('push-notification', (e, data) => {
+    admin.messaging()[data.action](...data.params)
   });
 
   ipcMain.on('database', (e, trans) => {
@@ -79,7 +71,11 @@ function createWindow() {
     if (trans.action == 'bind') {
       let responseKey = `${trans.resource}/${trans.data.event}`;
       ref.on(trans.data.event, res => {
-        let message = Object.assign(res.val(), { id: res.key })
+        const val = res.val()
+
+        if (!val) return
+
+        let message = Object.assign(val, { id: res.key })
         e.sender.send(responseKey, message)
       })
     } else {
@@ -88,4 +84,11 @@ function createWindow() {
   });
 
   win.loadURL(`${APP_PATH}/dist/index.html`);
+}
+
+function clearServer() {
+  // Clear the game from the server
+  admin.database().ref('game').remove()
+  admin.database().ref('player').remove()
+  admin.database().ref('answer').remove()
 }

@@ -8,14 +8,17 @@ export class PushNotificationService {
 
   constructor(private electron: ElectronService) {}
 
-  send(player: Player, event: string, data: any) {
-    let message = {
-      token: player.fcm_token,
-      data: { event, data }
-    }
+  send(title: string, body: string) {
+    let params = [{
+      notification: { title, body },
+      topic: 'push'
+    }]
 
-    if (!message.token) return
+    this.electron.notifyClient('push-notification', { action: 'send', params })
+  }
 
-    this.electron.notifyClient('send-push', message)
+  subscribe(token) {
+    let params = [[token], 'push']
+    this.electron.notifyClient('push-notification', { action: 'subscribeToTopic', params })
   }
 }
