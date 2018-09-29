@@ -68,7 +68,8 @@ export class GameService {
 
     for (let question of gameData.questions) {
       question.drink_multiplyer = this.getDrinkMultiplyer()
-      this.questions[question.movie_time] = question;
+      question.duration = question.duration ? question.duration : 15
+      this.questions[question.movie_time] = question
     };
 
     this.id = random.generate();
