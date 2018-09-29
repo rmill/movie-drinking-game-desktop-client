@@ -8,17 +8,19 @@ export class PushNotificationService {
 
   constructor(private electron: ElectronService) {}
 
-  send(title: string, body: string) {
+  send(topic, title: string, body: string) {
     let params = [{
       notification: { title, body },
-      topic: 'push'
+      topic: topic
     }]
 
     this.electron.notifyClient('push-notification', { action: 'send', params })
   }
 
-  subscribe(token) {
-    let params = [[token], 'push']
+  subscribe(topic, token) {
+    if (!token) return
+
+    let params = [[token], topic]
     this.electron.notifyClient('push-notification', { action: 'subscribeToTopic', params })
   }
 }

@@ -90,7 +90,7 @@ export class GameService {
       this._players[player.id] = player
       this.players.next(this.getPlayers());
       this.data.bind('player', player.id, 'value', player => this._players[player.id] = player)
-      this.pushNotification.subscribe(player.fcm_token)
+      this.pushNotification.subscribe(this.id, player.fcm_token)
     }
   }
 
@@ -181,7 +181,7 @@ export class GameService {
 
       if (secondsTillNextQuestion / 60 == 1 && !this.sentNotification){
         this.sentNotification = true;
-        this.pushNotification.send('Drink Up Cinema', 'Question coming up...')
+        this.pushNotification.send(this.id, 'Drink Up Cinema', 'Question coming up...')
       }
     }
   }
