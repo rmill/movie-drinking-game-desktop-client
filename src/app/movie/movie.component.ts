@@ -25,6 +25,11 @@ export class MovieComponent {
     this.game.start()
   }
 
+  onSeeked(time: number) {
+    this.onTimeUpdate(time)
+    this.game.sendState()
+  }
+
   onTimeUpdate(time: number) {
     this.time = Math.floor(time)
     this.game.processState(this.time)
