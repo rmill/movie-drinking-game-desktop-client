@@ -23,6 +23,7 @@
     "@angular/router": "^4.0.0",
     "@types/electron": "^1.6.10",
     "core-js": "^2.4.1",
+    "cross-env": "^5.2.0",
     "dotenv": "^6.0.0",
     "electron": "^1.6.11",
     "electron-prebuilt": "^1.2.2",
