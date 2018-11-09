@@ -1,0 +1,182 @@
+{
+  "name": "Josie and the Pussycats",
+  "end_time": 5540,
+  "questions": [
+    {
+      "id": 1,
+      "text": "Dujour is parodying what best music video of all time?",
+      "movie_time": 136,
+      "answers": [
+        "Hit Me Baby One More Time",
+        "How to Wear Toques in 40 Degree Weather",
+        "I Want it That Way",
+        "Fergilicious"
+      ],
+      "correct_answers": [
+        2
+      ]
+    },
+    {
+      "id": 2,
+      "text": "How does Melody (Tara Reid) stop traffic?",
+      "movie_time": 496,
+      "answers": [
+        "Saving a bunch of kitty cats",
+        "Trampoline Montage",
+        "Gets distracted by flowers",
+        "Sign advertising, 'Pussy...'"
+      ],
+      "correct_answers": [
+        3
+      ]
+    },
+    {
+      "id": 3,
+      "text": "What is wrong with this dude?",
+      "movie_time": 821,
+      "answers": [
+        "Suede and Sandals",
+        "Thinks he's Bob Dylan",
+        "Blonde teenage soul patch",
+        "Literally brining up farts"
+      ],
+      "correct_answers": [
+        0,1,2,3
+      ]
+    },
+    {
+      "id": 4,
+      "text": "Orange is the new hot. What was in fashion before that?",
+      "movie_time": 1298,
+      "answers": [
+        "Suede and sandals",
+        "Pink",
+        "Ironic band T's",
+        "Corporate greed"
+      ],
+      "correct_answers": [
+        1
+      ]
+    },
+    {
+      "id": 5,
+      "text": "Which of these have never been an Archie crossover?",
+      "movie_time": 1560,
+      "answers": [
+        "Barack Obama",
+        "The Punisher",
+        "Gordon Ramsay",
+        "The Predator"
+      ],
+      "correct_answers": [
+        2
+      ]
+    },
+    {
+      "id": 6,
+      "text": "Which movie was Euegene Levy NOT in?",
+      "movie_time": 2013,
+      "answers": [
+        "American Pie 2",
+        "American Pie: Band Camp",
+        "American Pie: Beta House",
+        "American Pie: Book of Love"
+      ],
+      "correct_answers": [
+        2
+      ]
+    },
+    {
+      "id": 7,
+      "text": "What song did they beat for #1 on the charts?",
+      "movie_time": 2453,
+      "answers": [
+        "Get Your Model On",
+        "New Sneaker Blues",
+        "Condiments of Love",
+        "Mall as Large as Your Heart"
+      ],
+      "correct_answers": [
+        0
+      ]
+    },
+    {
+      "id": 8,
+      "text": "Ow god this jerk again? Why does he SUCK SO MUCH?",
+      "movie_time": 2882,
+      "answers": [
+        "Brought Pizza Hut on a date",
+        "He's just to feakin' tall",
+        "Puppy dog eyes.....really?",
+        "Is that guitar grafted to his back?"
+      ],
+      "correct_answers": [
+        1,2,3
+      ]
+    },
+    {
+      "id": 9,
+      "text": "What does TRL stand for?",
+      "movie_time": 3511,
+      "answers": [
+        "Totally Rad Lemons",
+        "Total Request Live",
+        "Tired Ryan Lying",
+        "Toss Red Lettuce"
+      ],
+      "correct_answers": [
+        1
+      ]
+    },
+    {
+      "id": 10,
+      "text": "Which cutout was not in the last scene?",
+      "movie_time": 3927,
+      "answers": [
+        "Ricky Martin",
+        "Gwen Stefani",
+        "Matt Damon",
+        "Justin Timberlake"
+      ],
+      "correct_answers": [
+        3
+      ]
+    },
+    {
+      "id": 11,
+      "text": "Who will come to save Josie?",
+      "movie_time": 4730,
+      "answers": [
+        "Archie",
+        "The delicious flavor of Pepsi Cola",
+        "Dujour",
+        "Snoopie"
+      ],
+      "correct_answers": [
+        2
+      ]
+    },
+    {
+      "id": 12,
+      "text": "Okay f*ck this and f*ck this f*cking guy",
+      "movie_time": 5507,
+      "answers": [
+        "God I hate him",
+        "I'm going home",
+        "That was so awkward",
+        "Remeber to tip your bar staff"
+      ],
+      "correct_answers": [
+        0,1,2,3
+      ]
+    }
+  ],
+  "rules": [
+    "Any Advertisement is shown (There are a TON)",
+    "'Josie', 'friendship' or 'Pussycat' is said",
+    "Menlanie (Tara Reid) is ditzy/clutzy",
+    "Record exec. is creepy/sleezy/villainous",
+    "Subliminal messages are heard",
+    "<b>CHALLENGE</b>: Drink for the entirety of all musical interludes (music videos)"
+  ]
+}
