@@ -38,7 +38,7 @@
         "Suede and Sandals",
         "Thinks he's Bob Dylan",
         "Blonde teenage soul patch",
-        "Literally brining up farts"
+        "Literally talking about B.O."
       ],
       "correct_answers": [
         0,1,2,3
@@ -47,7 +47,7 @@
     {
       "id": 4,
       "text": "Orange is the new hot. What was in fashion before that?",
-      "movie_time": 1298,
+      "movie_time": 1300,
       "answers": [
         "Suede and sandals",
         "Pink",
@@ -88,7 +88,7 @@
     },
     {
       "id": 7,
-      "text": "What song did they beat for #1 on the charts?",
+      "text": "What song did the Pussycats beat for #1 on the charts?",
       "movie_time": 2453,
       "answers": [
         "Get Your Model On",
@@ -131,7 +131,7 @@
     {
       "id": 10,
       "text": "Which cutout was not in the last scene?",
-      "movie_time": 3927,
+      "movie_time": 3934,
       "answers": [
         "Ricky Martin",
         "Gwen Stefani",
@@ -144,8 +144,22 @@
     },
     {
       "id": 11,
+      "text": "What was the first subliminal message ever used in 1957?",
+      "movie_time": 4240,
+      "answers": [
+        "Eat Popcorn",
+        "Vote Republican",
+        "Fear Satan",
+        "Chris Angel is a lie"
+      ],
+      "correct_answers": [
+        0
+      ]
+    },
+    {
+      "id": 12,
       "text": "Who will come to save Josie?",
-      "movie_time": 4730,
+      "movie_time": 4741,
       "answers": [
         "Archie",
         "The delicious flavor of Pepsi Cola",
@@ -157,9 +171,9 @@
       ]
     },
     {
-      "id": 12,
-      "text": "Okay f*ck this and f*ck this f*cking guy",
-      "movie_time": 5507,
+      "id": 13,
+      "text": "Okay f*ck this f*cking dude",
+      "movie_time": 5510,
       "answers": [
         "God I hate him",
         "I'm going home",
@@ -174,9 +188,9 @@
   "rules": [
     "Any Advertisement is shown (There are a TON)",
     "'Josie', 'friendship' or 'Pussycat' is said",
-    "Menlanie (Tara Reid) is ditzy/clutzy",
+    "Melanie (Tara Reid) is ditzy/clutzy",
     "Record exec. is creepy/sleezy/villainous",
     "Subliminal messages are heard",
-    "<b>CHALLENGE</b>: Drink for the entirety of all musical interludes (music videos)"
+    "CHALLENGE: Drink for the entirety of all musical interludes (music videos)"
   ]
 }
