@@ -1,0 +1,173 @@
+{
+  "name": "Jingle All the Way",
+  "end_time": 5173,
+  "questions": [
+    {
+      "id": 1,
+      "text": "The little colored gremlin dudes in the last scene are a reference too?",
+      "movie_time": 153,
+      "answers": [
+        "The Mighty Leprechauns",
+        "The Superhuman Samurai Kids",
+        "The Teenage Mutant Ninja Turtles",
+        "The Power Rangers"
+      ],
+      "correct_answers": [
+        3
+      ]
+    },
+    {
+      "id": 2,
+      "text": "What color of belt did Jaime just achieve in that made up martial art?",
+      "movie_time": 584,
+      "answers": [
+        "Green",
+        "Purple",
+        "Yellow",
+        "I want to punch that nerd right in the face"
+      ],
+      "correct_answers": [
+        1,
+        3
+      ]
+    },
+    {
+      "id": 3,
+      "text": "Which other neglectful father is Arnie's nemesis?",
+      "movie_time": 1015,
+      "answers": [
+        "Chris Rock",
+        "Donald Trump",
+        "Sinbad",
+        "Bryce's Mom"
+      ],
+      "correct_answers": [
+        2
+      ]
+    },
+    {
+      "id": 4,
+      "text": "How many times has Arnold Schwarzenegger been Mr. Universe",
+      "movie_time": 1400,
+      "answers": [
+        "7",
+        "1",
+        "3",
+        "He will always be Mr. Universe in my heart"
+      ],
+      "correct_answers": [
+        0
+      ]
+    },
+    {
+      "id": 5,
+      "text": "'Cookies' is a euphemism for what?",
+      "movie_time": 1566,
+      "answers": [
+        "S E X (you fricken perverts)",
+        "Definitely not sex",
+        "I refuse to believe it is sex",
+        "Golden baked flour and eggs"
+      ],
+      "correct_answers": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id": 6,
+      "text": "What is the current Black Friday death count?",
+      "movie_time": 1785,
+      "answers": [
+        "3 deaths, 400 injured",
+        "12 deaths, 117 injured",
+        "40 deaths, 300 injured",
+        "69 deaths, 666 injured"
+      ],
+      "correct_answers": [
+        1
+      ]
+    },
+    {
+      "id": 7,
+      "text": "Who was not a Santa in the last scene?",
+      "movie_time": 2539,
+      "answers": [
+        "WWE's The Big Show",
+        "Verne Troyer (Mini-Me)",
+        "Jim Belushi (SNL)",
+        "Jeff Goldbloom (Jurassic Park)"
+      ],
+      "correct_answers": [
+        3
+      ]
+    },
+    {
+      "id": 8,
+      "text": "What does Arnie see in his Christmas future?",
+      "movie_time": 2894,
+      "answers": [
+        "Child alcoholism",
+        "A nice golden Oscar",
+        "A ton of bad Terminator sequals",
+        "The death of Turbo Man"
+      ],
+      "correct_answers": [
+        0
+      ]
+    },
+    {
+      "id": 9,
+      "text": "What is actually in the package?",
+      "movie_time": 3323,
+      "answers": [
+        "Christmas cookies",
+        "Vibrator",
+        "A MOTHER F*CKING BOMB",
+        "The new Backstreet Boys album"
+      ],
+      "correct_answers": [
+        2
+      ]
+    },
+    {
+      "id": 10,
+      "text": "What animal has Arnie NOT punched in a movie",
+      "movie_time": 3726,
+      "answers": [
+        "Camel",
+        "Shark",
+        "Horse",
+        "Reindeer"
+      ],
+      "correct_answers": [
+        1
+      ]
+    },
+    {
+      "id": 11,
+      "text": "What kind of sick, disgusting manipulation does Ted use?",
+      "movie_time": 4100,
+      "answers": [
+        "Gaslighting",
+        "Physical intimidation",
+        "Subtle competition",
+        "F*ck this dude"
+      ],
+      "correct_answers": [
+        0,
+        1,
+        2,
+        3
+      ]
+    }
+  ],
+  "rules": [
+    "'Turbo Man', 'Turbo Time' or 'Jaime' are said",
+    "Somebody gets hit on",
+    "Arnie lies",
+    "Ted is acting nice but is actually a dick",
+    "Finish your drink when Jaime finally gets his doll"
+  ]
+}
