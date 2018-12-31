@@ -5,6 +5,7 @@
   "scripts": {
     "start": "cross-env NODE_ENV=prod electron ./main.js --enable-logging",
     "start-dev": "cross-env NODE_ENV=dev electron ./main.js --enable-logging",
+    "start-testing": "cross-env NODE_ENV=testing electron ./main.js --enable-logging",
     "serve": "ng serve",
     "build": "ng build",
     "test": "ng test",

@@ -20,7 +20,7 @@ export class MovieComponent {
 
   constructor(private game: GameService) {
     this.muteVideo = process.env.NODE_ENV === 'dev'
-    this.showTime = process.env.NODE_ENV === 'dev'
+    this.showTime = process.env.NODE_ENV === 'testing'
     this.movieFilePath = game.movieFilepath
     this.game.start()
   }
