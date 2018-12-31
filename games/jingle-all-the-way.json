@@ -1,6 +1,6 @@
 {
   "name": "Jingle All the Way",
-  "end_time": 5173,
+  "end_time": 5174,
   "questions": [
     {
       "id": 1,
@@ -18,7 +18,7 @@
     },
     {
       "id": 2,
-      "text": "What color of belt did Jaime just achieve in that made up martial art?",
+      "text": "What belt color did Jaime just achieve in that made up martial art?",
       "movie_time": 584,
       "answers": [
         "Green",
@@ -34,7 +34,7 @@
     {
       "id": 3,
       "text": "Which other neglectful father is Arnie's nemesis?",
-      "movie_time": 1015,
+      "movie_time": 993,
       "answers": [
         "Chris Rock",
         "Donald Trump",
@@ -47,7 +47,7 @@
     },
     {
       "id": 4,
-      "text": "How many times has Arnold Schwarzenegger been Mr. Universe",
+      "text": "How many times has Arnold Schwarzenegger been Mr. Universe?",
       "movie_time": 1400,
       "answers": [
         "7",
@@ -133,7 +133,7 @@
     },
     {
       "id": 10,
-      "text": "What animal has Arnie NOT punched in a movie",
+      "text": "What animal has Arnie NOT punched in a movie?",
       "movie_time": 3726,
       "answers": [
         "Camel",
