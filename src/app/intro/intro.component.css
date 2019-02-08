@@ -4,18 +4,25 @@
 }
 
 .title {
-  position: relative;
+  margin: 20px 0px 37px 0px;
+  color: #065d7b;
+  text-align: center;
   font-family: PaytoneOne;
-  width: 832px;
-  top: -186px;
-  left: -151px;
+}
+
+.title .title-small {
+  font-size: 2vh;
+}
+
+.title .title-large {
+  font-size: 4vh;
 }
 
 img {
   margin: auto;
   content: url(../../assets/img/splash.png);
   display: block;
-  height: 73vh;
+  height: 67vh;
 }
 
 .start {
@@ -30,7 +37,6 @@ img {
   border-bottom: 4px solid #04495e;
   font-size: 30px;
   cursor: pointer;
-  margin-top: 41px;
 }
 
 .start:active {
