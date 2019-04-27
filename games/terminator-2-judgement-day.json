@@ -4,7 +4,7 @@
   "questions": [
     {
       "id": 1,
-      "text": "What year did Syknet launch Judgement Day?",
+      "text": "What year did Skynet launch Judgement Day?",
       "movie_time": 336,
       "answers": [
         "2029",
@@ -83,13 +83,13 @@
         "In a shopping bag"
       ],
       "correct_answers": [
-        3
+        2
       ]
     },
     {
       "id": 7,
       "text": "Does the T-1000 kill Max the dog?",
-      "movie_time": 2643,
+      "movie_time": 2648,
       "answers": [
         "It can't be THAT heartless",
         "I always close my eyes...",
@@ -205,7 +205,7 @@
     {
       "id": 15,
       "text": "How do they convince Dyson of his future?",
-      "movie_time": 6038,
+      "movie_time": 6034,
       "answers": [
         "Arm wrestling competition",
         "They give him the T2 VHS",
@@ -266,6 +266,7 @@
     "The T-1000 takes damage",
     "The T-1000 transforms",
     "A character is slow walking",
-    "Terminator vision"
+    "Terminator vision",
+    "Broken glass"
   ]
 }
