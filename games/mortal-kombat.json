@@ -1,0 +1,196 @@
+{
+  "name": "Mortal Kombat",
+  "end_time": 5744,
+  "questions": [
+    {
+      "id": 1,
+      "text": "The Mortal Kombat game was first released in...",
+      "movie_time": 301,
+      "answers": [
+        "1989",
+        "1992",
+        "1969",
+        "2001"
+      ],
+      "correct_answers": [
+        1
+      ]
+    },
+    {
+      "id": 2,
+      "text": "What famous director were they just mocking?",
+      "movie_time": 639,
+      "answers": [
+        "Stanley Kubrick",
+        "Spike Lee",
+        "Steven Spielberg",
+        "M. Night Shamamalyyyeaan"
+      ],
+      "correct_answers": [
+        1
+      ]
+    },
+    {
+      "id": 3,
+      "text": "Who is this mysterious duder?",
+      "movie_time": 863,
+      "answers": [
+        "Lord Raiden",
+        "Connor Macleod",
+        "Sub-Zero",
+        "M. Night Shamamalyyyeaan"
+      ],
+      "correct_answers": [
+        0
+      ]
+    },
+    {
+      "id": 4,
+      "text": "How do they get to the tournament?",
+      "movie_time": 1057,
+      "answers": [
+        "On foot",
+        "Nether portal",
+        "Creepy pirate ship",
+        "First class flight"
+      ],
+      "correct_answers": [
+        2
+      ]
+    },
+    {
+      "id": 5,
+      "text": "How does Johnny start the tournament?",
+      "movie_time": 1568,
+      "answers": [
+        "Beats up Liu Kang",
+        "Sunbathing",
+        "Gets wasted",
+        "Drowns in the ocean"
+      ],
+      "correct_answers": [
+        3
+      ]
+    },
+    {
+      "id": 6,
+      "text": "How does Shang Tsung rate that fight?",
+      "movie_time": 1911,
+      "answers": [
+        "Groovy baby",
+        "Flawless victory",
+        "Exceptional",
+        "Perfect"
+      ],
+      "correct_answers": [
+        1
+      ]
+    },
+    {
+      "id": 7,
+      "text": "What klassic character was that supposed to be?",
+      "movie_time": 2390,
+      "answers": [
+        "The Green Meanie",
+        "Minion",
+        "Stinky Norball",
+        "Reptile"
+      ],
+      "correct_answers": [
+        3
+      ]
+    },
+    {
+      "id": 8,
+      "text": "Does Sonya kill Kano?",
+      "movie_time": 2959,
+      "answers": [
+        "Nah she is a good guy",
+        "Fuck I think she does",
+        "He's just going for a nap",
+        "She doesn't have the balls"
+      ],
+      "correct_answers": [
+        1
+      ]
+    },
+    {
+      "id": 9,
+      "text": "What is odd about Scorpion's face?",
+      "movie_time": 3231,
+      "answers": [
+        "White pupils",
+        "Bad acne",
+        "Turns yellow when angry",
+        "It is just a skeleton?"
+      ],
+      "correct_answers": [
+        1
+      ]
+    },
+    {
+      "id": 9,
+      "text": "How many people did it take to puppeteer Goro?",
+      "movie_time": 3703,
+      "answers": [
+        "4",
+        "8",
+        "16",
+        "Just M. Night Shamamalyyyeaan"
+      ],
+      "correct_answers": [
+        2
+      ]
+    },
+    {
+      "id": 9,
+      "text": "What low blow does Johnny use to get the upper hand?",
+      "movie_time": 4258,
+      "answers": [
+        "Fireball",
+        "Kiss right on the mouth",
+        "Ball punch",
+        "Insults Goro's mother"
+      ],
+      "correct_answers": [
+        2
+      ]
+    },
+    {
+      "id": 1,
+      "text": "Which is true about the soundtrack?",
+      "movie_time": 5070,
+      "answers": [
+        "Went platinum in two weeks",
+        "Features The Prodigy",
+        "Contains no drums",
+        "Was recorded in Alaska"
+      ],
+      "correct_answers": [
+        0
+      ]
+    },
+    {
+      "id": 6,
+      "text": "What do all bad guys with weapons do?",
+      "movie_time": 5199,
+      "answers": [
+        "Attack one at a time",
+        "Swing it around like an idiot",
+        "Give up way too easily",
+        "Kiss and tell"
+      ],
+      "correct_answers": [
+        0,
+        1,
+        2
+      ]
+    }
+  ],
+  "rules": [
+    "Every character name",
+    "Johnny Cage is a smart ass",
+    "Every K.O. or death",
+    "Special power/move"
+  ]
+}
