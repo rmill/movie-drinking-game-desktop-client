@@ -1,0 +1,202 @@
+{
+  "name": "Under Siege",
+  "end_time": 6227,
+  "questions": [
+    {
+      "id": 1,
+      "text": "What does the ARMY say that NAVY stands for?",
+      "movie_time": 392,
+      "answers": [
+        "Not All Vampires Yell",
+        "Nailed Another Virgin Yesterday",
+        "Never Again Volunteer Yourself",
+        "Need Any Vaseline Yet?"
+      ],
+      "correct_answers": [
+        2
+      ]
+    },
+    {
+      "id": 2,
+      "text": "Where does a Petty Officer fit into the ranks?",
+      "movie_time": 770,
+      "answers": [
+        "Superior to a Seaman",
+        "Equal to a Corporal",
+        "Less than the Master's Mate",
+        "Below a Humble Officer"
+      ],
+      "correct_answers": [
+        0,
+        1
+      ]
+    },
+    {
+      "id": 3,
+      "text": "What is the soup's secret ingredient?",
+      "movie_time": 948,
+      "answers": [
+        "Garlic",
+        "Crawdaddy juice",
+        "Mojo",
+        "Loogie"
+      ],
+      "correct_answers": [
+        3
+      ]
+    },
+    {
+      "id": 4,
+      "text": "Who is the main entertainment for the evening?",
+      "movie_time": 1348,
+      "answers": [
+        "Miss July 1989",
+        "Gary Busey in drag",
+        "Tyler's mom",
+        "Nickleback"
+      ],
+      "correct_answers": [
+        1
+      ]
+    },
+    {
+      "id": 5,
+      "text": "This is the only Seagal film to...?",
+      "movie_time": 1645,
+      "answers": [
+        "Have a fresh rating on Rotten Tomatoes",
+        "Feature a man in drag",
+        "Not have his signature pony tail",
+        "Pit him against terrorists"
+      ],
+      "correct_answers": [
+        0,
+        2
+      ]
+    },
+    {
+      "id": 6,
+      "text": "Which of these are not the foreign name of Under Siege?",
+      "movie_time": 2310,
+      "answers": [
+        "Agua Roja",
+        "Wütendes Boot",
+        "Woda atakowana",
+        "Under Siege 2"
+      ],
+      "correct_answers": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id": 7,
+      "text": "What is in the cake?",
+      "movie_time": 2870,
+      "answers": [
+        "10 tabs of LSD",
+        "Miss July 1989",
+        "Carrot and rhubarb",
+        "A machine gun"
+      ],
+      "correct_answers": [
+        1
+      ]
+    },
+    {
+      "id": 8,
+      "text": "What booby trap was left for these henchmen?",
+      "movie_time": 3244,
+      "answers": [
+        "Exploding jack in the box",
+        "Exploding soup",
+        "Exploding explosive",
+        "Exploding microwave"
+      ],
+      "correct_answers": [
+        3
+      ]
+    },
+    {
+      "id": 9,
+      "text": "What are Erika's two rules?",
+      "movie_time": 3460,
+      "answers": [
+        "I never eat after midnight",
+        "I don't kill people",
+        "I don't kiss cooks",
+        "I don't date musicians"
+      ],
+      "correct_answers": [
+        1,
+        3
+      ]
+    },
+    {
+      "id": 10,
+      "text": "What does the crew's distress signal say?",
+      "movie_time": 4063,
+      "answers": [
+        "Ship is under siege",
+        "Please send sandwiches",
+        "Get me the f*ck outta here",
+        "We really gotta use the bathroom"
+      ],
+      "correct_answers": [
+        2
+      ]
+    },
+    {
+      "id": 11,
+      "text": "Which is not a bird term used in the movie?",
+      "movie_time": 4678,
+      "answers": [
+        "Big Bird",
+        "Roadrunner",
+        "Mother Goose",
+        "Falcon"
+      ],
+      "correct_answers": [
+        0
+      ]
+    },
+    {
+      "id": 12,
+      "text": "What famous video game character fixes the sub?",
+      "movie_time": 5200,
+      "answers": [
+        "Luigi",
+        "Mario",
+        "Donkey Kong",
+        "Peach"
+      ],
+      "correct_answers": [
+        0
+      ]
+    },
+    {
+      "id": 13,
+      "text": "What is Ryback's Fataility?",
+      "movie_time": 5735,
+      "answers": [
+        "Neck snap",
+        "Ball punch",
+        "Throat rip",
+        "Friendship"
+      ],
+      "correct_answers": [
+        2
+      ]
+    }
+  ],
+  "rules": [
+    "Knife tricks",
+    "Radar screens",
+    "The War Room is shown",
+    "A military rank is said",
+    "Ryback is said",
+    "SPOT THE AUG: First person to spot the AUG gets a free drink"
+  ]
+}
