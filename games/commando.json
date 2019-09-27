@@ -1,0 +1,216 @@
+{
+	"name": "Commando",
+	"end_time": 5230,
+	"questions": [{
+			"id": 1,
+			"text": "What does Cooke like best about the Cadallac?",
+			"movie_time": 154,
+			"answers": [
+				"Vinyl Seats",
+				"Head Room",
+				"The Price",
+				"The style and beauty"
+			],
+			"correct_answers": [
+				2
+			]
+		},
+		{
+			"id": 2,
+			"text": "What video game character is the General named after?",
+			"movie_time": 560,
+			"answers": [
+				"Kirby",
+				"Strife",
+				"Fox",
+				"Fischer"
+			],
+			"correct_answers": [
+				0
+			]
+		},
+		{
+			"id": 3,
+			"text": "What day is it today?",
+			"movie_time": 969,
+			"answers": [
+				"Pay back day",
+				"Friday",
+				"Pay day",
+				"Back pay day"
+			],
+			"correct_answers": [
+				1,
+				2
+			]
+		},
+		{
+			"id": 4,
+			"text": "John will infact kill Sully.....",
+			"movie_time": 1244,
+			"answers": [
+				"Eighty-Seventh",
+				"Third",
+				"Tenth",
+				"Second"
+			],
+			"correct_answers": [
+				3
+			]
+		},
+		{
+			"id": 5,
+			"text": "What is waiting behind the cargo door?",
+			"movie_time": 1380,
+			"answers": [
+				"A Dog",
+				"Luggage",
+				"A Henchperson",
+				"A Crew member"
+			],
+			"correct_answers": [
+				0
+			]
+		},
+		{
+			"id": 6,
+			"text": "What movie does not use the fake country of Val Verde as a setting?",
+			"movie_time": 1687,
+			"answers": [
+				"Super Carrier",
+				"Predator",
+				"True Lies",
+				"Die Hard 2"
+			],
+			"correct_answers": [
+				2
+			]
+		},
+		{
+			"id": 7,
+			"text": "Jenny has a bright future ahead of her. What will she go on to do after this movie?",
+			"movie_time": 2040,
+			"answers": [
+				"Release 5 albums in Japan",
+				"Pose Nude",
+				"Member of the NRA",
+				"Inspiration for the little mermaid"
+			],
+			"correct_answers": [
+				0,
+				1,
+				3
+			]
+		},
+		{
+			"id": 8,
+			"text": "What does John do with Sully?",
+			"movie_time": 2378,
+			"answers": [
+				"Breaks his neck",
+				"Blows him up in his car",
+				"Shoots him",
+				"Lets him go"
+			],
+			"correct_answers": [
+				3
+			]
+		},
+		{
+			"id": 9,
+			"text": "What does John eat when hes hungry?",
+			"movie_time": 2895,
+			"answers": [
+				"Ice Cream",
+				"Green Berets",
+				"Snickers bars",
+				"You don't want to know"
+			],
+			"correct_answers": [
+				0,
+				1,
+				3
+			]
+		},
+		{
+			"id": 10,
+			"text": "Before a trip John likes to...",
+			"movie_time": 3178,
+			"answers": [
+				"Have a steamy shower scene",
+				"Go on a shopping montage",
+				"Have an exciting car chase",
+				"Go Commando"
+			],
+			"correct_answers": [
+				1
+			]
+		},
+		{
+			"id": 11,
+			"text": "After being called a whore, a hooker and kidnapped it clearly is not her day. What is her name?",
+			"movie_time": 3575,
+			"answers": [
+				"Sue",
+				"Rose",
+				"Cathy",
+				"Cindy"
+			],
+			"correct_answers": [
+				3
+			]
+		},
+		{
+			"id": 12,
+			"text": "Which other Actor/Actress will not appear in another movie with Arnold?",
+			"movie_time": 3863,
+			"answers": [
+				"Cooke (Bill Duke)",
+				"Young Guerilla (Thomas Rosales Jr.)",
+				"Jenny (Alyssa Milano)",
+				"Intercept Officer (Bill Paxton)"
+			],
+			"correct_answers": [
+				2
+			]
+		},
+		{
+			"id": 13,
+			"text": "All hell is about to break loose and your about to take 73 drinks. GO get refills!!",
+			"movie_time": 4062,
+			"answers": [
+				"Wait what?",
+				"Fuck you Tyler",
+				"BRING IT ON!",
+				"Its friday and I like to party!"
+			],
+			"correct_answers": [
+				0,
+				2,
+				3
+			]
+		},
+		{
+			"id": 14,
+			"text": "How will John finish of Bennet?",
+			"movie_time": 4877,
+			"answers": [
+				"Breaking his neck",
+				"Throwing him into a furnace",
+				"Impaling with a broken pipe",
+				"Shoving him onto an electric fence"
+			],
+			"correct_answers": [
+				2
+			]
+		}
+	],
+	"rules": [
+		"John or Matrix is said",
+		"One liners",
+		"Sassy ladies",
+		"Countdown is shown",
+		"Deaths (GOOD LUCK)",
+		"SPOT THE AUG: First person to spot the AUG gets a free drink"
+	]
+}
