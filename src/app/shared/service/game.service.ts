@@ -88,11 +88,22 @@ export class GameService {
   addPlayer(player: Player) {
     if (!this.getPlayer(player.id)) {
       console.log('addPlayer', player)
+
+      this.AddPlayerToTeam(player);
+      this.data.update('player', player.id, player)
+
       this._players[player.id] = player
       this.players.next(this.getPlayers());
       this.data.bind('player', player.id, 'value', player => this._players[player.id] = player)
       this.pushNotification.subscribe(this.id, player.fcm_token)
     }
+  }
+
+  AddPlayerToTeam(player: Player) {
+    let team = Math.random() >= 0.5 ? 'ussr' : 'america'
+    let icon = team === 'ussr' ? '☭' : '🦅';
+    player.team = team
+    player.name += ` ${icon}`
   }
 
   getPlayer(id: string) {
@@ -305,6 +316,7 @@ export interface Player {
   incorrect_answers: number;
   missed_answers: number;
   name: string;
+  team: string;
 }
 
 export interface Question {

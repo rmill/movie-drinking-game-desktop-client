@@ -1,11 +1,12 @@
 .intro {
-  background-color: #b4e8e6;
+  background-image: url(../../assets/img/ring.png);
+  background-size: cover;
   height: 100%;
 }
 
 .title {
-  margin: 20px 0px 37px 0px;
-  color: #065d7b;
+  margin: 0px 0px 37px 0px;
+  color: whitesmoke;
   text-align: center;
   font-family: PaytoneOne;
 }
@@ -31,8 +32,8 @@ img {
   width: 13vw;
   border-radius: 10px;
   height: 90px;
-  background-color: #065d7b;
-  color: #f5f8fe;
+  background-color: whitesmoke;
+  color: black;
   border: 0px;
   border-bottom: 4px solid #04495e;
   font-size: 30px;
@@ -46,7 +47,7 @@ img {
 .player {
   position: absolute;
   font-size: 37px;
-  color: black;
+  color: whitesmoke;
   font-family: FillMeWithColor;
 }
 
