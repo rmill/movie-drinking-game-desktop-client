@@ -20,6 +20,11 @@ export class MovieQuestionComponent {
     this.timerWidth = '100%';
     this.enterAnimation = this.animate.randomEnter();
     this.question = this.game.currentQuestion;
+
+    let audio = new Audio();
+    audio.src = './assets/sounds/boxing-bell.wav';
+    audio.load();
+    audio.play();
   }
 
   startTimer() {
@@ -62,7 +67,7 @@ export class MovieQuestionComponent {
     if (states.includes(this.game.currentState)) {
       return this.game.currentQuestion.correct_answers.includes(answer);
     }
-    
+
     return false;
   }
 }
