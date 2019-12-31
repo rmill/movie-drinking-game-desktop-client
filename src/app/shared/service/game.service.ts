@@ -196,6 +196,10 @@ export class GameService {
         this.pushNotification.send(this.id, 'Drink Up Cinema', 'Question coming up...')
       }
     }
+
+    if (time >= this.endTime) {
+      this.currentState = this.END_GAME;
+    }
   }
 
   showQuestion(question: Question) {

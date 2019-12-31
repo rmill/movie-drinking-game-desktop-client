@@ -1,7 +1,53 @@
+.team {
+	font-family: PaytoneOne;
+	font-size: 7vh;
+  width: 39%;
+  -webkit-text-stroke: 4px whitesmoke;
+  padding: 0px 69px;
+}
+
+.team-name {
+  float: left;
+}
+
+.team img {
+	width: 100%;
+}
+
+.team-score {
+	float: right;
+}
+
+.team.left {
+	float: left;
+}
+
+.team img {
+  margin-top: 10vh;
+}
+
+.team.left img {
+	content: url(../../../assets/img/usa-flag.png);
+	float: left;
+	text-align: left;
+}
+
+.team.right	 {
+	float: right;
+}
+
+.team.right img {
+	content: url(../../../assets/img/ussr-flag.png);
+	float: right;
+	text-align: right;
+}
 
 .credits {
   position: absolute;
+  top: 9vh;
+  left: 0;
   width: 100%;
+	height: 100%;
   font-family: Raleway;
   font-weight: 700;
   text-align: center;

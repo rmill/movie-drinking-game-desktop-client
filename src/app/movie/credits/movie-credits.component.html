@@ -1,15 +1,13 @@
-<div class="credits scroll">
+<div class="credits animated fadeIn">
   <div class="movie-title"></div>
-  <div class="title">Best Duder</div>
-  <div class="name">{{ mostCorrectAnswers.name }} ({{ mostCorrectAnswers.correct_answers }} correct)</div>
-  <div class="title">Worst Duder</div>
-  <div class="name">{{ mostWrongAnswers.name }} ({{ mostWrongAnswers.incorrect_answers }} incorrcet)</div>
-  <div class="title">Where was this Duder</div>
-  <div class="name">{{ mostMissedAnswers.name }} ({{ mostMissedAnswers.missed_answers }} missed)</div>
-  <div class="title">Drunkest Duder</div>
-  <div class="name">{{ mostDrinks.name }} ({{ mostDrinks.drinks }} drinks)</div>
-  <div class="title">Quickest Duder</div>
-  <div class="name">{{ bestAnswerSpeed.name }} ({{ bestAnswerSpeedText }} sec)</div>
-  <div class="title">Longest Streak Duder</div>
-  <div class="name">{{ bestStreak.name }} ({{ bestStreak.best_streak }} in a row)</div>
+  <div class="team left">
+    <span class="team-name">USA</span>
+    <span class="team-score">{{ scores['usa'] }}</span>
+    <img>
+  </div>
+  <div class="team right">
+    <span class="team-name">USSR</span>
+    <span class="team-score">{{ scores['ussr'] }}</span>
+    <img>
+  </div>
 </div>

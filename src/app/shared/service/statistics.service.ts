@@ -21,6 +21,7 @@ export class StatisticsService {
     const drinks = []
     const speed = []
     const streak = []
+    const teamScores = { 'usa': 0, 'ussr': 0 }
 
     for (let player of players) {
       this.addStat(correct, player.correct_answers, player)
@@ -29,6 +30,7 @@ export class StatisticsService {
       this.addStat(missed, player.missed_answers, player)
       this.addStat(speed, Math.floor(player.answer_speed / 100), player)
       this.addStat(streak, player.best_streak, player)
+      teamScores[player.team] += player.correct_answers;
     }
 
     return {
@@ -37,7 +39,8 @@ export class StatisticsService {
       incorrect: this.flattenResults(incorrect).reverse(),
       missed: this.flattenResults(missed).reverse(),
       speed: this.flattenResults(speed),
-      streak: this.flattenResults(streak).reverse()
+      streak: this.flattenResults(streak).reverse(),
+      teamScores
     }
   }
 
