@@ -2,11 +2,11 @@
   <div class="team left animated slideInLeft">
     <span class="team-name">USA</span>
     <span class="team-score">{{ scores['usa'] }}</span>
-    <img>
+    <img [ngClass]="{'glove-animation left': drinksOver}">
   </div>
   <div class="team right animated slideInRight">
     <span class="team-name">USSR</span>
     <span class="team-score">{{ scores['ussr'] }}</span>
-    <img>
+    <img [ngClass]="{'glove-animation right': drinksOver}">
   </div>
 </div>

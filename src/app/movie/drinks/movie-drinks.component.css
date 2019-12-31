@@ -205,3 +205,54 @@ td.correct {
 video {
 	background-color: black;
 }
+
+.glove-aninmation {
+	animation-iteration-count: 1;
+  transform-origin: 50% 50%;
+}
+
+.glove-animation.left {
+	animation: animationFramesLeft ease-in 1s;
+	animation-fill-mode: forwards;
+}
+
+.glove-animation.right {
+	animation: animationFramesRight ease-in 1s;
+	animation-fill-mode: forwards;
+}
+
+@keyframes animationFramesLeft {
+  0% {
+    transform:  translate(0px,0px)  ;
+  }
+  31% {
+    transform:  translate(-35px,0px)  ;
+  }
+  74% {
+    transform:  translate(-35px,0px)  ;
+  }
+  89% {
+    transform:  translate(9vw,0px)  ;
+  }
+  100% {
+    transform:  translate(8vw,0px)  ;
+  }
+}
+
+@keyframes animationFramesRight {
+  0% {
+    transform:  translate(0px,0px)  ;
+  }
+  31% {
+    transform:  translate(35px,0px)  ;
+  }
+  74% {
+    transform:  translate(35px,0px)  ;
+  }
+  89% {
+    transform:  translate(-9vw,0px)  ;
+  }
+  100% {
+    transform:  translate(-8vw,0px)  ;
+  }
+}

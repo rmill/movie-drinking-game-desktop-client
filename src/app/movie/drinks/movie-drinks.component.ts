@@ -18,6 +18,7 @@ export class MovieDrinksComponent {
   protected scoresSub: Subscription;
   protected drinkers: Player[] = [];
   protected scores = {};
+  protected drinksOver: boolean = false;
 
   constructor(
     private animate: AnimateService,
@@ -27,6 +28,7 @@ export class MovieDrinksComponent {
 
   ngOnInit() {
     this.scoresSub = this.statistics.teamScores.subscribe(scores => this.scores = scores)
+    setTimeout(() => this.drinksOver = true, 2000);
   }
 
   ngOnDestroy() {
