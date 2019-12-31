@@ -15,7 +15,9 @@ export class MovieDrinksComponent {
 
   protected exitAnimation: string;
   protected drinksSub: Subscription;
+  protected scoresSub: Subscription;
   protected drinkers: Player[] = [];
+  protected scores = {};
 
   constructor(
     private animate: AnimateService,
@@ -24,34 +26,14 @@ export class MovieDrinksComponent {
   ) {}
 
   ngOnInit() {
-    this.drinksSub = this.statistics.drinkers.subscribe(drinkers => this.drinkers = drinkers)
+    this.scoresSub = this.statistics.teamScores.subscribe(scores => this.scores = scores)
   }
 
   ngOnDestroy() {
-    this.drinksSub.unsubscribe()
+    this.scoresSub.unsubscribe()
   }
 
   fadeOut() {
     this.exitAnimation = 'fadeOut';
-  }
-
-  isSociables() {
-    return this.drinkers.length === 0;
-  }
-
-  getRows() {
-    if (this.drinkers) {
-      const chunkSize = 3;
-      const rows = [];
-
-      for (let i=0; i < this.drinkers.length; i += chunkSize) {
-        const chunk = this.drinkers.slice(i, i + chunkSize);
-        rows.push(chunk);
-      }
-
-      return rows;
-    }
-
-    return null;
   }
 }

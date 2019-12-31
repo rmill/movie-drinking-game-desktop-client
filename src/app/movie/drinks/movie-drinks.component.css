@@ -1,3 +1,38 @@
+.team {
+	font-family: PaytoneOne;
+	font-size: 7vh;
+  width: 39%;
+  -webkit-text-stroke: 4px whitesmoke;
+}
+
+.team img {
+	width: 100%;
+}
+
+.team-score {
+	float: right;
+}
+
+.team.left {
+	float: left;
+}
+
+.team.left img {
+	content: url(../../../assets/img/boxing-glove-usa.png);
+	float: left;
+	text-align: left;
+}
+
+.team.right	 {
+	float: right;
+}
+
+.team.right img {
+	content: url(../../../assets/img/boxing-glove-ussr.png);
+	float: right;
+	text-align: right;
+}
+
 .time-display {
 	position: absolute;
 	color: white;
@@ -11,8 +46,8 @@
 
 .overlay {
   font-family: PaytoneOne;
-  top: 46vh;
-  left: 18vw;
+  top: 32vh;
+	padding: 0% 10%;
   position: absolute;
   z-index: 2147483647;
 }

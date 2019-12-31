@@ -1,15 +1,12 @@
-<div *ngIf="!isSociables()" id="drinks-overlay" class="overlay animated {{ exitAnimation }}">
-  <div class="drinkers">
-    <img class="badge" src="./assets/img/drinks-{{ game.currentQuestion.drink_multiplyer }}.png">
-    <table>
-      <tbody>
-        <tr *ngFor="let row of getRows()">
-          <td *ngFor="let player of row" [innerHTML]="player.name"></td>
-        </tr>
-      </tbody>
-    </table>
+<div id="drinks-overlay" class="overlay animated {{ exitAnimation }}">
+  <div class="team left animated slideInLeft">
+    <span class="team-name">USA</span>
+    <span class="team-score">{{ scores['usa'] }}</span>
+    <img>
   </div>
-</div>
-<div *ngIf="isSociables()" id="sociables-overlay" class="drinks-overlay-container sociables animated flash infinite">
-  <p>SOCIABLES!</p>
+  <div class="team right animated slideInRight">
+    <span class="team-name">USSR</span>
+    <span class="team-score">{{ scores['ussr'] }}</span>
+    <img>
+  </div>
 </div>

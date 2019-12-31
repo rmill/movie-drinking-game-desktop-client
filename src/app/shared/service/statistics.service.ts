@@ -7,9 +7,11 @@ import { Answer, Player, Question } from './game.service';
 export class StatisticsService {
 
   public drinkers: BehaviorSubject<Player[]>
+  public teamScores: BehaviorSubject<any>
 
   constructor() {
     this.drinkers = new BehaviorSubject([])
+    this.teamScores = new BehaviorSubject({})
   }
 
   getResults (players: Player[]) {
@@ -41,14 +43,17 @@ export class StatisticsService {
 
   process (question: Question, answers: any, players: Player[]) {
     let drinkers = [];
+    let teamScores = { 'usa': 0, 'ussr': 0 };
 
     for (let player of players) {
       let answer = answers[player.id];
       let isDrinking = this.updatePlayer(question, answer, player)
       if (isDrinking) drinkers.push(player)
+      else teamScores[player.team]++
     }
 
     this.drinkers.next(drinkers)
+    this.teamScores.next(teamScores)
   }
 
   private addStat(rankings, score, player) {
@@ -109,7 +114,7 @@ export class StatisticsService {
     let answerSpeed = answer ? answer.speed : 10000;
 
     if (!player.answer_speed) player.answer_speed = 0
-    
+
     return player.answer_speed + ((answerSpeed - player.answer_speed) / numQuestions);
   }
 }
