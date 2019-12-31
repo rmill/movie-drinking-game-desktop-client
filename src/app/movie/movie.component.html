@@ -5,6 +5,7 @@
     class="movie"
     autoplay="autoplay"
     [muted]="muteVideo"
+    [volume]="volume"
     [controls]="showControls"
     (click)="toggleControls()"
     (timeupdate)="onTimeUpdate($event.target.currentTime)"

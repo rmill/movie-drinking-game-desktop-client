@@ -3,11 +3,11 @@
   <div class="team left">
     <span class="team-name">USA</span>
     <span class="team-score">{{ scores['usa'] }}</span>
-    <img>
+    <img [ngClass]="{'animated pulse infinite': winningTeam == 'usa'}">
   </div>
   <div class="team right">
     <span class="team-name">USSR</span>
     <span class="team-score">{{ scores['ussr'] }}</span>
-    <img>
+    <img [ngClass]="{'animated pulse infinite': winningTeam == 'ussr'}">
   </div>
 </div>

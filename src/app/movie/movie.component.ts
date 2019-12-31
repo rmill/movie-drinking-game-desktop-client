@@ -17,6 +17,8 @@ export class MovieComponent {
   protected showControls: boolean = false
   protected showTime: boolean
   protected time: number = 0
+  protected volume: number = 1
+  protected fadeOutInterval = null
 
   constructor(private game: GameService) {
     this.muteVideo = process.env.NODE_ENV === 'dev'
@@ -65,6 +67,18 @@ export class MovieComponent {
   }
 
   showCredits() {
-    return this.game.isState(this.game.END_GAME)
+    let showCredits = this.game.isState(this.game.END_GAME)
+
+    if (showCredits && this.volume > 0 && this.fadeOutInterval == null) {
+      this.fadeOutInterval = setInterval(() => this.fadeout(), 100);
+    }
+
+    return showCredits
+  }
+
+  fadeout() {
+    console.log('fadeout', this.volume)
+    this.volume = Math.max(0, this.volume - 0.1);
+    if (this.volume <= 0) clearInterval(this.fadeOutInterval)
   }
 }
