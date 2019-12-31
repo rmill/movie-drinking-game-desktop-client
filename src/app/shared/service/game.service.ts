@@ -100,7 +100,7 @@ export class GameService {
   }
 
   AddPlayerToTeam(player: Player) {
-    let team = Math.random() >= 0.5 ? 'ussr' : 'america'
+    let team = Math.random() >= 0.5 ? 'ussr' : 'usa'
     let icon = team === 'ussr' ? '☭' : '🦅';
     player.team = team
     player.name += ` ${icon}`

@@ -23,7 +23,7 @@ export class MovieQuestionComponent {
 
     let audio = new Audio();
     audio.src = './assets/sounds/boxing-bell.wav';
-    audio.volume = "0.75";
+    audio.volume = 0.75;
     audio.load();
     audio.play();
   }
