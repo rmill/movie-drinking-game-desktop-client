@@ -65,7 +65,6 @@ export class GameService {
     this.questions = {};
 
     for (let question of gameData.questions) {
-      question.drink_multiplyer = this.getDrinkMultiplyer()
       question.duration = question.duration ? question.duration : 15
       this.questions[question.movie_time] = question
     };
@@ -272,13 +271,6 @@ export class GameService {
   isState(state: string) {
     return this.currentState == state;
   }
-
-  getDrinkMultiplyer() {
-    let minMultiplyer = 1;
-    let maxMultiplyer = 3;
-
-    return Math.floor(Math.random() * (maxMultiplyer - minMultiplyer + 1)) + minMultiplyer;
-  }
 }
 
 export interface Player {
@@ -297,7 +289,6 @@ export interface Player {
 export interface Question {
   answers: Array<string>;
   correct_answers: Array<number>;
-  drink_multiplyer: number;
   duration: number;
   movie_time: number;
   start_time?: number;

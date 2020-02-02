@@ -85,7 +85,7 @@ export class StatisticsService {
 
     if (isWrong) {
       player.current_streak = 0;
-      this.increment(player, 'drinks', question.drink_multiplyer);
+      this.increment(player, 'drinks');
     }
 
     player.answer_speed = this.getAnswerSpeed(player, answer)
@@ -109,7 +109,7 @@ export class StatisticsService {
     let answerSpeed = answer ? answer.speed : 10000;
 
     if (!player.answer_speed) player.answer_speed = 0
-    
+
     return player.answer_speed + ((answerSpeed - player.answer_speed) / numQuestions);
   }
 }
