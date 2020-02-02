@@ -49,10 +49,6 @@ export class MovieComponent {
     this.showControls = !this.showControls
   }
 
-  showDrinks() {
-    return this.game.isState(this.game.WAITING_FOR_DRINKS)
-  }
-
   showQuestion() {
     const states = [
       this.game.WAITING_FOR_QUESTION,

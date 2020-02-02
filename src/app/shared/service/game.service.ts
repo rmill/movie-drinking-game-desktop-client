@@ -20,8 +20,6 @@ export class GameService {
   readonly WAITING_FOR_ANSWERS = 'waiting_for_answers';
   readonly SHOW_CORRECT_ANSWER = 'show_correct_answer';
   readonly WAITING_FOR_CORRECT_ANSWER = 'waiting_for_correct_answer';
-  readonly SHOW_DRINKS = 'show_drinks';
-  readonly WAITING_FOR_DRINKS = 'waiting_for_drinks';
   readonly HIDE_QUESTION = 'hide_question';
   readonly WAITING_FOR_END = 'waiting_for_end';
   readonly END_GAME = 'end_game';
@@ -154,12 +152,7 @@ export class GameService {
         this.showCorrectAnswers(); break;
       case this.WAITING_FOR_CORRECT_ANSWER:
         var correctTime = this.currentQuestion.movie_time + this.currentQuestion.duration + 5 + 5;
-        this.waiting(time, correctTime, this.SHOW_DRINKS); break;
-      case this.SHOW_DRINKS:
-        this.showDrinks(); break;
-      case this.WAITING_FOR_DRINKS:
-        var drinksTime = this.currentQuestion.movie_time + this.currentQuestion.duration + 5 + 5 + 5;
-        this.waiting(time, drinksTime, this.HIDE_QUESTION); break;
+        this.waiting(time, correctTime, this.HIDE_QUESTION); break;
       case this.HIDE_QUESTION:
         this.hideQuestion(); break;
       case this.WAITING_FOR_END:
@@ -212,12 +205,6 @@ export class GameService {
       this.data.update('player', player.id, player)
     }
 
-    this.sendState();
-  }
-
-  showDrinks() {
-    console.log('show drinks');
-    this.currentState = this.WAITING_FOR_DRINKS;
     this.sendState();
   }
 
