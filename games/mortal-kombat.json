@@ -6,14 +6,12 @@
       "id": 1,
       "text": "The Mortal Kombat game was first released in...",
       "movie_time": 301,
+      "randomize_answers": false,
       "answers": [
-        "1989",
-        "1992",
-        "1969",
-        "2001"
-      ],
-      "correct_answers": [
-        1
+        {"test": "1989", "is_correct": false},
+        {"test": "1992", "is_correct": true},
+        {"test": "1969", "is_correct": false},
+        {"test": "2001", "is_correct": false}
       ]
     },
     {
@@ -21,13 +19,10 @@
       "text": "What famous director were they just mocking?",
       "movie_time": 639,
       "answers": [
-        "Stanley Kubrick",
-        "Spike Lee",
-        "Steven Spielberg",
-        "M. Night Shamamalyyyeaan"
-      ],
-      "correct_answers": [
-        1
+        {"test": "Stanley Kubrick", "is_correct": false},
+        {"test": "Spike Lee", "is_correct": false},
+        {"test": "Steven Spielberg", "is_correct": true},
+        {"test": "M. Night Shamamalyyyeaan", "is_correct": false}
       ]
     },
     {
@@ -35,13 +30,10 @@
       "text": "Who is this mysterious duder?",
       "movie_time": 863,
       "answers": [
-        "Lord Raiden",
-        "Connor Macleod",
-        "Sub-Zero",
-        "M. Night Shamamalyyyeaan"
-      ],
-      "correct_answers": [
-        0
+        {"test": "Lord Raiden", "is_correct": true},
+        {"test": "Connor Macleod", "is_correct": false},
+        {"test": "Sub-Zero", "is_correct": false},
+        {"test": "M. Night Shamamalyyyeaan", "is_correct": false}
       ]
     },
     {
@@ -49,13 +41,10 @@
       "text": "How do they get to the tournament?",
       "movie_time": 1057,
       "answers": [
-        "On foot",
-        "Nether portal",
-        "Creepy pirate ship",
-        "First class flight"
-      ],
-      "correct_answers": [
-        2
+        {"test": "On foot", "is_correct": false},
+        {"test": "Nether portal", "is_correct": false},
+        {"test": "Creepy pirate ship", "is_correct": true},
+        {"test": "First class flight", "is_correct": false}
       ]
     },
     {
@@ -63,13 +52,10 @@
       "text": "How does Johnny start the tournament?",
       "movie_time": 1568,
       "answers": [
-        "Beats up Liu Kang",
-        "Sunbathing",
-        "Gets wasted",
-        "Drowns in the ocean"
-      ],
-      "correct_answers": [
-        3
+        {"test": "Beats up Liu Kang", "is_correct": false},
+        {"test": "Sunbathing", "is_correct": false},
+        {"test": "Gets wasted", "is_correct": false},
+        {"test": "Drowns in the ocean", "is_correct": true}
       ]
     },
     {
@@ -77,13 +63,10 @@
       "text": "How does Shang Tsung rate that fight?",
       "movie_time": 1911,
       "answers": [
-        "Groovy baby",
-        "Flawless victory",
-        "Exceptional",
-        "Perfect"
-      ],
-      "correct_answers": [
-        1
+        {"test": "Groovy baby", "is_correct": false},
+        {"test": "Flawless victory", "is_correct": true},
+        {"test": "Exceptional", "is_correct": false},
+        {"test": "Perfect", "is_correct": false}
       ]
     },
     {
@@ -91,13 +74,10 @@
       "text": "What klassic character was that supposed to be?",
       "movie_time": 2390,
       "answers": [
-        "The Green Meanie",
-        "Minion",
-        "Stinky Norball",
-        "Reptile"
-      ],
-      "correct_answers": [
-        3
+        {"test": "The Green Meanie", "is_correct": false},
+        {"test": "Minion", "is_correct": false},
+        {"test": "Stinky Norball", "is_correct": false},
+        {"test": "Reptile", "is_correct": true}
       ]
     },
     {
@@ -105,13 +85,10 @@
       "text": "Does Sonya kill Kano?",
       "movie_time": 2959,
       "answers": [
-        "Nah she is a good guy",
-        "Fuck I think she does",
-        "He's just going for a nap",
-        "She doesn't have the balls"
-      ],
-      "correct_answers": [
-        1
+        {"test": "Nah she is a good guy", "is_correct": false},
+        {"test": "Fuck I think she does", "is_correct": true},
+        {"test": "He's just going for a nap", "is_correct": false},
+        {"test": "She doesn't have the balls", "is_correct": false}
       ]
     },
     {
@@ -119,27 +96,22 @@
       "text": "What is odd about Scorpion's face?",
       "movie_time": 3231,
       "answers": [
-        "White pupils",
-        "Bad acne",
-        "Turns yellow when angry",
-        "It is just a skeleton?"
-      ],
-      "correct_answers": [
-        1
+        {"test": "White pupils", "is_correct": true},
+        {"test": "Bad acne", "is_correct": false},
+        {"test": "Turns yellow when angry", "is_correct": false},
+        {"test": "It is just a skeleton?", "is_correct": false}
       ]
     },
     {
       "id": 9,
       "text": "How many people did it take to puppeteer Goro?",
       "movie_time": 3703,
+      "randomize_answers": false,
       "answers": [
-        "4",
-        "8",
-        "16",
-        "Just M. Night Shamamalyyyeaan"
-      ],
-      "correct_answers": [
-        2
+        {"test": "4", "is_correct": false},
+        {"test": "8", "is_correct": false},
+        {"test": "16", "is_correct": true},
+        {"test": "Just M. Night Shamamalyyyeaan", "is_correct": false}
       ]
     },
     {
@@ -147,13 +119,10 @@
       "text": "What low blow does Johnny use to get the upper hand?",
       "movie_time": 4258,
       "answers": [
-        "Fireball",
-        "Kiss right on the mouth",
-        "Ball punch",
-        "Insults Goro's mother"
-      ],
-      "correct_answers": [
-        2
+        {"test": "Fireball", "is_correct": false},
+        {"test": "Kiss right on the mouth", "is_correct": false},
+        {"test": "Ball punch", "is_correct": true},
+        {"test": "Insults Goro's mother", "is_correct": false}
       ]
     },
     {
@@ -161,13 +130,10 @@
       "text": "Which is true about the soundtrack?",
       "movie_time": 5070,
       "answers": [
-        "Went platinum in two weeks",
-        "Features The Prodigy",
-        "Contains no drums",
-        "Was recorded in Alaska"
-      ],
-      "correct_answers": [
-        0
+        {"test": "Went platinum in two weeks", "is_correct": true},
+        {"test": "Features The Prodigy", "is_correct": false},
+        {"test": "Contains no drums", "is_correct": false},
+        {"test": "Was recorded in Alaska", "is_correct": false}
       ]
     },
     {
@@ -175,15 +141,10 @@
       "text": "What do all bad guys with weapons do?",
       "movie_time": 5199,
       "answers": [
-        "Attack one at a time",
-        "Swing it around like an idiot",
-        "Give up way too easily",
-        "Kiss and tell"
-      ],
-      "correct_answers": [
-        0,
-        1,
-        2
+        {"test": "Attack one at a time", "is_correct": true},
+        {"test": "Swing it around like an idiot", "is_correct": true},
+        {"test": "Give up way too easily", "is_correct": true},
+        {"test": "Kiss and tell", "is_correct": true}
       ]
     }
   ],

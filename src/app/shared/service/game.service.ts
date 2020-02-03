@@ -66,6 +66,14 @@ export class GameService {
 
     for (let question of gameData.questions) {
       question.duration = question.duration ? question.duration : 15
+
+      if (
+        question.shuffle_answers === undefined ||
+        question.shuffle_answers
+      ) {
+        this.shuffle(question);
+      }
+
       this.questions[question.movie_time] = question
     };
 
@@ -80,6 +88,18 @@ export class GameService {
     this.data.create('game', this.id, game)
     this.data.bind('player', null, 'child_added', player => this.addPlayer(player))
     this.data.bind('answer', null, 'child_added', answer => this.answer(answer))
+  }
+
+  /**
+   * Shuffles array in place. ES6 version
+   * @param {Array} a items An array containing the items.
+   */
+  shuffle(a) {
+      for (let i = a.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [a[i], a[j]] = [a[j], a[i]];
+      }
+      return a;
   }
 
   addPlayer(player: Player) {
@@ -113,8 +133,14 @@ export class GameService {
   }
 
   sendState() {
+    let answers = null;
+
+    if (this.currentQuestion) {
+      answers = this.currentQuestion.answers.map(a => a.text);
+    }
+
     let state = {
-      answers: this.currentQuestion ? this.currentQuestion.answers : null,
+      answers,
       question: this.currentQuestion,
       rules: this.rules,
       seconds_to_next_question: this.secondsTillNextQuestion(),
@@ -287,8 +313,7 @@ export interface Player {
 }
 
 export interface Question {
-  answers: Array<string>;
-  correct_answers: Array<number>;
+  answers: Array<any>;
   duration: number;
   movie_time: number;
   start_time?: number;

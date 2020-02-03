@@ -6,147 +6,112 @@
       "text": "Which of these is NOT a Rocky villain?",
       "movie_time": 123,
       "answers": [
-        "Clubber Lang",
-        "Piston Honda",
-        "Apollo Creed",
-        "Tommy Gun"
-      ],
-      "correct_answers": [
-        1
+        {"text": "Clubber Lang", "is_correct": false},
+        {"text": "Piston Honda", "is_correct": true},
+        {"text": "Apollo Creed", "is_correct": false},
+        {"text": "Tommy Gun", "is_correct": false}
       ]
     },
     {
       "text": "What does Paulie get for his birthday?",
       "movie_time": 280,
       "answers": [
-        "Butler robot",
-        "Gold plated cigar",
-        "A grouchier attitude",
-        "A cameo in Rocky V"
-      ],
-      "correct_answers": [
-        0,
-        3
+        {"text": "Butler robot", "is_correct": true},
+        {"text": "Gold plated cigar", "is_correct": false},
+        {"text": "A grouchier attitude", "is_correct": false},
+        {"text": "A cameo in Rocky V", "is_correct": true}
       ]
     },
     {
       "text": "How many adorable pups was Apollo playing with in his pool?",
       "movie_time": 609,
+      "randomize_answers": false,
       "answers": [
-        "1",
-        "2",
-        "3",
-        "42"
-      ],
-      "correct_answers": [
-        2
+        {"text": "1", "is_correct": false},
+        {"text": "2", "is_correct": false},
+        {"text": "3", "is_correct": true},
+        {"text": "42", "is_correct": false}
       ]
     },
     {
       "text": "What athletic brand sponsors Drago?",
       "movie_time": 762,
       "answers": [
-        "Nike",
-        "присоска",
-        "Chanel",
-        "Adidas"
-      ],
-      "correct_answers": [
-        3
+        {"text": "Nike", "is_correct": false},
+        {"text": "присоска", "is_correct": false},
+        {"text": "Chanel", "is_correct": false},
+        {"text": "Adidas", "is_correct": true}
       ]
     },
     {
       "text": "Which musical act opens for Apollo Creed?",
       "movie_time": 1400,
       "answers": [
-        "Rick James",
-        "James Brown",
-        "Chris Brown",
-        "James Bond"
-      ],
-      "correct_answers": [
-        1
+        {"text": "Rick James", "is_correct": false},
+        {"text": "James Brown", "is_correct": true},
+        {"text": "Chris Brown", "is_correct": false},
+        {"text": "James Bond", "is_correct": false}
       ]
     },
     {
       "text": "How does the fight go?",
       "movie_time": 1722,
       "answers": [
-        "Drago KILLS it",
-        "It's a BLOODBATH",
-        "Apollo definitely doesn't DIE",
-        "America comes DEAD last"
-      ],
-      "correct_answers": [
-        0,
-        1,
-        3
+        {"text": "Drago KILLS it", "is_correct": true},
+        {"text": "It's a BLOODBATH", "is_correct": true},
+        {"text": "Apollo definitely doesn't DIE", "is_correct": false},
+        {"text": "America comes DEAD last", "is_correct": true}
       ]
     },
     {
       "text": "Rocky IV has the most ever of what in a film?",
       "movie_time": 2514,
       "answers": [
-        "Montages",
-        "Butler robots",
-        "Boxing shorts",
-        "Bad accents"
-      ],
-      "correct_answers": [
-        0
+        {"text": "Montages", "is_correct": true},
+        {"text": "Butler robots", "is_correct": false},
+        {"text": "Boxing shorts", "is_correct": false},
+        {"text": "Bad accents", "is_correct": false}
       ]
     },
     {
       "text": "What does Rocky's son grow up to be?",
-      "movie_time": 2881,
+      "movie_time ": 2881,
       "answers": [
-        "Fried chicken mascot",
-        "Dog food tester (and loves it)",
-        "A filthy accountant",
-        "Smelly paint store manager"
-      ],
-      "correct_answers": [
-        2
+        {"text": "Fried chicken mascot", "is_correct": false},
+        {"text": "Dog food tester (and loves it)", "is_correct": false},
+        {"text": "A filthy accountant", "is_correct": true},
+        {"text": "Smelly paint store manager", "is_correct": false}
       ]
     },
     {
       "text": "What does Rocky possess that Drago could never?",
       "movie_time": 3507,
       "answers": [
-        "An American education",
-        "True love",
-        "Brain damage",
-        "Butler robots"
-      ],
-      "correct_answers": [
-        1,
-        3
+        {"text": "An American education", "is_correct": false},
+        {"text": "True love", "is_correct": true},
+        {"text": "Brain damage", "is_correct": false},
+        {"text": "Butler robots", "is_correct": true}
       ]
     },
     {
       "text": "What was the name of the Soviet Union's anthem?",
       "movie_time": 4128,
       "answers": [
-        "Oh Communism",
-        "Unite! Workers of the Motherland",
-        "State Anthem of the Soviet Union",
-        "Super Freak"
-      ],
-      "correct_answers": [
-        2
+        {"text": "Oh Communism", "is_correct": false},
+        {"text": "Unite! Workers of the Motherland", "is_correct": false},
+        {"text": "State Anthem of the Soviet Union", "is_correct": true},
+        {"text": "Super Freak", "is_correct": false}
       ]
     },
     {
       "text": "How many lines of dialogue does Drago have in this film?",
       "movie_time": 4888,
+      "randomize_answers": false,
       "answers": [
-        "0 (Russian is a made up language)",
-        "9",
-        "16",
-        "35"
-      ],
-      "correct_answers": [
-        1
+        {"text": "0 (Russian is a made up language)", "is_correct": false},
+        {"text": "9", "is_correct": true},
+        {"text": "16", "is_correct": false},
+        {"text": "35", "is_correct": false}
       ]
     }
   ],

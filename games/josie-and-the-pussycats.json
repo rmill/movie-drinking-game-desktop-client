@@ -7,13 +7,10 @@
       "text": "Dujour is parodying what best music video of all time?",
       "movie_time": 136,
       "answers": [
-        "Hit Me Baby One More Time",
-        "How to Wear Toques in 40 Degree Weather",
-        "I Want it That Way",
-        "Fergilicious"
-      ],
-      "correct_answers": [
-        2
+        {"text": "Hit Me Baby One More Time", "is_correct": false},
+        {"text": "How to Wear Toques in 40 Degree Weather", "is_correct": false},
+        {"text": "I Want it That Way", "is_correct": true},
+        {"text": "Fergilicious", "is_correct": false}
       ]
     },
     {
@@ -21,13 +18,10 @@
       "text": "How does Melody (Tara Reid) stop traffic?",
       "movie_time": 496,
       "answers": [
-        "Saving a bunch of kitty cats",
-        "Trampoline Montage",
-        "Gets distracted by flowers",
-        "Sign advertising, 'Pussy...'"
-      ],
-      "correct_answers": [
-        3
+        {"text": "Saving a bunch of kitty cats", "is_correct": false},
+        {"text": "Trampoline Montage", "is_correct": false},
+        {"text": "Gets distracted by flowers", "is_correct": false},
+        {"text": "Sign advertising, 'Pussy...'", "is_correct": true}
       ]
     },
     {
@@ -35,13 +29,10 @@
       "text": "What is wrong with this dude?",
       "movie_time": 821,
       "answers": [
-        "Suede and Sandals",
-        "Thinks he's Bob Dylan",
-        "Blonde teenage soul patch",
-        "Literally talking about B.O."
-      ],
-      "correct_answers": [
-        0,1,2,3
+        {"text": "Suede and Sandals", "is_correct": true},
+        {"text": "Thinks he's Bob Dylan", "is_correct": true},
+        {"text": "Blonde teenage soul patch", "is_correct": true},
+        {"text": "Literally talking about B.O.", "is_correct": true}
       ]
     },
     {
@@ -49,13 +40,10 @@
       "text": "Orange is the new hot. What was in fashion before that?",
       "movie_time": 1300,
       "answers": [
-        "Suede and sandals",
-        "Pink",
-        "Ironic band T's",
-        "Corporate greed"
-      ],
-      "correct_answers": [
-        1
+        {"text": "Suede and sandals", "is_correct": false},
+        {"text": "Pink", "is_correct": true},
+        {"text": "Ironic band T's", "is_correct": false},
+        {"text": "Corporate greed", "is_correct": false}
       ]
     },
     {
@@ -63,13 +51,10 @@
       "text": "Which of these have never been an Archie crossover?",
       "movie_time": 1560,
       "answers": [
-        "Barack Obama",
-        "The Punisher",
-        "Gordon Ramsay",
-        "The Predator"
-      ],
-      "correct_answers": [
-        2
+        {"text": "Barack Obama", "is_correct": false},
+        {"text": "The Punisher", "is_correct": false},
+        {"text": "Gordon Ramsay", "is_correct": true},
+        {"text": "The Predator", "is_correct": false}
       ]
     },
     {
@@ -77,13 +62,10 @@
       "text": "Which movie was Euegene Levy NOT in?",
       "movie_time": 2013,
       "answers": [
-        "American Pie 2",
-        "American Pie: Band Camp",
-        "American Pie: Beta House",
-        "American Pie: Book of Love"
-      ],
-      "correct_answers": [
-        2
+        {"text": "American Pie 2", "is_correct": false},
+        {"text": "American Pie: Band Camp", "is_correct": false},
+        {"text": "American Pie: Beta House", "is_correct": true},
+        {"text": "American Pie: Book of Love", "is_correct": false}
       ]
     },
     {
@@ -91,13 +73,10 @@
       "text": "What song did the Pussycats beat for #1 on the charts?",
       "movie_time": 2453,
       "answers": [
-        "Get Your Model On",
-        "New Sneaker Blues",
-        "Condiments of Love",
-        "Mall as Large as Your Heart"
-      ],
-      "correct_answers": [
-        0
+        {"text": "Get Your Model On", "is_correct": true},
+        {"text": "New Sneaker Blues", "is_correct": false},
+        {"text": "Condiments of Love", "is_correct": false},
+        {"text": "Mall as Large as Your Heart", "is_correct": false}
       ]
     },
     {
@@ -105,13 +84,10 @@
       "text": "Ow god this jerk again? Why does he SUCK SO MUCH?",
       "movie_time": 2882,
       "answers": [
-        "Brought Pizza Hut on a date",
-        "He's just to feakin' tall",
-        "Puppy dog eyes.....really?",
-        "Is that guitar grafted to his back?"
-      ],
-      "correct_answers": [
-        1,2,3
+        {"text": "Brought Pizza Hut on a date", "is_correct": false},
+        {"text": "He's just to feakin' tall", "is_correct": true},
+        {"text": "Puppy dog eyes.....really?", "is_correct": true},
+        {"text": "Is that guitar grafted to his back?", "is_correct": true}
       ]
     },
     {
@@ -119,13 +95,10 @@
       "text": "What does TRL stand for?",
       "movie_time": 3511,
       "answers": [
-        "Totally Rad Lemons",
-        "Total Request Live",
-        "Tired Ryan Lying",
-        "Toss Red Lettuce"
-      ],
-      "correct_answers": [
-        1
+        {"text": "Totally Rad Lemons", "is_correct": false},
+        {"text": "Total Request Live", "is_correct": true},
+        {"text": "Tired Ryan Lying", "is_correct": false},
+        {"text": "Toss Red Lettuce", "is_correct": false}
       ]
     },
     {
@@ -133,13 +106,10 @@
       "text": "Which cutout was not in the last scene?",
       "movie_time": 3934,
       "answers": [
-        "Ricky Martin",
-        "Gwen Stefani",
-        "Matt Damon",
-        "Justin Timberlake"
-      ],
-      "correct_answers": [
-        3
+        {"text": "Ricky Martin", "is_correct": false},
+        {"text": "Gwen Stefani", "is_correct": false},
+        {"text": "Matt Damon", "is_correct": false},
+        {"text": "Justin Timberlake", "is_correct": true}
       ]
     },
     {
@@ -147,13 +117,10 @@
       "text": "What was the first subliminal message ever used in 1957?",
       "movie_time": 4240,
       "answers": [
-        "Eat Popcorn",
-        "Vote Republican",
-        "Fear Satan",
-        "Chris Angel is a lie"
-      ],
-      "correct_answers": [
-        0
+        {"text": "Eat Popcorn", "is_correct": true},
+        {"text": "Vote Republican", "is_correct": false},
+        {"text": "Fear Satan", "is_correct": false},
+        {"text": "Chris Angel is a lie", "is_correct": false}
       ]
     },
     {
@@ -161,13 +128,10 @@
       "text": "Who will come to save Josie?",
       "movie_time": 4741,
       "answers": [
-        "Archie",
-        "The delicious flavor of Pepsi Cola",
-        "Dujour",
-        "Snoopie"
-      ],
-      "correct_answers": [
-        2
+        {"text": "Archie", "is_correct": false},
+        {"text": "The delicious flavor of Pepsi Cola", "is_correct": false},
+        {"text": "Dujour", "is_correct": true},
+        {"text": "Snoopie", "is_correct": false}
       ]
     },
     {
@@ -175,13 +139,10 @@
       "text": "Okay f*ck this f*cking dude",
       "movie_time": 5510,
       "answers": [
-        "God I hate him",
-        "I'm going home",
-        "That was so awkward",
-        "Remeber to tip your bar staff"
-      ],
-      "correct_answers": [
-        0,1,2,3
+        {"text": "God I hate him", "is_correct": true},
+        {"text": "I'm going home", "is_correct": true},
+        {"text": "That was so awkward", "is_correct": true},
+        {"text": "Remeber to tip your bar staff", "is_correct": true}
       ]
     }
   ],

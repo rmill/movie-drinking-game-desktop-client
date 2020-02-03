@@ -4,7 +4,7 @@
       <img class="question">
     </div>
     <div id="question-container">
-      <div class="question-text">{{ game.currentQuestion.text }}</div>
+      <div class="question-text">{{ question.text }}</div>
       <div class="timer timer-background"></div>
       <div class="timer timer-foreground" [style.width]="timerWidth"></div>
     </div>
@@ -13,21 +13,21 @@
     <tr>
       <td class="answer" [class.correct]="isCorrect(0)">
         <div class="answer-letter">A.</div>
-        <div>{{ question.answers[0] }}</div>
+        <div>{{ question.answers[0].text }}</div>
       </td>
       <td class="answer" [class.correct]="isCorrect(1)">
         <div class="answer-letter">B.</div>
-        <div>{{ question.answers[1] }}</div>
+        <div>{{ question.answers[1].text }}</div>
       </td>
     </tr>
     <tr>
       <td class="answer" [class.correct]="isCorrect(2)">
         <div class="answer-letter">C.</div>
-        <div>{{ question.answers[2] }}</div>
+        <div>{{ question.answers[2].text }}</div>
       </td>
       <td class="answer" [class.correct]="isCorrect(3)">
         <div class="answer-letter">D.</div>
-        <div>{{ question.answers[3] }}</div>
+        <div>{{ question.answers[3].text }}</div>
       </td>
     </tr>
   </table>

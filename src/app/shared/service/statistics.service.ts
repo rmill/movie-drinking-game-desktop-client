@@ -66,11 +66,13 @@ export class StatisticsService {
     return flattenedResults
   }
 
-  private updatePlayer(question, answer, player) {
+  private updatePlayer(question, answer_index, player) {
     let isWrong = false;
 
-    if (answer) {
-      if (question.correct_answers.indexOf(answer.answer) >= 0) {
+    if (answer_index) {
+      let answer = question.answers[answer_index];
+
+      if (answer && answer.is_correct) {
         this.increment(player, 'correct_answers');
         this.increment(player, 'current_streak');
         player.best_streak = this.max(player.current_streak, player.best_streak)
@@ -88,7 +90,7 @@ export class StatisticsService {
       this.increment(player, 'drinks');
     }
 
-    player.answer_speed = this.getAnswerSpeed(player, answer)
+    player.answer_speed = this.getAnswerSpeed(player, answer_index)
 
     return isWrong
   }
