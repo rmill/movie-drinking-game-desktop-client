@@ -1,8 +1,8 @@
 {
 	"name": "Commando",
 	"end_time": 5230,
-	"questions": [{
-			"id": 1,
+	"questions": [
+		{
 			"text": "What does Cooke like best about the Cadallac?",
 			"movie_time": 154,
 			"answers": [
@@ -13,7 +13,6 @@
 			]
 		},
 		{
-			"id": 2,
 			"text": "What video game character is the General named after?",
 			"movie_time": 560,
 			"answers": [
@@ -24,7 +23,6 @@
 			]
 		},
 		{
-			"id": 3,
 			"text": "What day is it today?",
 			"movie_time": 969,
 			"answers": [
@@ -35,7 +33,6 @@
 			]
 		},
 		{
-			"id": 4,
 			"text": "John will infact kill Sully.....",
 			"movie_time": 1244,
 			"answers": [
@@ -46,7 +43,6 @@
 			]
 		},
 		{
-			"id": 5,
 			"text": "What is waiting behind the cargo door?",
 			"movie_time": 1380,
 			"answers": [
@@ -57,7 +53,6 @@
 			]
 		},
 		{
-			"id": 6,
 			"text": "What movie does not use the fake country of Val Verde as a setting?",
 			"movie_time": 1687,
 			"answers": [
@@ -68,7 +63,6 @@
 			]
 		},
 		{
-			"id": 7,
 			"text": "Jenny has a bright future ahead of her. What will she go on to do after this movie?",
 			"movie_time": 2040,
 			"answers": [
@@ -79,7 +73,6 @@
 			]
 		},
 		{
-			"id": 8,
 			"text": "What does John do with Sully?",
 			"movie_time": 2378,
 			"answers": [
@@ -90,7 +83,6 @@
 			]
 		},
 		{
-			"id": 9,
 			"text": "What does John eat when hes hungry?",
 			"movie_time": 2895,
 			"answers": [
@@ -101,7 +93,6 @@
 			]
 		},
 		{
-			"id": 10,
 			"text": "Before a trip John likes to...",
 			"movie_time": 3178,
 			"answers": [
@@ -112,7 +103,6 @@
 			]
 		},
 		{
-			"id": 11,
 			"text": "After being called a whore, a hooker and kidnapped it clearly is not her day. What is her name?",
 			"movie_time": 3575,
 			"answers": [
@@ -123,7 +113,6 @@
 			]
 		},
 		{
-			"id": 12,
 			"text": "Which other Actor/Actress will not appear in another movie with Arnold?",
 			"movie_time": 3863,
 			"answers": [
@@ -134,7 +123,6 @@
 			]
 		},
 		{
-			"id": 13,
 			"text": "All hell is about to break loose and your about to take 73 drinks. GO get refills!!",
 			"movie_time": 4062,
 			"answers": [
@@ -145,7 +133,6 @@
 			]
 		},
 		{
-			"id": 14,
 			"text": "How will John finish of Bennet?",
 			"movie_time": 4877,
 			"answers": [

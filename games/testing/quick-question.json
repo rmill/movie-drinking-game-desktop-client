@@ -1,9 +1,8 @@
 {
-  "name": "",
+  "name": "Quick Question Test",
   "end_time": 99999999,
   "questions": [
     {
-      "id": 1,
       "text": "The little colored gremlin dudes in the last scene are a reference too?",
       "movie_time": 3,
       "answers": [

@@ -3,7 +3,6 @@
   "end_time": 5744,
   "questions": [
     {
-      "id": 1,
       "text": "The Mortal Kombat game was first released in...",
       "movie_time": 301,
       "randomize_answers": false,
@@ -15,7 +14,6 @@
       ]
     },
     {
-      "id": 2,
       "text": "What famous director were they just mocking?",
       "movie_time": 639,
       "answers": [
@@ -26,7 +24,6 @@
       ]
     },
     {
-      "id": 3,
       "text": "Who is this mysterious duder?",
       "movie_time": 863,
       "answers": [
@@ -37,7 +34,6 @@
       ]
     },
     {
-      "id": 4,
       "text": "How do they get to the tournament?",
       "movie_time": 1057,
       "answers": [
@@ -48,7 +44,6 @@
       ]
     },
     {
-      "id": 5,
       "text": "How does Johnny start the tournament?",
       "movie_time": 1568,
       "answers": [
@@ -59,7 +54,6 @@
       ]
     },
     {
-      "id": 6,
       "text": "How does Shang Tsung rate that fight?",
       "movie_time": 1911,
       "answers": [
@@ -70,7 +64,6 @@
       ]
     },
     {
-      "id": 7,
       "text": "What klassic character was that supposed to be?",
       "movie_time": 2390,
       "answers": [
@@ -81,7 +74,6 @@
       ]
     },
     {
-      "id": 8,
       "text": "Does Sonya kill Kano?",
       "movie_time": 2959,
       "answers": [
@@ -92,7 +84,6 @@
       ]
     },
     {
-      "id": 9,
       "text": "What is odd about Scorpion's face?",
       "movie_time": 3231,
       "answers": [
@@ -103,7 +94,6 @@
       ]
     },
     {
-      "id": 9,
       "text": "How many people did it take to puppeteer Goro?",
       "movie_time": 3703,
       "randomize_answers": false,
@@ -115,7 +105,6 @@
       ]
     },
     {
-      "id": 9,
       "text": "What low blow does Johnny use to get the upper hand?",
       "movie_time": 4258,
       "answers": [
@@ -126,7 +115,6 @@
       ]
     },
     {
-      "id": 1,
       "text": "Which is true about the soundtrack?",
       "movie_time": 5070,
       "answers": [
@@ -137,7 +125,6 @@
       ]
     },
     {
-      "id": 6,
       "text": "What do all bad guys with weapons do?",
       "movie_time": 5199,
       "answers": [
