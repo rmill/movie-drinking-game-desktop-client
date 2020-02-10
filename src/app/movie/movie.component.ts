@@ -10,7 +10,7 @@ import { GameService } from '../shared/service/game.service'
   styleUrls: ['./movie.component.css']
 })
 export class MovieComponent {
-  @ViewChild('question') question: MovieQuestionComponent
+  @ViewChild('question', { static: false }) question: MovieQuestionComponent
 
   protected movieFilePath: SafeUrl
   protected muteVideo: boolean
