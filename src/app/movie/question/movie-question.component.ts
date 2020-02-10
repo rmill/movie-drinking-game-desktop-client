@@ -53,16 +53,17 @@ export class MovieQuestionComponent {
     return Math.max(100 - timerPercent, 0) + '%';
   }
 
-  isCorrect(answer: number) {
+  isCorrect(answer_index: number) {
     const states = [
       this.game.SHOW_CORRECT_ANSWER,
       this.game.WAITING_FOR_CORRECT_ANSWER
     ];
 
     if (states.includes(this.game.currentState)) {
-      return this.game.currentQuestion.correct_answers.includes(answer);
+      let answer = this.game.currentQuestion.answers[answer_index];
+      return answer && answer.is_correct;
     }
-    
+
     return false;
   }
 }

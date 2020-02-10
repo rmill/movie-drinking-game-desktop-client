@@ -3,163 +3,115 @@
   "end_time": 5174,
   "questions": [
     {
-      "id": 1,
       "text": "The little colored gremlin dudes in the last scene are a reference too?",
       "movie_time": 153,
       "answers": [
-        "The Mighty Leprechauns",
-        "The Superhuman Samurai Kids",
-        "The Teenage Mutant Ninja Turtles",
-        "The Power Rangers"
-      ],
-      "correct_answers": [
-        3
+        {"text": "The Mighty Leprechauns", "is_correct": false},
+        {"text": "The Superhuman Samurai Kids", "is_correct": false},
+        {"text": "The Teenage Mutant Ninja Turtles", "is_correct": false},
+        {"text": "The Power Rangers", "is_correct": true}
       ]
     },
     {
-      "id": 2,
       "text": "What belt color did Jaime just achieve in that made up martial art?",
       "movie_time": 584,
       "answers": [
-        "Green",
-        "Purple",
-        "Yellow",
-        "I want to punch that nerd right in the face"
-      ],
-      "correct_answers": [
-        1,
-        3
+        {"text": "Green", "is_correct": false},
+        {"text": "Purple", "is_correct": true},
+        {"text": "Yellow", "is_correct": false},
+        {"text": "I want to punch that nerd right in the face", "is_correct": true}
       ]
     },
     {
-      "id": 3,
       "text": "Which other neglectful father is Arnie's nemesis?",
       "movie_time": 993,
       "answers": [
-        "Chris Rock",
-        "Donald Trump",
-        "Sinbad",
-        "Bryce's Mom"
-      ],
-      "correct_answers": [
-        2
+        {"text": "Chris Rock", "is_correct": false},
+        {"text": "Donald Trump", "is_correct": false},
+        {"text": "Sinbad", "is_correct": true},
+        {"text": "Bryce's Mom", "is_correct": false}
       ]
     },
     {
-      "id": 4,
       "text": "How many times has Arnold Schwarzenegger been Mr. Universe?",
       "movie_time": 1400,
+      "randomize_answers": false,
       "answers": [
-        "7",
-        "1",
-        "3",
-        "He will always be Mr. Universe in my heart"
-      ],
-      "correct_answers": [
-        0
+        {"text": "7", "is_correct": true},
+        {"text": "1", "is_correct": false},
+        {"text": "3", "is_correct": false},
+        {"text": "He will always be Mr. Universe in my heart", "is_correct": false}
       ]
     },
     {
-      "id": 5,
       "text": "'Cookies' is a euphemism for what?",
       "movie_time": 1566,
       "answers": [
-        "S E X (you fricken perverts)",
-        "Definitely not sex",
-        "I refuse to believe it is sex",
-        "Golden baked flour and eggs"
-      ],
-      "correct_answers": [
-        1,
-        2,
-        3
+        {"text": "S E X (you fricken perverts)", "is_correct": false},
+        {"text": "Definitely not sex", "is_correct": true},
+        {"text": "I refuse to believe it is sex", "is_correct": true},
+        {"text": "Golden baked flour and eggs", "is_correct": true}
       ]
     },
     {
-      "id": 6,
       "text": "What is the current Black Friday death count?",
       "movie_time": 1785,
+      "randomize_answers": false,
       "answers": [
-        "3 deaths, 400 injured",
-        "12 deaths, 117 injured",
-        "40 deaths, 300 injured",
-        "69 deaths, 666 injured"
-      ],
-      "correct_answers": [
-        1
+        {"text": "3 deaths, 400 injured", "is_correct": false},
+        {"text": "12 deaths, 117 injured", "is_correct": true},
+        {"text": "40 deaths, 300 injured", "is_correct": false},
+        {"text": "69 deaths, 666 injured", "is_correct": false}
       ]
     },
     {
-      "id": 7,
       "text": "Who was not a Santa in the last scene?",
       "movie_time": 2539,
       "answers": [
-        "WWE's The Big Show",
-        "Verne Troyer (Mini-Me)",
-        "Jim Belushi (SNL)",
-        "Jeff Goldbloom (Jurassic Park)"
-      ],
-      "correct_answers": [
-        3
+        {"text": "WWE's The Big Show", "is_correct": false},
+        {"text": "Verne Troyer (Mini-Me)", "is_correct": false},
+        {"text": "Jim Belushi (SNL)", "is_correct": false},
+        {"text": "Jeff Goldbloom (Jurassic Park)", "is_correct": true}
       ]
     },
     {
-      "id": 8,
       "text": "What does Arnie see in his Christmas future?",
       "movie_time": 2894,
       "answers": [
-        "Child alcoholism",
-        "A nice golden Oscar",
-        "A ton of bad Terminator sequals",
-        "The death of Turbo Man"
-      ],
-      "correct_answers": [
-        0
+        {"text": "Child alcoholism", "is_correct": true},
+        {"text": "A nice golden Oscar", "is_correct": false},
+        {"text": "A ton of bad Terminator sequals", "is_correct": false},
+        {"text": "The death of Turbo Man", "is_correct": false}
       ]
     },
     {
-      "id": 9,
       "text": "What is actually in the package?",
       "movie_time": 3323,
       "answers": [
-        "Christmas cookies",
-        "Vibrator",
-        "A MOTHER F*CKING BOMB",
-        "The new Backstreet Boys album"
-      ],
-      "correct_answers": [
-        2
+        {"text": "Christmas cookies", "is_correct": false},
+        {"text": "Vibrator", "is_correct": false},
+        {"text": "A MOTHER F*CKING BOMB", "is_correct": true},
+        {"text": "The new Backstreet Boys album", "is_correct": false}
       ]
     },
     {
-      "id": 10,
       "text": "What animal has Arnie NOT punched in a movie?",
       "movie_time": 3726,
       "answers": [
-        "Camel",
-        "Shark",
-        "Horse",
-        "Reindeer"
-      ],
-      "correct_answers": [
-        1
+        {"text": "Camel", "is_correct": false},
+        {"text": "Shark", "is_correct": true},
+        {"text": "Horse", "is_correct": false},
+        {"text": "Reindeer", "is_correct": false}
       ]
     },
     {
-      "id": 11,
       "text": "What kind of sick, disgusting manipulation does Ted use?",
       "movie_time": 4100,
       "answers": [
-        "Gaslighting",
-        "Physical intimidation",
-        "Subtle competition",
-        "F*ck this dude"
-      ],
-      "correct_answers": [
-        0,
-        1,
-        2,
-        3
+        {"text": "Gaslighting", "is_correct": true},
+        {"text": "Physical intimidation", "is_correct": true},
+        {"text": "Subtle competition", "is_correct": true},
+        {"text": "F*ck this dude", "is_correct": true}
       ]
     }
   ],

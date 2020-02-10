@@ -66,11 +66,13 @@ export class StatisticsService {
     return flattenedResults
   }
 
-  private updatePlayer(question, answer, player) {
+  private updatePlayer(question, answer_index, player) {
     let isWrong = false;
 
-    if (answer) {
-      if (question.correct_answers.indexOf(answer.answer) >= 0) {
+    if (answer_index) {
+      let answer = question.answers[answer_index];
+
+      if (answer && answer.is_correct) {
         this.increment(player, 'correct_answers');
         this.increment(player, 'current_streak');
         player.best_streak = this.max(player.current_streak, player.best_streak)
@@ -85,10 +87,10 @@ export class StatisticsService {
 
     if (isWrong) {
       player.current_streak = 0;
-      this.increment(player, 'drinks', question.drink_multiplyer);
+      this.increment(player, 'drinks');
     }
 
-    player.answer_speed = this.getAnswerSpeed(player, answer)
+    player.answer_speed = this.getAnswerSpeed(player, answer_index)
 
     return isWrong
   }
@@ -109,7 +111,7 @@ export class StatisticsService {
     let answerSpeed = answer ? answer.speed : 10000;
 
     if (!player.answer_speed) player.answer_speed = 0
-    
+
     return player.answer_speed + ((answerSpeed - player.answer_speed) / numQuestions);
   }
 }

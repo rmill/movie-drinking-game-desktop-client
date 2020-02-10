@@ -3,259 +3,184 @@
   "end_time": 8913,
   "questions": [
     {
-      "id": 1,
       "text": "What year did Skynet launch Judgement Day?",
       "movie_time": 336,
       "answers": [
-        "2029",
-        "1969",
-        "1997",
-        "1984"
-      ],
-      "correct_answers": [
-        2
+        {"text": "2029", "is_correct": false},
+        {"text": "1969", "is_correct": false},
+        {"text": "1997", "is_correct": true},
+        {"text": "1984", "is_correct": false}
       ]
     },
     {
-      "id": 2,
       "text": "What is Todd's most defining quality",
       "movie_time": 816,
       "answers": [
-        "Looks great in Baseball-Tees",
-        "Fantastic magician",
-        "Solid emotional support",
-        "is a REAL piece of sh*t"
-      ],
-      "correct_answers": [
-        3
+        {"text": "Looks great in Baseball-Tees", "is_correct": false},
+        {"text": "Fantastic magician", "is_correct": false},
+        {"text": "Solid emotional support", "is_correct": false},
+        {"text": "Is a REAL piece of sh*t", "is_correct": true}
       ]
     },
     {
-      "id": 3,
       "text": "What is the name of Sarah's ghost boyfriend?",
       "movie_time": 1148,
       "answers": [
-        "Miles Dyson",
-        "Kyle Reese",
-        "Alex Murphy",
-        "Casper the impregnating ghost"
-      ],
-      "correct_answers": [
-        1
+        {"text": "Miles Dyson", "is_correct": false},
+        {"text": "Kyle Reese", "is_correct": true},
+        {"text": "Alex Murphy", "is_correct": false},
+        {"text": "Casper the impregnating ghost", "is_correct": false}
       ]
     },
     {
-      "id": 4,
       "text": "OMG these dudes are a bunch of...",
       "movie_time": 1573,
       "answers": [
-        "Nerds",
-        "Geeks",
-        "Goths",
-        "Freaks"
-      ],
-      "correct_answers": [
-        0
+        {"text": "Nerds", "is_correct": true},
+        {"text": "Geeks", "is_correct": false},
+        {"text": "Goths", "is_correct": false},
+        {"text": "Freaks", "is_correct": false}
       ]
     },
     {
-      "id": 5,
       "text": "How much was Arnold paid per word in this film?",
       "movie_time": 1781,
+      "randomize_answers": false,
       "answers": [
-        "$16",
-        "$69",
-        "$2,875",
-        "$21,429"
-      ],
-      "correct_answers": [
-        3
+        {"text": "$16", "is_correct": false},
+        {"text": "$69", "is_correct": false},
+        {"text": "$2,875", "is_correct": false},
+        {"text": "$21,429", "is_correct": true}
       ]
     },
     {
-      "id": 6,
       "text": "Where did the Terminator hide his shotgun?",
       "movie_time": 2439,
       "answers": [
-        "In his jacket",
-        "Up his butt",
-        "In a bunch of roses",
-        "In a shopping bag"
-      ],
-      "correct_answers": [
-        2
+        {"text": "In his jacket", "is_correct": false},
+        {"text": "Up his butt", "is_correct": false},
+        {"text": "In a bunch of roses", "is_correct": true},
+        {"text": "In a shopping bag", "is_correct": false}
       ]
     },
     {
-      "id": 7,
       "text": "Does the T-1000 kill Max the dog?",
       "movie_time": 2648,
       "answers": [
-        "It can't be THAT heartless",
-        "I always close my eyes...",
-        "I don't think I could handle that",
-        "No no no no no"
-      ],
-      "correct_answers": [
-        0,
-        1,
-        2,
-        3
+        {"text": "It can't be THAT heartless", "is_correct": true},
+        {"text": "I always close my eyes...", "is_correct": true},
+        {"text": "I don't think I could handle that", "is_correct": true},
+        {"text": "No no no no no", "is_correct": true}
       ]
     },
     {
-      "id": 8,
       "text": "How does the warden say goodnight to Sarah?",
       "movie_time": 3014,
       "answers": [
-        "Tucks her in nice and tight",
-        "Reads her a bedtime story",
-        "Turns on a night light",
-        "Gives her a goodnight lick"
-      ],
-      "correct_answers": [
-        0,
-        3
+        {"text": "Tucks her in nice and tight", "is_correct": true},
+        {"text": "Reads her a bedtime story", "is_correct": false},
+        {"text": "Turns on a night light", "is_correct": false},
+        {"text": "Gives her a goodnight lick", "is_correct": true}
       ]
     },
     {
-      "id": 9,
       "text": "How did they film that last scene",
       "movie_time": 3260,
       "answers": [
-        "Mirrors",
-        "Twins",
-        "Digital effects",
-        "Time travel"
-      ],
-      "correct_answers": [
-        1
+        {"text": "Mirrors", "is_correct": false},
+        {"text": "Twins", "is_correct": true},
+        {"text": "Digital effects", "is_correct": false},
+        {"text": "Time travel", "is_correct": false}
       ]
     },
     {
-      "id": 10,
       "text": "What famous one-liner is coming up?",
       "movie_time": 3675,
       "answers": [
-        "'Get to the Choppa!'",
-        "'Sarah, I am your only hope'",
-        "'Come with me if you want to live'",
-        "'If he dies, he dies'"
-      ],
-      "correct_answers": [
-        2
+        {"text": "'Get to the Choppa!'", "is_correct": false},
+        {"text": "'Sarah, I am your only hope'", "is_correct": false},
+        {"text": "'Come with me if you want to live'", "is_correct": true},
+        {"text": "'If he dies, he dies'", "is_correct": false}
       ]
     },
     {
-      "id": 11,
       "text": "What is one thing you can't teach a Terminator?",
       "movie_time": 4534,
       "answers": [
-        "How to smile",
-        "How to love",
-        "How to ride a bike",
-        "How to do my taxes"
-      ],
-      "correct_answers": [
-        0
+        {"text": "How to smile", "is_correct": true},
+        {"text": "How to love", "is_correct": false},
+        {"text": "How to ride a bike", "is_correct": false},
+        {"text": "How to do my taxes", "is_correct": false}
       ]
     },
     {
-      "id": 12,
       "text": "Computer programmers are hot right???",
       "movie_time": 4788,
       "answers": [
-        "I'd probe their ports",
-        "They really get my bits going",
-        "Love their hardware",
-        "Pssshh nerds..."
-      ],
-      "correct_answers": [
-        3
+        {"text": "I'd probe their ports", "is_correct": false},
+        {"text": "They really get my bits going", "is_correct": false},
+        {"text": "Love their hardware", "is_correct": false},
+        {"text": "Pssshh nerds...", "is_correct": true}
       ]
     },
     {
-      "id": 13,
       "text": "What is the crown jewel of the weapons cache?",
       "movie_time": 5143,
       "answers": [
-        "Gattling gun",
-        "Helicopter",
-        "Macdonalds coupons",
-        "Grenade launcher"
-      ],
-      "correct_answers": [
-        0
+        {"text": "Gattling gun", "is_correct": true},
+        {"text": "Helicopter", "is_correct": false},
+        {"text": "Macdonalds coupons", "is_correct": false},
+        {"text": "Grenade launcher", "is_correct": false}
       ]
     },
     {
-      "id": 14,
       "text": "What message did Sarah leave behind?",
       "movie_time": 5593,
       "answers": [
-        "'Meet Me in Montauk'",
-        "'No Fate'",
-        "'They Are All Dead'",
-        "'Remember Dish Soap'"
-      ],
-      "correct_answers": [
-        1
+        {"text": "'Meet Me in Montauk'", "is_correct": false},
+        {"text": "'No Fate'", "is_correct": true},
+        {"text": "'They Are All Dead'", "is_correct": false},
+        {"text": "'Remember Dish Soap'", "is_correct": false}
       ]
     },
     {
-      "id": 15,
       "text": "How do they convince Dyson of his future?",
       "movie_time": 6034,
       "answers": [
-        "Arm wrestling competition",
-        "They give him the T2 VHS",
-        "Sexy robot arm",
-        "Give him the Terminator chip"
-      ],
-      "correct_answers": [
-        2
+        {"text": "Arm wrestling competition", "is_correct": false},
+        {"text": "They give him the T2 VHS", "is_correct": false},
+        {"text": "Sexy robot arm", "is_correct": true},
+        {"text": "Give him the Terminator chip", "is_correct": false}
       ]
     },
     {
-      "id": 16,
       "text": "That is a SICK bike. What is cooler?",
       "movie_time": 7097,
       "answers": [
-        "A 1985 Honda Elite scooter",
-        "A Ford F150 pickup truck",
-        "Terminator 3",
-        "A Boogie Board"
-      ],
-      "correct_answers": [
-        0
+        {"text": "A 1985 Honda Elite scooter", "is_correct": true},
+        {"text": "A Ford F150 pickup truck", "is_correct": false},
+        {"text": "Terminator 3", "is_correct": false},
+        {"text": "A Boogie Board", "is_correct": false}
       ]
     },
     {
-      "id": 17,
       "text": "Where do SWAT hide their car keys",
       "movie_time": 7203,
       "answers": [
-        "Under the seat",
-        "In the sun visor",
-        "In their butt pocket",
-        "They don't need keys"
-      ],
-      "correct_answers": [
-        1
+        {"text": "Under the seat", "is_correct": false},
+        {"text": "In the sun visor", "is_correct": true},
+        {"text": "In their butt pocket", "is_correct": false},
+        {"text": "They don't need keys", "is_correct": false}
       ]
     },
     {
-      "id": 18,
       "text": "Who was the first choice to play the T-1000?",
       "movie_time": 7924,
       "answers": [
-        "Nicolas Cage",
-        "David Bowie",
-        "Brendan Fraiser",
-        "Billy Idol"
-      ],
-      "correct_answers": [
-        3
+        {"text": "Nicolas Cage", "is_correct": false},
+        {"text": "David Bowie", "is_correct": false},
+        {"text": "Brendan Fraiser", "is_correct": false},
+        {"text": "Billy Idol", "is_correct": true}
       ]
     }
   ],

@@ -1,207 +1,145 @@
 {
 	"name": "Commando",
 	"end_time": 5230,
-	"questions": [{
-			"id": 1,
+	"questions": [
+		{
 			"text": "What does Cooke like best about the Cadallac?",
 			"movie_time": 154,
 			"answers": [
-				"Vinyl Seats",
-				"Head Room",
-				"The Price",
-				"The style and beauty"
-			],
-			"correct_answers": [
-				2
+				{ "text": "Vinyl Seats", "is_correct": false },
+				{ "text": "Head Room", "is_correct": false },
+				{ "text": "The Price", "is_correct": true },
+				{ "text": "The style and beauty", "is_correct": false }
 			]
 		},
 		{
-			"id": 2,
 			"text": "What video game character is the General named after?",
 			"movie_time": 560,
 			"answers": [
-				"Kirby",
-				"Strife",
-				"Fox",
-				"Fischer"
-			],
-			"correct_answers": [
-				0
+				{ "text": "Kirby", "is_correct": true },
+				{ "text": "Strife", "is_correct": false },
+				{ "text": "Fox", "is_correct": false },
+				{ "text": "Fischer", "is_correct": false }
 			]
 		},
 		{
-			"id": 3,
 			"text": "What day is it today?",
 			"movie_time": 969,
 			"answers": [
-				"Pay back day",
-				"Friday",
-				"Pay day",
-				"Back pay day"
-			],
-			"correct_answers": [
-				1,
-				2
+				{ "text": "Pay back day", "is_correct": false },
+				{ "text": "Friday", "is_correct": true },
+				{ "text": "Pay day", "is_correct": true },
+				{ "text": "Back pay day",  "is_correct": false }
 			]
 		},
 		{
-			"id": 4,
 			"text": "John will infact kill Sully.....",
 			"movie_time": 1244,
 			"answers": [
-				"Eighty-Seventh",
-				"Third",
-				"Tenth",
-				"Second"
-			],
-			"correct_answers": [
-				3
+				{ "text": "Eighty-Seventh", "is_correct": false },
+				{ "text": "Third", "is_correct": false },
+				{ "text": "Tenth", "is_correct": true },
+				{ "text": "Second", "is_correct": false }
 			]
 		},
 		{
-			"id": 5,
 			"text": "What is waiting behind the cargo door?",
 			"movie_time": 1380,
 			"answers": [
-				"A Dog",
-				"Luggage",
-				"A Henchperson",
-				"A Crew member"
-			],
-			"correct_answers": [
-				0
+				{ "text": "A Dog", "is_correct": true },
+				{ "text": "Luggage", "is_correct": false },
+				{ "text": "A Henchperson", "is_correct": false },
+				{ "text": "A Crew member", "is_correct": false }
 			]
 		},
 		{
-			"id": 6,
 			"text": "What movie does not use the fake country of Val Verde as a setting?",
 			"movie_time": 1687,
 			"answers": [
-				"Super Carrier",
-				"Predator",
-				"True Lies",
-				"Die Hard 2"
-			],
-			"correct_answers": [
-				2
+				{ "text": "Super Carrier", "is_correct": false },
+				{ "text": "Predator", "is_correct": false },
+				{ "text": "True Lies", "is_correct": true },
+				{ "text": "Die Hard 2", "is_correct": false }
 			]
 		},
 		{
-			"id": 7,
 			"text": "Jenny has a bright future ahead of her. What will she go on to do after this movie?",
 			"movie_time": 2040,
 			"answers": [
-				"Release 5 albums in Japan",
-				"Pose Nude",
-				"Member of the NRA",
-				"Inspiration for the little mermaid"
-			],
-			"correct_answers": [
-				0,
-				1,
-				3
+				{ "text": "Release 5 albums in Japan", "is_correct": true },
+				{ "text": "Pose Nude", "is_correct": true },
+				{ "text": "Member of the NRA", "is_correct": false },
+				{ "text": "Inspiration for the little mermaid", "is_correct": true }
 			]
 		},
 		{
-			"id": 8,
 			"text": "What does John do with Sully?",
 			"movie_time": 2378,
 			"answers": [
-				"Breaks his neck",
-				"Blows him up in his car",
-				"Shoots him",
-				"Lets him go"
-			],
-			"correct_answers": [
-				3
+				{ "text": "Breaks his neck", "is_correct": false },
+				{ "text": "Blows him up in his car", "is_correct": false },
+				{ "text": "Shoots him", "is_correct": false },
+				{ "text": "Lets him go", "is_correct": true }
 			]
 		},
 		{
-			"id": 9,
 			"text": "What does John eat when hes hungry?",
 			"movie_time": 2895,
 			"answers": [
-				"Ice Cream",
-				"Green Berets",
-				"Snickers bars",
-				"You don't want to know"
-			],
-			"correct_answers": [
-				0,
-				1,
-				3
+				{ "text": "Ice Cream", "is_correct": true },
+				{ "text": "Green Berets", "is_correct": true },
+				{ "text": "Snickers bars", "is_correct": false },
+				{ "text": "You don't want to know", "is_correct": true }
 			]
 		},
 		{
-			"id": 10,
 			"text": "Before a trip John likes to...",
 			"movie_time": 3178,
 			"answers": [
-				"Have a steamy shower scene",
-				"Go on a shopping montage",
-				"Have an exciting car chase",
-				"Go Commando"
-			],
-			"correct_answers": [
-				1
+				{ "text": "Have a steamy shower scene", "is_correct": false },
+				{ "text": "Go on a shopping montage", "is_correct": true },
+				{ "text": "Have an exciting car chase", "is_correct": false },
+				{ "text": "Go Commando", "is_correct": false }
 			]
 		},
 		{
-			"id": 11,
 			"text": "After being called a whore, a hooker and kidnapped it clearly is not her day. What is her name?",
 			"movie_time": 3575,
 			"answers": [
-				"Sue",
-				"Rose",
-				"Cathy",
-				"Cindy"
-			],
-			"correct_answers": [
-				3
+				{ "text": "Sue", "is_correct": false },
+				{ "text": "Rose", "is_correct": false },
+				{ "text": "Cathy", "is_correct": false },
+				{ "text": "Cindy", "is_correct": true }
 			]
 		},
 		{
-			"id": 12,
 			"text": "Which other Actor/Actress will not appear in another movie with Arnold?",
 			"movie_time": 3863,
 			"answers": [
-				"Cooke (Bill Duke)",
-				"Young Guerilla (Thomas Rosales Jr.)",
-				"Jenny (Alyssa Milano)",
-				"Intercept Officer (Bill Paxton)"
-			],
-			"correct_answers": [
-				2
+				{ "text": "Cooke (Bill Duke)", "is_correct": false },
+				{ "text": "Young Guerilla (Thomas Rosales Jr.)", "is_correct": false },
+				{ "text": "Jenny (Alyssa Milano)", "is_correct": true },
+				{ "text": "Intercept Officer (Bill Paxton)", "is_correct": false }
 			]
 		},
 		{
-			"id": 13,
 			"text": "All hell is about to break loose and your about to take 73 drinks. GO get refills!!",
 			"movie_time": 4062,
 			"answers": [
-				"Wait what?",
-				"Fuck you Tyler",
-				"BRING IT ON!",
-				"Its friday and I like to party!"
-			],
-			"correct_answers": [
-				0,
-				2,
-				3
+				{ "text": "Wait what?", "is_correct": true },
+				{ "text": "Fuck you Tyler", "is_correct": false },
+				{ "text": "BRING IT ON!", "is_correct": true },
+				{ "text": "Its friday and I like to party!", "is_correct": true }
 			]
 		},
 		{
-			"id": 14,
 			"text": "How will John finish of Bennet?",
 			"movie_time": 4877,
 			"answers": [
-				"Breaking his neck",
-				"Throwing him into a furnace",
-				"Impaling with a broken pipe",
-				"Shoving him onto an electric fence"
-			],
-			"correct_answers": [
-				2
+				{ "text": "Breaking his neck", "is_correct": false },
+				{ "text": "Throwing him into a furnace", "is_correct": false },
+				{ "text": "Impaling with a broken pipe", "is_correct": true },
+				{ "text": "Shoving him onto an electric fence", "is_correct": false }
 			]
 		}
 	],

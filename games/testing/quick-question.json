@@ -1,19 +1,15 @@
 {
-  "name": "",
+  "name": "Quick Question Test",
   "end_time": 99999999,
   "questions": [
     {
-      "id": 1,
       "text": "The little colored gremlin dudes in the last scene are a reference too?",
       "movie_time": 3,
       "answers": [
-        "The Mighty Leprechauns",
-        "The Superhuman Samurai Kids",
-        "The Teenage Mutant Ninja Turtles",
-        "The Power Rangers"
-      ],
-      "correct_answers": [
-        3
+        {"text": "The Mighty Leprechauns", "is_correct": false},
+        {"text": "The Superhuman Samurai Kids", "is_correct": false},
+        {"text": "The Teenage Mutant Ninja Turtles", "is_correct": false},
+        {"text": "The Power Rangers", "is_correct": true}
       ]
     }
   ],
