@@ -14,14 +14,14 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/common": "^6.1.10",
-    "@angular/compiler": "^6.1.10",
-    "@angular/core": "^6.1.10",
-    "@angular/forms": "^6.1.10",
-    "@angular/http": "^6.1.10",
-    "@angular/platform-browser": "^6.1.10",
-    "@angular/platform-browser-dynamic": "^6.1.10",
-    "@angular/router": "^6.1.10",
+    "@angular/common": "^7.2.16",
+    "@angular/compiler": "^7.2.16",
+    "@angular/core": "^7.2.16",
+    "@angular/forms": "^7.2.16",
+    "@angular/http": "^7.2.16",
+    "@angular/platform-browser": "^7.2.16",
+    "@angular/platform-browser-dynamic": "^7.2.16",
+    "@angular/router": "^7.2.16",
     "@types/electron": "^1.6.10",
     "core-js": "^2.4.1",
     "cross-env": "^5.2.0",
@@ -33,12 +33,14 @@
     "randomstring": "^1.1.5",
     "rxjs": "^6.5.4",
     "socket.io-client": "^2.0.3",
+    "tslib": "^1.9.0",
     "zone.js": "^0.8.29",
     "rxjs-compat": "^6.0.0-rc.0"
   },
   "devDependencies": {
-    "@angular/cli": "^6.2.9",
-    "@angular/compiler-cli": "^6.1.10",
+    "@angular-devkit/build-angular": "~0.13.0",
+    "@angular/cli": "^7.3.9",
+    "@angular/compiler-cli": "^7.2.16",
     "@types/jasmine": "2.5.38",
     "@types/node": "~6.0.60",
     "@types/socket.io-client": "^1.4.29",
@@ -56,6 +58,6 @@
     "protractor": "~5.1.0",
     "ts-node": "~2.0.0",
     "tslint": "~4.5.0",
-    "typescript": "~2.9.2"
+    "typescript": "~3.2.4"
   }
 }
