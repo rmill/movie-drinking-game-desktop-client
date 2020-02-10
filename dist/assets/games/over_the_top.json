@@ -8,10 +8,13 @@
       "movie_time": 260,
       "duration": 10,
       "answers": [
-        {"text": "Overalls", "is_correct": false},
-        {"text": "Workout gear", "is_correct": false},
-        {"text": "Suspenders and a tie", "is_correct": true},
-        {"text": "Cat suit", "is_correct": false}
+        "Overalls",
+        "Workout gear",
+        "Suspenders and a tie",
+        "Cat suit"
+      ],
+      "correct_answers": [
+        2
       ]
     },
     {
@@ -20,10 +23,13 @@
       "movie_time": 838,
       "duration": 10,
       "answers": [
-        {"text": "The Smasher", "is_correct": true},
-        {"text": "Big Chief", "is_correct": false},
-        {"text": "The Wily Arm Wrangler", "is_correct": false},
-        {"text": "Donald Trump", "is_correct": false}
+        "The Smasher",
+        "Big Chief",
+        "The Wily Arm Wrangler",
+        "Donald Trump"
+      ],
+      "correct_answers": [
+        0
       ]
     },
     {
@@ -32,10 +38,13 @@
       "movie_time": 1126,
       "duration": 10,
       "answers": [
-        {"text": "Trucker's Delight", "is_correct": false},
-        {"text": "The Lonely Long Haul", "is_correct": false},
-        {"text": "Grease Cafe", "is_correct": false},
-        {"text": "Martha's Famous T. Bone", "is_correct": true}
+        "Trucker's Delight",
+        "The Lonely Long Haul",
+        "Grease Cafe",
+        "Martha's Famous T. Bone"
+      ],
+      "correct_answers": [
+        3
       ]
     },
     {
@@ -44,10 +53,13 @@
       "movie_time": 1410,
       "duration": 10,
       "answers": [
-        {"text": "Smack him around a bit", "is_correct": false},
-        {"text": "Arm wrestling training montage", "is_correct": true},
-        {"text": "Get him his first drink", "is_correct": false},
-        {"text": "Talks out his issues", "is_correct": false}
+        "Smack him around a bit",
+        "Arm wrestling training montage",
+        "Get him his first drink",
+        "Talks out his issues"
+      ],
+      "correct_answers": [
+        1
       ]
     },
     {
@@ -56,10 +68,14 @@
       "movie_time": 2101,
       "duration": 10,
       "answers": [
-        {"text": "Must stop bleeding to compete", "is_correct": false},
-        {"text": "No Exhibiting impairment due to alcohol", "is_correct": false},
-        {"text": "Must make eye contact", "is_correct": true},
-        {"text": "Must not have criminal record", "is_correct": true}
+        "Must stop bleeding to compete",
+        "No Exhibiting impairment due to alcohol",
+        "Must make eye contact",
+        "Must not have criminal record"
+      ],
+      "correct_answers": [
+        2,
+        3
       ]
     },
     {
@@ -68,10 +84,13 @@
       "movie_time": 2503,
       "duration": 10,
       "answers": [
-        {"text": "Justin Bieber", "is_correct": false},
-        {"text": "Bryce's mom", "is_correct": false},
-        {"text": "Colonel Mustard", "is_correct": true},
-        {"text": "George Clooney", "is_correct": false}
+        "Justin Bieber",
+        "Bryce's mom",
+        "Colonel Mustard",
+        "George Clooney"
+      ],
+      "correct_answers": [
+        2
       ]
     },
     {
@@ -80,10 +99,13 @@
       "movie_time": 2891,
       "duration": 10,
       "answers": [
-        {"text": "Being a big baby", "is_correct": true},
-        {"text": "Meth", "is_correct": false},
-        {"text": "Push ups", "is_correct": false},
-        {"text": "Kissing ass", "is_correct": false}
+        "Being a big baby",
+        "Meth",
+        "Push ups",
+        "Kissing ass"
+      ],
+      "correct_answers": [
+        0
       ]
     },
     {
@@ -92,10 +114,13 @@
       "movie_time": 3118,
       "duration": 10,
       "answers": [
-        {"text": "His hot, juicy love", "is_correct": false},
-        {"text": "His first kiss", "is_correct": false},
-        {"text": "An awkward chin caress", "is_correct": false},
-        {"text": "What's 'inside' of him", "is_correct": true}
+        "His hot, juicy love",
+        "His first kiss",
+        "An awkward chin caress",
+        "What's 'inside' of him"
+      ],
+      "correct_answers": [
+        3
       ]
     },
     {
@@ -104,10 +129,13 @@
       "movie_time": 3269,
       "duration": 10,
       "answers": [
-        {"text": "'No outside food or drinks'", "is_correct": false},
-        {"text": "'Your luck start here!'", "is_correct": false},
-        {"text": "'The silver and gold state'", "is_correct": false},
-        {"text": "'Good luck!'", "is_correct": true}
+        "'No outside food or drinks'",
+        "'Your luck start here!'",
+        "'The silver and gold state'",
+        "'Good luck!'"
+      ],
+      "correct_answers": [
+        3
       ]
     },
     {
@@ -116,10 +144,13 @@
       "movie_time": 4100,
       "duration": 10,
       "answers": [
-        {"text": "Bull Hurley", "is_correct": false},
-        {"text": "Viper Malone", "is_correct": true},
-        {"text": "Mad Dog Madison", "is_correct": false},
-        {"text": "Linclon Hawk", "is_correct": false}
+        "Bull Hurley",
+        "Viper Malone",
+        "Mad Dog Madison",
+        "Linclon Hawk"
+      ],
+      "correct_answers": [
+        1
       ]
     },
     {
@@ -128,10 +159,16 @@
       "movie_time": 4306,
       "duration": 10,
       "answers": [
-        {"text": "He goes Over the Top", "is_correct": true},
-        {"text": "Turns his hat around", "is_correct": true},
-        {"text": "Pushes problems through glass doors", "is_correct": true},
-        {"text": "Goes with his gut", "is_correct": true}
+        "He goes Over the Top",
+        "Turns his hat around",
+        "Pushes problems through glass doors",
+        "Goes with his gut"
+      ],
+      "correct_answers": [
+        0,
+        1,
+        2,
+        3
       ]
     },
     {
@@ -140,10 +177,13 @@
       "movie_time": 5245,
       "duration": 10,
       "answers": [
-        {"text": "Genadi Kvikvinia", "is_correct": true},
-        {"text": "Lincoln Hawk", "is_correct": false},
-        {"text": "Shasho Andreev", "is_correct": false},
-        {"text": "Adolf Hitler", "is_correct": false}
+        "Genadi Kvikvinia",
+        "Lincoln Hawk",
+        "Shasho Andreev",
+        "Adolf Hitler"
+      ],
+      "correct_answers": [
+        0
       ]
     }
   ],
