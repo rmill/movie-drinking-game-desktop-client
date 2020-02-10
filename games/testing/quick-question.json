@@ -4,7 +4,7 @@
   "questions": [
     {
       "text": "The little colored gremlin dudes in the last scene are a reference too?",
-      "movie_time": 3,
+      "movie_time": 1,
       "answers": [
         {"text": "The Mighty Leprechauns", "is_correct": false},
         {"text": "The Superhuman Samurai Kids", "is_correct": false},
