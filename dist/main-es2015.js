@@ -61,7 +61,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div id=\"question-overlay\" class=\"overlay animated {{ enterAnimation }}\">\n  <div id=\"question\">\n    <div class=\"badge\">\n      <img class=\"question\">\n    </div>\n    <div id=\"question-container\">\n      <div class=\"question-text\">{{ game.currentQuestion.text }}</div>\n      <div class=\"timer timer-background\"></div>\n      <div class=\"timer timer-foreground\" [style.width]=\"timerWidth\"></div>\n    </div>\n  </div>\n  <table *ngIf=\"showAnswers()\">\n    <tr>\n      <td class=\"answer\" [class.correct]=\"isCorrect(0)\">\n        <div class=\"answer-letter\">A.</div>\n        <div>{{ question.answers[0] }}</div>\n      </td>\n      <td class=\"answer\" [class.correct]=\"isCorrect(1)\">\n        <div class=\"answer-letter\">B.</div>\n        <div>{{ question.answers[1] }}</div>\n      </td>\n    </tr>\n    <tr>\n      <td class=\"answer\" [class.correct]=\"isCorrect(2)\">\n        <div class=\"answer-letter\">C.</div>\n        <div>{{ question.answers[2] }}</div>\n      </td>\n      <td class=\"answer\" [class.correct]=\"isCorrect(3)\">\n        <div class=\"answer-letter\">D.</div>\n        <div>{{ question.answers[3] }}</div>\n      </td>\n    </tr>\n  </table>\n</div>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div id=\"question-overlay\" class=\"overlay animated {{ enterAnimation }}\">\n  <div id=\"question\">\n    <div class=\"badge\">\n      <img class=\"question\">\n    </div>\n    <div id=\"question-container\">\n      <div class=\"question-text\">{{ question.text }}</div>\n      <div class=\"timer timer-background\"></div>\n      <div class=\"timer timer-foreground\" [style.width]=\"timerWidth\"></div>\n    </div>\n  </div>\n  <table *ngIf=\"showAnswers()\">\n    <tr>\n      <td class=\"answer\" [class.correct]=\"isCorrect(0)\">\n        <div class=\"answer-letter\">A.</div>\n        <div>{{ question.answers[0].text }}</div>\n      </td>\n      <td class=\"answer\" [class.correct]=\"isCorrect(1)\">\n        <div class=\"answer-letter\">B.</div>\n        <div>{{ question.answers[1].text }}</div>\n      </td>\n    </tr>\n    <tr>\n      <td class=\"answer\" [class.correct]=\"isCorrect(2)\">\n        <div class=\"answer-letter\">C.</div>\n        <div>{{ question.answers[2].text }}</div>\n      </td>\n      <td class=\"answer\" [class.correct]=\"isCorrect(3)\">\n        <div class=\"answer-letter\">D.</div>\n        <div>{{ question.answers[3].text }}</div>\n      </td>\n    </tr>\n  </table>\n</div>\n");
 
 /***/ }),
 
@@ -860,13 +860,14 @@ let MovieQuestionComponent = class MovieQuestionComponent {
         const timerPercent = 100 * progressInSeconds / duration;
         return Math.max(100 - timerPercent, 0) + '%';
     }
-    isCorrect(answer) {
+    isCorrect(answer_index) {
         const states = [
             this.game.SHOW_CORRECT_ANSWER,
             this.game.WAITING_FOR_CORRECT_ANSWER
         ];
         if (states.includes(this.game.currentState)) {
-            return this.game.currentQuestion.correct_answers.includes(answer);
+            let answer = this.game.currentQuestion.answers[answer_index];
+            return answer && answer.is_correct;
         }
         return false;
     }
@@ -1099,8 +1100,11 @@ let GameService = class GameService {
         this.rules = gameData.rules;
         this.questions = {};
         for (let question of gameData.questions) {
-            question.drink_multiplyer = this.getDrinkMultiplyer();
             question.duration = question.duration ? question.duration : 15;
+            if (question.shuffle_answers === undefined ||
+                question.shuffle_answers) {
+                this.shuffle(question);
+            }
             this.questions[question.movie_time] = question;
         }
         ;
@@ -1113,6 +1117,17 @@ let GameService = class GameService {
         this.data.create('game', this.id, game);
         this.data.bind('player', null, 'child_added', player => this.addPlayer(player));
         this.data.bind('answer', null, 'child_added', answer => this.answer(answer));
+    }
+    /**
+     * Shuffles array in place. ES6 version
+     * @param {Array} a items An array containing the items.
+     */
+    shuffle(a) {
+        for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+        }
+        return a;
     }
     addPlayer(player) {
         if (!this.getPlayer(player.id)) {
@@ -1139,8 +1154,12 @@ let GameService = class GameService {
         return players;
     }
     sendState() {
+        let answers = null;
+        if (this.currentQuestion) {
+            answers = this.currentQuestion.answers.map(a => a.text);
+        }
         let state = {
-            answers: this.currentQuestion ? this.currentQuestion.answers : null,
+            answers,
             question: this.currentQuestion,
             rules: this.rules,
             seconds_to_next_question: this.secondsTillNextQuestion(),
@@ -1280,11 +1299,6 @@ let GameService = class GameService {
     isState(state) {
         return this.currentState == state;
     }
-    getDrinkMultiplyer() {
-        let minMultiplyer = 1;
-        let maxMultiplyer = 3;
-        return Math.floor(Math.random() * (maxMultiplyer - minMultiplyer + 1)) + minMultiplyer;
-    }
 };
 GameService.ctorParameters = () => [
     { type: _data_service__WEBPACK_IMPORTED_MODULE_5__["DataService"] },
@@ -1421,10 +1435,11 @@ let StatisticsService = class StatisticsService {
         }
         return flattenedResults;
     }
-    updatePlayer(question, answer, player) {
+    updatePlayer(question, answer_index, player) {
         let isWrong = false;
-        if (answer) {
-            if (question.correct_answers.indexOf(answer.answer) >= 0) {
+        if (answer_index) {
+            let answer = question.answers[answer_index];
+            if (answer && answer.is_correct) {
                 this.increment(player, 'correct_answers');
                 this.increment(player, 'current_streak');
                 player.best_streak = this.max(player.current_streak, player.best_streak);
@@ -1440,9 +1455,9 @@ let StatisticsService = class StatisticsService {
         }
         if (isWrong) {
             player.current_streak = 0;
-            this.increment(player, 'drinks', question.drink_multiplyer);
+            this.increment(player, 'drinks');
         }
-        player.answer_speed = this.getAnswerSpeed(player, answer);
+        player.answer_speed = this.getAnswerSpeed(player, answer_index);
         return isWrong;
     }
     increment(player, index, amount = 1) {

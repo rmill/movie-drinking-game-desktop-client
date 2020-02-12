@@ -101,7 +101,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div id=\"question-overlay\" class=\"overlay animated {{ enterAnimation }}\">\n  <div id=\"question\">\n    <div class=\"badge\">\n      <img class=\"question\">\n    </div>\n    <div id=\"question-container\">\n      <div class=\"question-text\">{{ game.currentQuestion.text }}</div>\n      <div class=\"timer timer-background\"></div>\n      <div class=\"timer timer-foreground\" [style.width]=\"timerWidth\"></div>\n    </div>\n  </div>\n  <table *ngIf=\"showAnswers()\">\n    <tr>\n      <td class=\"answer\" [class.correct]=\"isCorrect(0)\">\n        <div class=\"answer-letter\">A.</div>\n        <div>{{ question.answers[0] }}</div>\n      </td>\n      <td class=\"answer\" [class.correct]=\"isCorrect(1)\">\n        <div class=\"answer-letter\">B.</div>\n        <div>{{ question.answers[1] }}</div>\n      </td>\n    </tr>\n    <tr>\n      <td class=\"answer\" [class.correct]=\"isCorrect(2)\">\n        <div class=\"answer-letter\">C.</div>\n        <div>{{ question.answers[2] }}</div>\n      </td>\n      <td class=\"answer\" [class.correct]=\"isCorrect(3)\">\n        <div class=\"answer-letter\">D.</div>\n        <div>{{ question.answers[3] }}</div>\n      </td>\n    </tr>\n  </table>\n</div>\n";
+    __webpack_exports__["default"] = "<div id=\"question-overlay\" class=\"overlay animated {{ enterAnimation }}\">\n  <div id=\"question\">\n    <div class=\"badge\">\n      <img class=\"question\">\n    </div>\n    <div id=\"question-container\">\n      <div class=\"question-text\">{{ question.text }}</div>\n      <div class=\"timer timer-background\"></div>\n      <div class=\"timer timer-foreground\" [style.width]=\"timerWidth\"></div>\n    </div>\n  </div>\n  <table *ngIf=\"showAnswers()\">\n    <tr>\n      <td class=\"answer\" [class.correct]=\"isCorrect(0)\">\n        <div class=\"answer-letter\">A.</div>\n        <div>{{ question.answers[0].text }}</div>\n      </td>\n      <td class=\"answer\" [class.correct]=\"isCorrect(1)\">\n        <div class=\"answer-letter\">B.</div>\n        <div>{{ question.answers[1].text }}</div>\n      </td>\n    </tr>\n    <tr>\n      <td class=\"answer\" [class.correct]=\"isCorrect(2)\">\n        <div class=\"answer-letter\">C.</div>\n        <div>{{ question.answers[2].text }}</div>\n      </td>\n      <td class=\"answer\" [class.correct]=\"isCorrect(3)\">\n        <div class=\"answer-letter\">D.</div>\n        <div>{{ question.answers[3].text }}</div>\n      </td>\n    </tr>\n  </table>\n</div>\n";
     /***/
   },
 
@@ -1652,11 +1652,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         }
       }, {
         key: "isCorrect",
-        value: function isCorrect(answer) {
+        value: function isCorrect(answer_index) {
           var states = [this.game.SHOW_CORRECT_ANSWER, this.game.WAITING_FOR_CORRECT_ANSWER];
 
           if (states.includes(this.game.currentState)) {
-            return this.game.currentQuestion.correct_answers.includes(answer);
+            var answer = this.game.currentQuestion.answers[answer_index];
+            return answer && answer.is_correct;
           }
 
           return false;
@@ -2052,8 +2053,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           try {
             for (var _iterator2 = gameData.questions[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
               var question = _step2.value;
-              question.drink_multiplyer = this.getDrinkMultiplyer();
               question.duration = question.duration ? question.duration : 15;
+
+              if (question.shuffle_answers === undefined || question.shuffle_answers) {
+                this.shuffle(question);
+              }
+
               this.questions[question.movie_time] = question;
             }
           } catch (err) {
@@ -2085,6 +2090,23 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.data.bind('answer', null, 'child_added', function (answer) {
             return _this3.answer(answer);
           });
+        }
+        /**
+         * Shuffles array in place. ES6 version
+         * @param {Array} a items An array containing the items.
+         */
+
+      }, {
+        key: "shuffle",
+        value: function shuffle(a) {
+          for (var i = a.length - 1; i > 0; i--) {
+            var j = Math.floor(Math.random() * (i + 1));
+            var _ref = [a[j], a[i]];
+            a[i] = _ref[0];
+            a[j] = _ref[1];
+          }
+
+          return a;
         }
       }, {
         key: "addPlayer",
@@ -2147,8 +2169,16 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "sendState",
         value: function sendState() {
+          var answers = null;
+
+          if (this.currentQuestion) {
+            answers = this.currentQuestion.answers.map(function (a) {
+              return a.text;
+            });
+          }
+
           var state = {
-            answers: this.currentQuestion ? this.currentQuestion.answers : null,
+            answers: answers,
             question: this.currentQuestion,
             rules: this.rules,
             seconds_to_next_question: this.secondsTillNextQuestion(),
@@ -2351,13 +2381,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         key: "isState",
         value: function isState(state) {
           return this.currentState == state;
-        }
-      }, {
-        key: "getDrinkMultiplyer",
-        value: function getDrinkMultiplyer() {
-          var minMultiplyer = 1;
-          var maxMultiplyer = 3;
-          return Math.floor(Math.random() * (maxMultiplyer - minMultiplyer + 1)) + minMultiplyer;
         }
       }]);
 
@@ -2635,11 +2658,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         }
       }, {
         key: "updatePlayer",
-        value: function updatePlayer(question, answer, player) {
+        value: function updatePlayer(question, answer_index, player) {
           var isWrong = false;
 
-          if (answer) {
-            if (question.correct_answers.indexOf(answer.answer) >= 0) {
+          if (answer_index) {
+            var answer = question.answers[answer_index];
+
+            if (answer && answer.is_correct) {
               this.increment(player, 'correct_answers');
               this.increment(player, 'current_streak');
               player.best_streak = this.max(player.current_streak, player.best_streak);
@@ -2654,10 +2679,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           if (isWrong) {
             player.current_streak = 0;
-            this.increment(player, 'drinks', question.drink_multiplyer);
+            this.increment(player, 'drinks');
           }
 
-          player.answer_speed = this.getAnswerSpeed(player, answer);
+          player.answer_speed = this.getAnswerSpeed(player, answer_index);
           return isWrong;
         }
       }, {
