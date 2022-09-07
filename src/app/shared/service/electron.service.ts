@@ -5,7 +5,7 @@ const electron = window.require('electron');
 export class ElectronService {
 
   getEnvironment() {
-    return electron.remote.process.env
+    return process.env
   }
 
   listen(event: string, func: any) {
@@ -14,9 +14,5 @@ export class ElectronService {
 
   notifyClient(event: string, message: any = {}) {
     electron.ipcRenderer.send(event, message)
-  }
-
-  openFileDialog(title: string) {
-    return electron.remote.dialog.showOpenDialog({ title, properties: ['openFile'] });
   }
 }

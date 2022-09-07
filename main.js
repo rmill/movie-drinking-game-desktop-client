@@ -1,7 +1,7 @@
 const electron = require('electron');
 const { app } = electron;
 const { BrowserWindow } = electron;
-const { ipcMain } = require('electron');
+const { dialog, ipcMain } = require('electron');
 const admin = require('firebase-admin');
 const dotenv = require('dotenv');
 
@@ -44,7 +44,11 @@ app.on('activate', () => {
 function createWindow() {
   // Create the browser window.
   win = new BrowserWindow({
-    webPreferences: { nodeIntegration: true }
+    webPreferences: {
+      nodeIntegration: true,
+      contextIsolation: false,
+      enableRemoteModule: true,
+    }
   });
 
   win.setFullScreen(true);
@@ -85,6 +89,9 @@ function createWindow() {
       ref[trans.action](trans.data)
     }
   });
+
+  process.env.gameFilepath = dialog.showOpenDialogSync({ title: 'Select game file', properties: ['openFile'] })[0];
+  process.env.movieFilepath = dialog.showOpenDialogSync({ title: 'Select movie file',   properties: ['openFile'] })[0];
 
   win.loadURL(`${APP_PATH}/dist/index.html`);
 }

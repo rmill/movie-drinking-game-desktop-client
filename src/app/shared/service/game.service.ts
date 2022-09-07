@@ -50,10 +50,8 @@ export class GameService {
     private statistics: StatisticsService
   ) {
     this.players = new ReplaySubject(1)
-    this.gameFilepath = this.electron.openFileDialog('Select game file')[0];
-    this.movieFilepath = this.sanitizer.bypassSecurityTrustResourceUrl(
-      this.electron.openFileDialog('Select movie file')[0]
-    );
+    this.gameFilepath = this.electron.getEnvironment().gameFilepath;
+    this.movieFilepath = this.sanitizer.bypassSecurityTrustResourceUrl(this.electron.getEnvironment().movieFilepath);
   }
 
   create() {
