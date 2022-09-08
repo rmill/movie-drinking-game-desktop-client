@@ -112,7 +112,7 @@ export class GameService {
 
   getPlayer(id: string) {
     for (const i in this._players) {
-      const player = this._players[id];
+      const player = this._players[i];
       if (player.id === id) {
         return player;
       }
@@ -175,7 +175,7 @@ export class GameService {
       case this.SHOW_CORRECT_ANSWER:
         this.showCorrectAnswers(); break;
       case this.WAITING_FOR_CORRECT_ANSWER:
-        var correctTime = this.currentQuestion.movie_time + this.currentQuestion.duration + 5 + 5;
+        const correctTime = this.currentQuestion.movie_time + this.currentQuestion.duration + 5 + 5;
         this.waiting(time, correctTime, this.HIDE_QUESTION); break;
       case this.HIDE_QUESTION:
         this.hideQuestion(); break;
@@ -225,7 +225,7 @@ export class GameService {
 
     this.statistics.process(this.currentQuestion, this.currentAnswers, this.getPlayers());
 
-    for (let player of this.getPlayers()) {
+    for (const player of this.getPlayers()) {
       this.data.update('player', player.id, player)
     }
 

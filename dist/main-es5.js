@@ -2134,8 +2134,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getPlayer",
         value: function getPlayer(id) {
+          console.log('id', id);
+          console.log('this._plaeyers', this._players);
+
           for (var i in this._players) {
-            var player = this._players[id];
+            var player = this._players[i];
 
             if (player.id === id) {
               return player;
@@ -2568,7 +2571,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               var player = _step5.value;
               var answer = answers[player.id];
               var isDrinking = this.updatePlayer(question, answer, player);
-              if (isDrinking) drinkers.push(player);
+
+              if (isDrinking) {
+                drinkers.push(player);
+              }
             }
           } catch (err) {
             _iterator5.e(err);
@@ -2581,7 +2587,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "addStat",
         value: function addStat(rankings, score, player) {
-          if (!rankings[score]) rankings[score] = [];
+          if (!rankings[score]) {
+            rankings[score] = [];
+          }
+
           rankings[score].push(player);
         }
       }, {
@@ -2595,7 +2604,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           try {
             for (_iterator6.s(); !(_step6 = _iterator6.n()).done;) {
               var result = _step6.value;
-              if (result) flattenedResults.push(result);
+
+              if (result) {
+                flattenedResults.push(result);
+              }
             }
           } catch (err) {
             _iterator6.e(err);
@@ -2607,11 +2619,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         }
       }, {
         key: "updatePlayer",
-        value: function updatePlayer(question, answer_index, player) {
+        value: function updatePlayer(question, playerAnswer, player) {
           var isWrong = false;
 
-          if (answer_index) {
-            var answer = question.answers[answer_index];
+          if (playerAnswer) {
+            var answer = question.answers[playerAnswer.answer];
 
             if (answer && answer.is_correct) {
               this.increment(player, 'correct_answers');
@@ -2631,21 +2643,31 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             this.increment(player, 'drinks');
           }
 
-          player.answer_speed = this.getAnswerSpeed(player, answer_index);
+          player.answer_speed = this.getAnswerSpeed(player, playerAnswer);
           return isWrong;
         }
       }, {
         key: "increment",
         value: function increment(player, index) {
           var amount = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 1;
-          if (!Number.isInteger(player[index])) player[index] = 0;
+
+          if (!Number.isInteger(player[index])) {
+            player[index] = 0;
+          }
+
           player[index] += amount;
         }
       }, {
         key: "max",
         value: function max(value1, value2) {
-          if (!Number.isInteger(value1)) value1 = 0;
-          if (!Number.isInteger(value2)) value2 = 0;
+          if (!Number.isInteger(value1)) {
+            value1 = 0;
+          }
+
+          if (!Number.isInteger(value2)) {
+            value2 = 0;
+          }
+
           return Math.max(value1, value2);
         }
       }, {
@@ -2653,7 +2675,11 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function getAnswerSpeed(player, answer) {
           var numQuestions = player.correct_answers + player.incorrect_answers + player.missed_answers;
           var answerSpeed = answer ? answer.speed : 10000;
-          if (!player.answer_speed) player.answer_speed = 0;
+
+          if (!player.answer_speed) {
+            player.answer_speed = 0;
+          }
+
           return player.answer_speed + (answerSpeed - player.answer_speed) / numQuestions;
         }
       }]);

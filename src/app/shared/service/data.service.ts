@@ -8,7 +8,7 @@ export class DataService {
   constructor(private electron: ElectronService) {}
 
   bind(resource, id, event,  func) {
-    let responseKey = `${this.getResource(resource, id)}/${event}`
+    const responseKey = `${this.getResource(resource, id)}/${event}`
     this.electron.listen(responseKey, func)
     this.send(resource, id, 'bind', { event })
   }
@@ -26,7 +26,7 @@ export class DataService {
   }
 
   private send(resource, id, action, data) {
-    let transaction = {
+    const transaction = {
       resource: this.getResource(resource, id),
       action,
       data

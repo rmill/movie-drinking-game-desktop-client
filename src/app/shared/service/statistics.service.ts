@@ -20,7 +20,7 @@ export class StatisticsService {
     const speed = []
     const streak = []
 
-    for (let player of players) {
+    for (const player of players) {
       this.addStat(correct, player.correct_answers, player)
       this.addStat(drinks, player.drinks, player)
       this.addStat(incorrect, player.incorrect_answers, player)
@@ -40,37 +40,37 @@ export class StatisticsService {
   }
 
   process (question: Question, answers: any, players: Player[]) {
-    let drinkers = [];
+    const drinkers = [];
 
-    for (let player of players) {
-      let answer = answers[player.id];
-      let isDrinking = this.updatePlayer(question, answer, player)
-      if (isDrinking) drinkers.push(player)
+    for (const player of players) {
+      const answer = answers[player.id]
+      const isDrinking = this.updatePlayer(question, answer, player)
+      if (isDrinking) { drinkers.push(player) }
     }
 
     this.drinkers.next(drinkers)
   }
 
   private addStat(rankings, score, player) {
-    if (!rankings[score]) rankings[score] = []
+    if (!rankings[score]) { rankings[score] = [] }
     rankings[score].push(player)
   }
 
   private flattenResults(results) {
-    let flattenedResults = []
+    const flattenedResults = []
 
-    for (let result of results) {
-      if (result) flattenedResults.push(result)
+    for (const result of results) {
+      if (result) { flattenedResults.push(result) }
     }
 
     return flattenedResults
   }
 
-  private updatePlayer(question, answer_index, player) {
+  private updatePlayer(question, playerAnswer, player) {
     let isWrong = false;
 
-    if (answer_index) {
-      let answer = question.answers[answer_index];
+    if (playerAnswer) {
+      const answer = question.answers[playerAnswer.answer];
 
       if (answer && answer.is_correct) {
         this.increment(player, 'correct_answers');
@@ -90,27 +90,27 @@ export class StatisticsService {
       this.increment(player, 'drinks');
     }
 
-    player.answer_speed = this.getAnswerSpeed(player, answer_index)
+    player.answer_speed = this.getAnswerSpeed(player, playerAnswer)
 
     return isWrong
   }
 
   private increment(player, index, amount = 1) {
-    if (!Number.isInteger(player[index])) player[index] = 0
+    if (!Number.isInteger(player[index])) { player[index] = 0 }
     player[index] += amount
   }
 
   private max(value1, value2) {
-    if (!Number.isInteger(value1)) value1 = 0
-    if (!Number.isInteger(value2)) value2 = 0
+    if (!Number.isInteger(value1)) { value1 = 0 }
+    if (!Number.isInteger(value2)) { value2 = 0 }
     return Math.max(value1, value2)
   }
 
   private getAnswerSpeed (player: Player, answer: Answer) {
-    let numQuestions = player.correct_answers + player.incorrect_answers + player.missed_answers
-    let answerSpeed = answer ? answer.speed : 10000;
+    const numQuestions = player.correct_answers + player.incorrect_answers + player.missed_answers
+    const answerSpeed = answer ? answer.speed : 10000;
 
-    if (!player.answer_speed) player.answer_speed = 0
+    if (!player.answer_speed) { player.answer_speed = 0 }
 
     return player.answer_speed + ((answerSpeed - player.answer_speed) / numQuestions);
   }

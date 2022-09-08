@@ -987,7 +987,7 @@ let DataService = class DataService {
         this.electron = electron;
     }
     bind(resource, id, event, func) {
-        let responseKey = `${this.getResource(resource, id)}/${event}`;
+        const responseKey = `${this.getResource(resource, id)}/${event}`;
         this.electron.listen(responseKey, func);
         this.send(resource, id, 'bind', { event });
     }
@@ -1001,7 +1001,7 @@ let DataService = class DataService {
         this.send(resource, id, 'update', data);
     }
     send(resource, id, action, data) {
-        let transaction = {
+        const transaction = {
             resource: this.getResource(resource, id),
             action,
             data
@@ -1161,8 +1161,10 @@ let GameService = class GameService {
         }
     }
     getPlayer(id) {
+        console.log('id', id);
+        console.log('this._plaeyers', this._players);
         for (const i in this._players) {
-            const player = this._players[id];
+            const player = this._players[i];
             if (player.id === id) {
                 return player;
             }
@@ -1219,7 +1221,7 @@ let GameService = class GameService {
                 this.showCorrectAnswers();
                 break;
             case this.WAITING_FOR_CORRECT_ANSWER:
-                var correctTime = this.currentQuestion.movie_time + this.currentQuestion.duration + 5 + 5;
+                const correctTime = this.currentQuestion.movie_time + this.currentQuestion.duration + 5 + 5;
                 this.waiting(time, correctTime, this.HIDE_QUESTION);
                 break;
             case this.HIDE_QUESTION:
@@ -1264,7 +1266,7 @@ let GameService = class GameService {
         console.log('show correct answer');
         this.currentState = this.WAITING_FOR_CORRECT_ANSWER;
         this.statistics.process(this.currentQuestion, this.currentAnswers, this.getPlayers());
-        for (let player of this.getPlayers()) {
+        for (const player of this.getPlayers()) {
             this.data.update('player', player.id, player);
         }
         this.sendState();
@@ -1418,7 +1420,7 @@ let StatisticsService = class StatisticsService {
         const drinks = [];
         const speed = [];
         const streak = [];
-        for (let player of players) {
+        for (const player of players) {
             this.addStat(correct, player.correct_answers, player);
             this.addStat(drinks, player.drinks, player);
             this.addStat(incorrect, player.incorrect_answers, player);
@@ -1436,32 +1438,35 @@ let StatisticsService = class StatisticsService {
         };
     }
     process(question, answers, players) {
-        let drinkers = [];
-        for (let player of players) {
-            let answer = answers[player.id];
-            let isDrinking = this.updatePlayer(question, answer, player);
-            if (isDrinking)
+        const drinkers = [];
+        for (const player of players) {
+            const answer = answers[player.id];
+            const isDrinking = this.updatePlayer(question, answer, player);
+            if (isDrinking) {
                 drinkers.push(player);
+            }
         }
         this.drinkers.next(drinkers);
     }
     addStat(rankings, score, player) {
-        if (!rankings[score])
+        if (!rankings[score]) {
             rankings[score] = [];
+        }
         rankings[score].push(player);
     }
     flattenResults(results) {
-        let flattenedResults = [];
-        for (let result of results) {
-            if (result)
+        const flattenedResults = [];
+        for (const result of results) {
+            if (result) {
                 flattenedResults.push(result);
+            }
         }
         return flattenedResults;
     }
-    updatePlayer(question, answer_index, player) {
+    updatePlayer(question, playerAnswer, player) {
         let isWrong = false;
-        if (answer_index) {
-            let answer = question.answers[answer_index];
+        if (playerAnswer) {
+            const answer = question.answers[playerAnswer.answer];
             if (answer && answer.is_correct) {
                 this.increment(player, 'correct_answers');
                 this.increment(player, 'current_streak');
@@ -1480,26 +1485,30 @@ let StatisticsService = class StatisticsService {
             player.current_streak = 0;
             this.increment(player, 'drinks');
         }
-        player.answer_speed = this.getAnswerSpeed(player, answer_index);
+        player.answer_speed = this.getAnswerSpeed(player, playerAnswer);
         return isWrong;
     }
     increment(player, index, amount = 1) {
-        if (!Number.isInteger(player[index]))
+        if (!Number.isInteger(player[index])) {
             player[index] = 0;
+        }
         player[index] += amount;
     }
     max(value1, value2) {
-        if (!Number.isInteger(value1))
+        if (!Number.isInteger(value1)) {
             value1 = 0;
-        if (!Number.isInteger(value2))
+        }
+        if (!Number.isInteger(value2)) {
             value2 = 0;
+        }
         return Math.max(value1, value2);
     }
     getAnswerSpeed(player, answer) {
-        let numQuestions = player.correct_answers + player.incorrect_answers + player.missed_answers;
-        let answerSpeed = answer ? answer.speed : 10000;
-        if (!player.answer_speed)
+        const numQuestions = player.correct_answers + player.incorrect_answers + player.missed_answers;
+        const answerSpeed = answer ? answer.speed : 10000;
+        if (!player.answer_speed) {
             player.answer_speed = 0;
+        }
         return player.answer_speed + ((answerSpeed - player.answer_speed) / numQuestions);
     }
 };
