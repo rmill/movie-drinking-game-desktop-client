@@ -2047,7 +2047,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.currentState = this.NEW_GAME;
         this.currentTime = 0;
         this.sentNotification = false;
-        this._players = {};
+        this._players = new Map();
         this.players = new rxjs_ReplaySubject__WEBPACK_IMPORTED_MODULE_4__["ReplaySubject"](1);
         this.gameFilepath = this.electron.getEnvironment().gameFilepath;
         this.movieFilepath = this.sanitizer.bypassSecurityTrustResourceUrl(this.electron.getEnvironment().movieFilepath);
@@ -2134,21 +2134,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getPlayer",
         value: function getPlayer(id) {
-          var _iterator3 = _createForOfIteratorHelper(this._players),
-              _step3;
+          for (var i in this._players) {
+            var player = this._players[id];
 
-          try {
-            for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
-              var i = _step3.value;
-
-              if (i.id == id) {
-                return i;
-              }
+            if (player.id === id) {
+              return player;
             }
-          } catch (err) {
-            _iterator3.e(err);
-          } finally {
-            _iterator3.f();
           }
 
           return null;
@@ -2284,18 +2275,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.currentState = this.WAITING_FOR_CORRECT_ANSWER;
           this.statistics.process(this.currentQuestion, this.currentAnswers, this.getPlayers());
 
-          var _iterator4 = _createForOfIteratorHelper(this.getPlayers()),
-              _step4;
+          var _iterator3 = _createForOfIteratorHelper(this.getPlayers()),
+              _step3;
 
           try {
-            for (_iterator4.s(); !(_step4 = _iterator4.n()).done;) {
-              var player = _step4.value;
+            for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
+              var player = _step3.value;
               this.data.update('player', player.id, player);
             }
           } catch (err) {
-            _iterator4.e(err);
+            _iterator3.e(err);
           } finally {
-            _iterator4.f();
+            _iterator3.f();
           }
 
           this.sendState();
@@ -2536,12 +2527,12 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           var speed = [];
           var streak = [];
 
-          var _iterator5 = _createForOfIteratorHelper(players),
-              _step5;
+          var _iterator4 = _createForOfIteratorHelper(players),
+              _step4;
 
           try {
-            for (_iterator5.s(); !(_step5 = _iterator5.n()).done;) {
-              var player = _step5.value;
+            for (_iterator4.s(); !(_step4 = _iterator4.n()).done;) {
+              var player = _step4.value;
               this.addStat(correct, player.correct_answers, player);
               this.addStat(drinks, player.drinks, player);
               this.addStat(incorrect, player.incorrect_answers, player);
@@ -2550,9 +2541,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               this.addStat(streak, player.best_streak, player);
             }
           } catch (err) {
-            _iterator5.e(err);
+            _iterator4.e(err);
           } finally {
-            _iterator5.f();
+            _iterator4.f();
           }
 
           return {
@@ -2569,20 +2560,20 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function process(question, answers, players) {
           var drinkers = [];
 
-          var _iterator6 = _createForOfIteratorHelper(players),
-              _step6;
+          var _iterator5 = _createForOfIteratorHelper(players),
+              _step5;
 
           try {
-            for (_iterator6.s(); !(_step6 = _iterator6.n()).done;) {
-              var player = _step6.value;
+            for (_iterator5.s(); !(_step5 = _iterator5.n()).done;) {
+              var player = _step5.value;
               var answer = answers[player.id];
               var isDrinking = this.updatePlayer(question, answer, player);
               if (isDrinking) drinkers.push(player);
             }
           } catch (err) {
-            _iterator6.e(err);
+            _iterator5.e(err);
           } finally {
-            _iterator6.f();
+            _iterator5.f();
           }
 
           this.drinkers.next(drinkers);
@@ -2598,18 +2589,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function flattenResults(results) {
           var flattenedResults = [];
 
-          var _iterator7 = _createForOfIteratorHelper(results),
-              _step7;
+          var _iterator6 = _createForOfIteratorHelper(results),
+              _step6;
 
           try {
-            for (_iterator7.s(); !(_step7 = _iterator7.n()).done;) {
-              var result = _step7.value;
+            for (_iterator6.s(); !(_step6 = _iterator6.n()).done;) {
+              var result = _step6.value;
               if (result) flattenedResults.push(result);
             }
           } catch (err) {
-            _iterator7.e(err);
+            _iterator6.e(err);
           } finally {
-            _iterator7.f();
+            _iterator6.f();
           }
 
           return flattenedResults;

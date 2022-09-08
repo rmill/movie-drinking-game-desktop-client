@@ -39,7 +39,7 @@ export class GameService {
   private questions: any;
   private rules: Array<string>;
   private sentNotification: boolean = false;
-  private _players: any = {};
+  private _players: any = new Map();
 
   constructor(
     private data: DataService,
@@ -111,9 +111,10 @@ export class GameService {
   }
 
   getPlayer(id: string) {
-    for (let i of this._players) {
-      if (i.id == id) {
-        return i;
+    for (const i in this._players) {
+      const player = this._players[id];
+      if (player.id === id) {
+        return player;
       }
     }
 
@@ -121,9 +122,9 @@ export class GameService {
   }
 
   getPlayers() {
-    let players = []
+    const players = []
 
-    for (let id in this._players) {
+    for (const id in this._players) {
       players.push(this._players[id])
     }
 

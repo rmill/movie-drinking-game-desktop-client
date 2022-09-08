@@ -1110,7 +1110,7 @@ let GameService = class GameService {
         this.currentState = this.NEW_GAME;
         this.currentTime = 0;
         this.sentNotification = false;
-        this._players = {};
+        this._players = new Map();
         this.players = new rxjs_ReplaySubject__WEBPACK_IMPORTED_MODULE_4__["ReplaySubject"](1);
         this.gameFilepath = this.electron.getEnvironment().gameFilepath;
         this.movieFilepath = this.sanitizer.bypassSecurityTrustResourceUrl(this.electron.getEnvironment().movieFilepath);
@@ -1161,16 +1161,17 @@ let GameService = class GameService {
         }
     }
     getPlayer(id) {
-        for (let i of this._players) {
-            if (i.id == id) {
-                return i;
+        for (const i in this._players) {
+            const player = this._players[id];
+            if (player.id === id) {
+                return player;
             }
         }
         return null;
     }
     getPlayers() {
-        let players = [];
-        for (let id in this._players) {
+        const players = [];
+        for (const id in this._players) {
             players.push(this._players[id]);
         }
         return players;
