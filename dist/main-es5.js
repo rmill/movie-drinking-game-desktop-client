@@ -87,7 +87,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div *ngIf=\"showTime\" class=\"time-display\">{{ time }} ({{time - 22}})</div>\n<div class=\"movie-container animated\" [class.fadeOut]=\"showCredits()\">\n  <video\n    #movie\n    class=\"movie\"\n    autoplay=\"autoplay\"\n    [muted]=\"muteVideo\"\n    [controls]=\"showControls\"\n    (click)=\"toggleControls()\"\n    (timeupdate)=\"onTimeUpdate($event.target.currentTime)\"\n    (seeked)=\"onSeeked($event.target.currentTime)\"\n  >\n    <source id=\"avi\" [src]=\"movieFilePath\" type=\"video/mp4\">\n    <track label=\"English\" kind=\"subtitles\" srclang=\"en\" src=\"/home/rmiller/Desktop/movie/subs.vtt\" default>\n    <p>Your user agent does not support the HTML5 Video element.</p>\n  </video>\n  <mdg-movie-question *ngIf=\"showQuestion()\" #question></mdg-movie-question>\n</div>\n<mdg-movie-credits *ngIf=\"showCredits()\"></mdg-movie-credits>\n";
+    __webpack_exports__["default"] = "<div *ngIf=\"showTime\" class=\"time-display\">{{ time }} ({{time - 22}})</div>\n<div class=\"movie-container animated\" [class.fadeOut]=\"showCredits()\">\n  <video\n    #movie\n    class=\"movie\"\n    autoplay=\"autoplay\"\n    [muted]=\"muteVideo\"\n    [controls]=\"showControls\"\n    (click)=\"toggleControls()\"\n    (timeupdate)=\"onTimeUpdate($event.target.currentTime)\"\n    (seeked)=\"onSeeked($event.target.currentTime)\"\n  >\n    <source id=\"avi\" [src]=\"movieFilePath\" type=\"video/mp4\">\n    <track label=\"English\" kind=\"subtitles\" srclang=\"en\" src=\"/home/ryanmiller/Desktop/Hackers-English.vtt\" default>\n    <p>Your user agent does not support the HTML5 Video element.</p>\n  </video>\n  <mdg-movie-question *ngIf=\"showQuestion()\" #question></mdg-movie-question>\n</div>\n<mdg-movie-credits *ngIf=\"showCredits()\"></mdg-movie-credits>\n";
     /***/
   },
 
@@ -2134,9 +2134,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       }, {
         key: "getPlayer",
         value: function getPlayer(id) {
-          console.log('id', id);
-          console.log('this._plaeyers', this._players);
-
           for (var i in this._players) {
             var player = this._players[i];
 

@@ -1,0 +1,70 @@
+{
+  "name": "Hackers",
+  "end_time": 99999999,
+  "questions": [
+    {
+      "id": 1,
+      "text": "What is the secret to surviving air travel?",
+      "movie_time": 52,
+      "duration": 10,
+      "answers": [
+        {"text": "Walk around bare foot", "is_correct": true},
+        {"text": "A stiff German drink", "is_correct": false},
+        {"text": "Have a soft easy evening", "is_correct": false},
+        {"text": "Kill a ton of terrorists", "is_correct": false}
+      ]
+    },
+    {
+      "id": 2,
+      "text": "Who rides in the back seat of the limo?",
+      "movie_time": 363,
+      "duration": 10,
+      "answers": [
+        {"text": "John McClane", "is_correct": false},
+        {"text": "Mrs. McClane", "is_correct": false},
+        {"text": "Nobody (SYKE!)", "is_correct": false},
+        {"text": "Stuffy Snug Bear Bear", "is_correct": true}
+      ]
+    },
+    {
+      "id": 3,
+      "text": "What amazing Christmas song is coming up?",
+      "movie_time": 446,
+      "duration": 10,
+      "answers": [
+        {"text": "Ode to Joy - Beethoven", "is_correct": false},
+        {"text": "Christmas In Hollis - Run DMC", "is_correct": true},
+        {"text": "Sleigh Ride - TLC", "is_correct": false},
+        {"text": "Jingle Bells - Frank Sinatra", "is_correct": false}
+      ]
+    },
+    {
+      "id": 17,
+      "text": "Nakatomi Tower is the real life head quaters of?",
+      "movie_time": 757,
+      "duration": 10,
+      "answers": [
+        {"text": "20th Century Fox", "is_correct": true},
+        {"text": "Hostess", "is_correct": false},
+        {"text": "Toys 'R Us'", "is_correct": false},
+        {"text": "Budweiser", "is_correct": false}
+      ]
+    },
+    {
+      "id": 4,
+      "text": "How do German terrorists go down stairs?",
+      "movie_time": 1222,
+      "duration": 10,
+      "answers": [
+        {"text": "Backwards", "is_correct": false},
+        {"text": "They take elevators", "is_correct": false},
+        {"text": "Rail slides", "is_correct": true},
+        {"text": "One step at a time", "is_correct": false}
+      ]
+    }
+  ],
+  "rules": [
+    "Hacker alias is said",
+    "Terminal is shown"
+  ]
+}
