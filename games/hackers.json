@@ -1,70 +1,168 @@
 {
   "name": "Hackers",
-  "end_time": 99999999,
+  "end_time": 6008,
   "questions": [
     {
       "id": 1,
-      "text": "What is the secret to surviving air travel?",
-      "movie_time": 52,
+      "text": "Which of these terms did Dade NOT use to confuse the security guard?",
+      "movie_time": 333,
       "duration": 10,
       "answers": [
-        {"text": "Walk around bare foot", "is_correct": true},
-        {"text": "A stiff German drink", "is_correct": false},
-        {"text": "Have a soft easy evening", "is_correct": false},
-        {"text": "Kill a ton of terrorists", "is_correct": false}
+        {"text": "BLT drive", "is_correct": false},
+        {"text": "Hara Kiri", "is_correct": false},
+        {"text": "Newb", "is_correct": true},
+        {"text": "AWOL", "is_correct": false}
       ]
     },
     {
       "id": 2,
-      "text": "Who rides in the back seat of the limo?",
-      "movie_time": 363,
+      "text": "What actor from Scooby Doo is about to appear?",
+      "movie_time": 895,
       "duration": 10,
       "answers": [
-        {"text": "John McClane", "is_correct": false},
-        {"text": "Mrs. McClane", "is_correct": false},
-        {"text": "Nobody (SYKE!)", "is_correct": false},
-        {"text": "Stuffy Snug Bear Bear", "is_correct": true}
+        {"text": "Shaggy (Mathew Lillard)", "is_correct": true},
+        {"text": "Freddie (Freddie P. Jr.)", "is_correct": false},
+        {"text": "Daphne (Sarah M. Gellar)", "is_correct": false},
+        {"text": "Velma (Linda Cardellini)", "is_correct": false}
       ]
     },
     {
       "id": 3,
-      "text": "What amazing Christmas song is coming up?",
-      "movie_time": 446,
+      "text": "What is the best way to hit on your crush?",
+      "movie_time": 964,
       "duration": 10,
       "answers": [
-        {"text": "Ode to Joy - Beethoven", "is_correct": false},
-        {"text": "Christmas In Hollis - Run DMC", "is_correct": true},
-        {"text": "Sleigh Ride - TLC", "is_correct": false},
-        {"text": "Jingle Bells - Frank Sinatra", "is_correct": false}
-      ]
-    },
-    {
-      "id": 17,
-      "text": "Nakatomi Tower is the real life head quaters of?",
-      "movie_time": 757,
-      "duration": 10,
-      "answers": [
-        {"text": "20th Century Fox", "is_correct": true},
-        {"text": "Hostess", "is_correct": false},
-        {"text": "Toys 'R Us'", "is_correct": false},
-        {"text": "Budweiser", "is_correct": false}
+        {"text": "Shared interests", "is_correct": true},
+        {"text": "Sexist negging", "is_correct": false},
+        {"text": "Meet their friends", "is_correct": true},
+        {"text": "Beat their highs cores", "is_correct": false}
       ]
     },
     {
       "id": 4,
-      "text": "How do German terrorists go down stairs?",
-      "movie_time": 1222,
+      "text": "Which one of these is not one of the most common 90s passwords?",
+      "movie_time": 1460,
       "duration": 10,
       "answers": [
-        {"text": "Backwards", "is_correct": false},
-        {"text": "They take elevators", "is_correct": false},
-        {"text": "Rail slides", "is_correct": true},
-        {"text": "One step at a time", "is_correct": false}
+        {"text": "GOD", "is_correct": false},
+        {"text": "SEX", "is_correct": false},
+        {"text": "LOVE", "is_correct": false},
+        {"text": "PASS", "is_correct": true}
+      ]
+    },
+    {
+      "id": 5,
+      "text": "According to movies, what is inside a garbage file?",
+      "movie_time": 1658,
+      "duration": 10,
+      "answers": [
+        {"text": "Nothing", "is_correct": false},
+        {"text": "Trippy math equations", "is_correct": true},
+        {"text": "Random data", "is_correct": false},
+        {"text": "Cat memes", "is_correct": false}
+      ]
+    },
+    {
+      "id": 6,
+      "text": "Which of these is true about hackers in the United States",
+      "movie_time": 1986,
+      "duration": 10,
+      "answers": [
+        {"text": "They steal over $2 million a year", "is_correct": true},
+        {"text": "They are predominantly American", "is_correct": false},
+        {"text": "They eat Dorritos and drink Red Bull", "is_correct": true},
+        {"text": "They get caught", "is_correct": false}
+      ]
+    },
+    {
+      "id": 7,
+      "text": "How does the FBI react to the Hacker's \"Manifesto\"?",
+      "movie_time": 2260,
+      "duration": 10,
+      "answers": [
+        {"text": "\"Rationally\"", "is_correct": false},
+        {"text": "\"Derp derp derp\"", "is_correct": false},
+        {"text": "\"What load of horse...\"", "is_correct": false},
+        {"text": "\"That's cool...\"", "is_correct": true}
+      ]
+    },
+    {
+      "id": 8,
+      "text": "What does RISC stand for?",
+      "movie_time": 3065,
+      "duration": 10,
+      "answers": [
+        {"text": "Ryan Is Supremely Cool", "is_correct": true},
+        {"text": "Reduced Instruction Set Computer", "is_correct": true},
+        {"text": "Random Index Search Component", "is_correct": false},
+        {"text": "Read Intrinsic Selection Criteria", "is_correct": false}
+      ]
+    },
+    {
+      "id": 9,
+      "text": "How does the Plague send a threatening message?",
+      "movie_time": 3425,
+      "duration": 10,
+      "answers": [
+        {"text": "He sends a whole f'ing laptop for one video", "is_correct": true},
+        {"text": "Face to face like a MAN", "is_correct": false},
+        {"text": "Snail mail glitter bomb", "is_correct": false},
+        {"text": "Sky writer", "is_correct": false}
+      ]
+    },
+    {
+      "id": 10,
+      "text": "The Plague is fricken weird. How does he get the floppy disk from Dade?",
+      "movie_time": 4014,
+      "duration": 10,
+      "answers": [
+        {"text": "Just appears like Batman", "is_correct": false},
+        {"text": "Drops in with a parachute", "is_correct": false},
+        {"text": "Disguised as an old woman", "is_correct": false},
+        {"text": "Skateboarding behind a limo", "is_correct": true}
+      ]
+    },
+    {
+      "id": 11,
+      "text": "Where do the hackers go to get help from Razor and Blade",
+      "movie_time": 4680,
+      "duration": 10,
+      "answers": [
+        {"text": "A Rave at Dickens", "is_correct": true},
+        {"text": "CKGB TV Studio", "is_correct": false},
+        {"text": "Tyler's Mom's house", "is_correct": false},
+        {"text": "Paris", "is_correct": false}
+      ]
+    },
+    {
+      "id": 12,
+      "text": "What does Dade say to Cereal to let him know where the disk is",
+      "movie_time": 5560,
+      "duration": 10,
+      "answers": [
+        {"text": "Hack the Planet!", "is_correct": false},
+        {"text": "Don't throw away your life", "is_correct": false},
+        {"text": "That place I put that thing that time", "is_correct": false},
+        {"text": "They're trashing our rights!", "is_correct": true}
+      ]
+    },
+    {
+      "id": 13,
+      "text": "Who do you think won the competition?",
+      "movie_time": 5868,
+      "duration": 10,
+      "answers": [
+        {"text": "Zero Cool", "is_correct": true},
+        {"text": "Acid Burn", "is_correct": true},
+        {"text": "Young love", "is_correct": true},
+        {"text": "Innocence", "is_correct": true}
       ]
     }
   ],
   "rules": [
-    "Hacker alias is said",
-    "Terminal is shown"
+    "Hacker name is said",
+    "Somebody is typing",
+    "Whenever a 90's jam is played",
+    "Whenever they are mean to Joey"
   ]
 }
